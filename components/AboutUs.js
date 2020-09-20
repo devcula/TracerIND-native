@@ -2,7 +2,7 @@ import React from 'react';
 
 import {SafeAreaView, ScrollView, View, Text, Button} from 'react-native';
 
-export default function HomeScreen(props) {
+export default function AboutUs(props) {
   const {styles} = props;
 
   return (
@@ -12,12 +12,12 @@ export default function HomeScreen(props) {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <View style={styles.cardStyle}>
-            <Text style={[styles.whiteText, styles.center]}>Home Screen</Text>
+            <Text style={[styles.whiteText, styles.center]}>About Us</Text>
           </View>
           <View style={styles.buttonStyle}>
             <Button
-              title="Go to About Us"
-              onPress={() => props.navigation.navigate('AboutUs')}
+              title="Go to Home"
+              onPress={() => props.navigation.navigate('Home')}
             />
           </View>
         </ScrollView>
