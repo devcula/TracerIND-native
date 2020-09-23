@@ -10,14 +10,18 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {StatusBar, StyleSheet} from 'react-native';
 
 import GlobalFont from 'react-native-global-font';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from './components/HomeScreen';
 import AboutUs from './components/AboutUs';
 
-const Stack = createStackNavigator();
+const HomeStack = createStackNavigator();
+const AboutUsStack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const navTheme = {
   dark: true,
@@ -31,6 +35,61 @@ const navTheme = {
   },
 };
 
+const navHeaderStyles = {
+  headerStyle: {
+    backgroundColor: '#14213D',
+  },
+  headerTintColor: '#FFFFFF',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+  },
+};
+
+function HomeStackScreen({navigation}) {
+  return (
+    <HomeStack.Navigator screenOptions={navHeaderStyles}>
+      <HomeStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          title: 'Home Page',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#14213D"
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+    </HomeStack.Navigator>
+  );
+}
+
+function AboutUsStackScreen({navigation}) {
+  return (
+    <AboutUsStack.Navigator screenOptions={navHeaderStyles}>
+      <AboutUsStack.Screen
+        name="Details"
+        component={AboutUs}
+        options={{
+          title: 'Meet our team',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#14213D"
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+    </AboutUsStack.Navigator>
+  );
+}
+
 class App extends React.Component {
   componentDidMount() {
     let fontName = 'Montserrat-Regular';
@@ -41,15 +100,15 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <StatusBar barStyle="dark-content" />
-        <NavigationContainer theme={navTheme}>
-          <Stack.Navigator>
-            <Stack.Screen name="Home" options={{title: 'Welcome to TracerIND'}}>
-              {(props) => <HomeScreen {...props} styles={styles} />}
-            </Stack.Screen>
-            <Stack.Screen name="AboutUs" options={{title: 'Meet our Team'}}>
-              {(props) => <AboutUs {...props} styles={styles} />}
-            </Stack.Screen>
-          </Stack.Navigator>
+        <NavigationContainer>
+          <Drawer.Navigator overlayColor="#14213D">
+            <Drawer.Screen name="Home">
+              {(props) => <HomeStackScreen {...props} styles={styles} />}
+            </Drawer.Screen>
+            <Drawer.Screen name="AboutUs">
+              {(props) => <AboutUsStackScreen {...props} styles={styles} />}
+            </Drawer.Screen>
+          </Drawer.Navigator>
         </NavigationContainer>
       </React.Fragment>
     );

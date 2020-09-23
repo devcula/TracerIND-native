@@ -3,11 +3,12 @@ import React from 'react';
 import {SafeAreaView, ScrollView, View, Text, Button} from 'react-native';
 
 export default function AboutUs(props) {
-  const {styles} = props;
-
   return (
     <React.Fragment>
-      <SafeAreaView>
+      <View>
+        <Text>About Us</Text>
+      </View>
+      {/* <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
@@ -21,7 +22,7 @@ export default function AboutUs(props) {
             />
           </View>
         </ScrollView>
-      </SafeAreaView>
+      </SafeAreaView> */}
     </React.Fragment>
   );
 }
