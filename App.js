@@ -16,8 +16,8 @@ import {StatusBar, StyleSheet} from 'react-native';
 import GlobalFont from 'react-native-global-font';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import HomeScreen from './components/HomeScreen';
-import AboutUs from './components/AboutUs';
+import HomeScreen from './screens/HomeScreen';
+import AboutUs from './screens/AboutUs';
 
 const HomeStack = createStackNavigator();
 const AboutUsStack = createStackNavigator();
@@ -53,7 +53,7 @@ function HomeStackScreen({navigation}) {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Home Page',
+          title: 'Welcome to TracerIND',
           headerLeft: () => (
             <Icon.Button
               name="ios-menu"
@@ -72,7 +72,7 @@ function AboutUsStackScreen({navigation}) {
   return (
     <AboutUsStack.Navigator screenOptions={navHeaderStyles}>
       <AboutUsStack.Screen
-        name="Details"
+        name="AboutUs"
         component={AboutUs}
         options={{
           title: 'Meet our team',
