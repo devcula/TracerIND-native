@@ -18,22 +18,24 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from './screens/HomeScreen';
 import AboutUs from './screens/AboutUs';
+import AddPatient from './screens/AddPatient';
 
 const HomeStack = createStackNavigator();
 const AboutUsStack = createStackNavigator();
+const AddPatientStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const navTheme = {
-  dark: true,
-  colors: {
-    primary: '#14213D',
-    background: '#000000',
-    card: '#14213D',
-    text: '#FFFFFF',
-    border: '#E5E5E5',
-    notification: '#000000',
-  },
-};
+// const navTheme = {
+//   dark: true,
+//   colors: {
+//     primary: '#14213D',
+//     background: '#000000',
+//     card: '#14213D',
+//     text: '#FFFFFF',
+//     border: '#E5E5E5',
+//     notification: '#000000',
+//   },
+// };
 
 const navHeaderStyles = {
   headerStyle: {
@@ -90,6 +92,28 @@ function AboutUsStackScreen({navigation}) {
   );
 }
 
+function AddPatientStackScreen({navigation}) {
+  return (
+    <AddPatientStack.Navigator screenOptions={navHeaderStyles}>
+      <AddPatientStack.Screen
+        name="AddPatient"
+        component={AddPatient}
+        options={{
+          title: 'Add new Patient',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#14213D"
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+    </AddPatientStack.Navigator>
+  );
+}
+
 class App extends React.Component {
   componentDidMount() {
     let fontName = 'Montserrat-Regular';
@@ -103,10 +127,13 @@ class App extends React.Component {
         <NavigationContainer>
           <Drawer.Navigator overlayColor="#14213D">
             <Drawer.Screen name="Home">
-              {(props) => <HomeStackScreen {...props} styles={styles} />}
+              {(props) => <HomeStackScreen {...props} />}
+            </Drawer.Screen>
+            <Drawer.Screen name="AddPatient">
+              {(props) => <AddPatientStackScreen {...props} />}
             </Drawer.Screen>
             <Drawer.Screen name="AboutUs">
-              {(props) => <AboutUsStackScreen {...props} styles={styles} />}
+              {(props) => <AboutUsStackScreen {...props} />}
             </Drawer.Screen>
           </Drawer.Navigator>
         </NavigationContainer>
@@ -115,36 +142,36 @@ class App extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  homeView: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  whiteText: {
-    color: '#FFFFFF',
-  },
-  center: {
-    textAlign: 'center',
-  },
-  cardStyle: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#14213D',
-  },
-  ourFont: {
-    fontFamily: 'Montserrat-Medium',
-  },
-  scrollView: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#000000',
-  },
-  buttonStyle: {
-    margin: 10,
-    fontWeight: 'bold',
-    fontSize: 50,
-  },
-});
+// const styles = StyleSheet.create({
+//   homeView: {
+//     flex: 1,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   whiteText: {
+//     color: '#FFFFFF',
+//   },
+//   center: {
+//     textAlign: 'center',
+//   },
+//   cardStyle: {
+//     margin: 10,
+//     padding: 10,
+//     backgroundColor: '#14213D',
+//   },
+//   ourFont: {
+//     fontFamily: 'Montserrat-Medium',
+//   },
+//   scrollView: {
+//     width: '100%',
+//     height: '100%',
+//     backgroundColor: '#000000',
+//   },
+//   buttonStyle: {
+//     margin: 10,
+//     fontWeight: 'bold',
+//     fontSize: 50,
+//   },
+// });
 
 export default App;
