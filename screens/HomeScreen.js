@@ -39,7 +39,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <ScrollView>
-        <Image source={require('../img/5.png')} style={styles.logo} />
+        <Image source={require('../assets/images/5.png')} style={styles.logo} />
         <Text style={styles.heading}>Covid stats of Andhra Pradesh</Text>
         <Card>
           <Text style={styles.titleActive}>Active</Text>

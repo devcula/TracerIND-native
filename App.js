@@ -11,7 +11,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {StatusBar, StyleSheet} from 'react-native';
+import {StatusBar} from 'react-native';
 
 import GlobalFont from 'react-native-global-font';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -19,23 +19,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import HomeScreen from './screens/HomeScreen';
 import AboutUs from './screens/AboutUs';
 import AddPatient from './screens/AddPatient';
+import DrawerContent from './screens/DrawerContent';
 
 const HomeStack = createStackNavigator();
 const AboutUsStack = createStackNavigator();
 const AddPatientStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-
-// const navTheme = {
-//   dark: true,
-//   colors: {
-//     primary: '#14213D',
-//     background: '#000000',
-//     card: '#14213D',
-//     text: '#FFFFFF',
-//     border: '#E5E5E5',
-//     notification: '#000000',
-//   },
-// };
 
 const navHeaderStyles = {
   headerStyle: {
@@ -125,7 +114,9 @@ class App extends React.Component {
       <React.Fragment>
         <StatusBar barStyle="dark-content" />
         <NavigationContainer>
-          <Drawer.Navigator overlayColor="#14213D">
+          <Drawer.Navigator
+            overlayColor="#14213D"
+            drawerContent={(props) => <DrawerContent {...props} />}>
             <Drawer.Screen name="Home">
               {(props) => <HomeStackScreen {...props} />}
             </Drawer.Screen>
