@@ -1,32 +1,32 @@
-import React, { Component } from 'react';
-import { Text, View, Button, ScrollView, StyleSheet } from 'react-native';
-import { Card } from 'react-native-elements';
-import AnimateNumber from 'react-native-countup'
-import { Image } from 'react-native';
+import React, {Component} from 'react';
+import {Text, ScrollView, StyleSheet} from 'react-native';
+import {Card} from 'react-native-elements';
+import AnimateNumber from 'react-native-countup';
+import {Image} from 'react-native';
 
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: '',
-    }
+    };
   }
 
   componentDidMount = () => {
     fetch('https://api.covidindiatracker.com/state_data.json', {
-      method: 'GET'
+      method: 'GET',
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson);
+        // console.log(responseJson);
         if (responseJson) {
           for (let i = 0; i < responseJson.length; i++) {
             if (responseJson[i].id === 'IN-AP') {
               //return data[i];
-              console.log(responseJson[i])
+              // console.log(responseJson[i]);
               this.setState({
-                data: responseJson[i]
-              })
+                data: responseJson[i],
+              });
             }
           }
         }
@@ -34,41 +34,55 @@ class HomeScreen extends Component {
       .catch((error) => {
         console.error(error);
       });
-  }
+  };
 
   render() {
     return (
       <ScrollView>
-        <Image
-          source={require('../img/5.png')}
-          style={{ width: 430, height: 200 }}
-        />
-        <Text style={{
-          fontWeight: 'bold',
-          textAlign: 'center', fontSize: 20
-        }}>Covid stats of Andhra Pradesh</Text>
-        <Card >
+        <Image source={require('../img/5.png')} style={styles.logo} />
+        <Text style={styles.heading}>Covid stats of Andhra Pradesh</Text>
+        <Card>
           <Text style={styles.titleActive}>Active</Text>
           <Text style={styles.activeCardBody}>
-            <AnimateNumber initial={0} steps={5} value={this.state.data.active} interval={6} />
+            <AnimateNumber
+              initial={0}
+              steps={5}
+              value={this.state.data.active}
+              interval={10}
+            />
           </Text>
         </Card>
         <Card>
-          <Text style={styles.titleConfirmed} > Confirmed</Text>
+          <Text style={styles.titleConfirmed}> Confirmed</Text>
           <Text style={styles.confirmedCardBody}>
-
-            <AnimateNumber initial={0} steps={5} value={this.state.data.confirmed} interval={6} />
-          </Text>
-        </Card><Card>
-          <Text style={styles.titleRecovered}>Recovered</Text>
-          <Text style={styles.recoveredCardBody}>
-            <AnimateNumber initial={0} steps={5} value={this.state.data.recovered} interval={6} />
+            <AnimateNumber
+              initial={0}
+              steps={5}
+              value={this.state.data.confirmed}
+              interval={10}
+            />
           </Text>
         </Card>
-        <Card >
+        <Card>
+          <Text style={styles.titleRecovered}>Recovered</Text>
+          <Text style={styles.recoveredCardBody}>
+            <AnimateNumber
+              initial={0}
+              steps={5}
+              value={this.state.data.recovered}
+              interval={10}
+            />
+          </Text>
+        </Card>
+        <Card>
           <Text style={styles.titleDeath}>Deaths</Text>
           <Text style={styles.deathCardBody}>
-            <AnimateNumber initial={0} steps={5} value={this.state.data.deaths} interval={6} />
+            <AnimateNumber
+              initial={0}
+              steps={5}
+              value={this.state.data.deaths}
+              interval={10}
+            />
           </Text>
         </Card>
       </ScrollView>
@@ -83,6 +97,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 40,
     borderRadius: 20,
+  },
+  logo: {
+    width: '100%',
+    height: 200,
+  },
+  heading: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 23,
+    marginTop: 20,
   },
   activeCardBody: {
     margin: 15,
@@ -143,8 +167,7 @@ const styles = StyleSheet.create({
     color: '#F57E1C',
     borderBottomColor: '#E5E5E5',
     borderBottomWidth: 1,
-  }
+  },
 });
 
 export default HomeScreen;
-
