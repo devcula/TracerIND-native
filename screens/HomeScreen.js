@@ -3,6 +3,33 @@ import {Text, ScrollView, StyleSheet} from 'react-native';
 import {Card} from 'react-native-elements';
 import AnimateNumber from 'react-native-countup';
 import {Image} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import {createStackNavigator} from '@react-navigation/stack';
+
+const HomeStack = createStackNavigator();
+
+function HomeStackScreen({navigation, navHeaderStyles}) {
+  return (
+    <HomeStack.Navigator screenOptions={navHeaderStyles}>
+      <HomeStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          title: 'Welcome to TracerIND',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#14213D"
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+    </HomeStack.Navigator>
+  );
+}
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -170,4 +197,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default HomeStackScreen;
