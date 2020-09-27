@@ -5,14 +5,14 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-const DirectoryStack = createStackNavigator();
+const LoginStack = createStackNavigator();
 
-function DirectoryStackScreen({navigation, navHeaderStyles}) {
+function LoginStackScreen({navigation, navHeaderStyles}) {
   return (
-    <DirectoryStack.Navigator screenOptions={navHeaderStyles}>
-      <DirectoryStack.Screen
+    <LoginStack.Navigator screenOptions={navHeaderStyles}>
+      <LoginStack.Screen
         name="Login"
-        component={PatientDirectory}
+        component={LoginScreen}
         options={{
           title: 'Login',
           headerLeft: () => (
@@ -25,15 +25,17 @@ function DirectoryStackScreen({navigation, navHeaderStyles}) {
           ),
         }}
       />
-    </DirectoryStack.Navigator>
+    </LoginStack.Navigator>
   );
 }
 
-function PatientDirectory() {
+function LoginScreen(props) {
   return (
-    <View style={styles.contentScreen}>
-      <Text style={styles.text}>Patient Directory</Text>
-    </View>
+    <React.Fragment>
+      <View style={styles.contentScreen}>
+        <Text style={styles.text}>Login</Text>
+      </View>
+    </React.Fragment>
   );
 }
 
@@ -49,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DirectoryStackScreen;
+export default LoginStackScreen;

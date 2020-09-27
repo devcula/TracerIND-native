@@ -9,6 +9,7 @@ import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function DrawerContent(props) {
+  const {isSignedIn} = props;
   return (
     <View style={styles.drawerContent}>
       <DrawerContentScrollView {...props}>
@@ -37,14 +38,22 @@ export default function DrawerContent(props) {
                 <Icon name="sync" color={color} size={size} />
               )}
               label="Patient List"
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('LocalPatientList');
+              }}
             />
             <DrawerItem
               icon={({color, size}) => (
                 <Icon name="format-list-bulleted" color={color} size={size} />
               )}
               label="Patient Directory"
-              onPress={() => {}}
+              onPress={() => {
+                if (isSignedIn) {
+                  props.navigation.navigate('Directory');
+                } else {
+                  props.navigation.navigate('Login');
+                }
+              }}
             />
             <DrawerItem
               icon={({color, size}) => (
@@ -59,13 +68,31 @@ export default function DrawerContent(props) {
         </View>
       </DrawerContentScrollView>
       <Drawer.Section style={styles.bottomDrawerSection}>
-        <DrawerItem
-          icon={({color, size}) => (
-            <Icon name="exit-to-app" color={color} size={size} />
-          )}
-          label="Sign Out"
-          onPress={() => {}}
-        />
+        {(() => {
+          if (isSignedIn) {
+            return (
+              <DrawerItem
+                icon={({color, size}) => (
+                  <Icon name="exit-to-app" color={color} size={size} />
+                )}
+                label="Sign Out"
+                onPress={() => {}}
+              />
+            );
+          } else {
+            return (
+              <DrawerItem
+                icon={({color, size}) => (
+                  <Icon name="login" color={color} size={size} />
+                )}
+                label="Sign In"
+                onPress={() => {
+                  props.navigation.navigate('Login');
+                }}
+              />
+            );
+          }
+        })()}
       </Drawer.Section>
     </View>
   );

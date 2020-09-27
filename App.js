@@ -14,11 +14,14 @@ import {StatusBar} from 'react-native';
 
 import GlobalFont from 'react-native-global-font';
 
+import SplashScreen from './screens/SplashScreen';
+import DrawerContent from './screens/DrawerContent';
 import HomeStackScreen from './screens/HomeScreen';
 import AboutUsStackScreen from './screens/AboutUs';
 import AddPatientStackScreen from './screens/AddPatient';
-import DrawerContent from './screens/DrawerContent';
-import SplashScreen from './screens/SplashScreen';
+import LoginStackScreen from './screens/LoginScreen';
+import DirectoryStackScreen from './screens/PatientDirectory';
+import LocalPatientListStackScreen from './screens/LocalPatientList';
 
 const Drawer = createDrawerNavigator();
 
@@ -38,7 +41,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       isLoading: false,
-      isSignedIn: false,
+      isSignedIn: true,
     };
   }
 
@@ -48,7 +51,7 @@ class App extends React.Component {
   }
 
   render() {
-    let {isSignedIn, isLoading} = this.state;
+    let {isLoading} = this.state;
     if (isLoading) {
       return <SplashScreen />;
     }
@@ -58,7 +61,9 @@ class App extends React.Component {
         <NavigationContainer>
           <Drawer.Navigator
             overlayColor="#14213D"
-            drawerContent={(props) => <DrawerContent {...props} />}>
+            drawerContent={(props) => (
+              <DrawerContent {...props} isSignedIn={this.state.isSignedIn} />
+            )}>
             <Drawer.Screen name="Home">
               {(props) => (
                 <HomeStackScreen {...props} navHeaderStyles={navHeaderStyles} />
@@ -80,6 +85,39 @@ class App extends React.Component {
                 />
               )}
             </Drawer.Screen>
+            <Drawer.Screen name="LocalPatientList">
+              {(props) => (
+                <LocalPatientListStackScreen
+                  {...props}
+                  navHeaderStyles={navHeaderStyles}
+                />
+              )}
+            </Drawer.Screen>
+            {(() => {
+              if (!this.state.isSignedIn) {
+                return (
+                  <Drawer.Screen name="Login">
+                    {(props) => (
+                      <LoginStackScreen
+                        {...props}
+                        navHeaderStyles={navHeaderStyles}
+                      />
+                    )}
+                  </Drawer.Screen>
+                );
+              } else {
+                return (
+                  <Drawer.Screen name="Directory">
+                    {(props) => (
+                      <DirectoryStackScreen
+                        {...props}
+                        navHeaderStyles={navHeaderStyles}
+                      />
+                    )}
+                  </Drawer.Screen>
+                );
+              }
+            })()}
           </Drawer.Navigator>
         </NavigationContainer>
       </React.Fragment>
