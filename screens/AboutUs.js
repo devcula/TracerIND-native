@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Text, StyleSheet} from 'react-native';
+import {ScrollView, Text, StyleSheet,Image,View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createStackNavigator} from '@react-navigation/stack';
@@ -31,24 +31,107 @@ function AboutUsStackScreen({navigation, navHeaderStyles}) {
 
 function AboutUs(props) {
   return (
-    <React.Fragment>
-      <View style={styles.contentScreen}>
-        <Text style={styles.text}>About Us</Text>
-      </View>
-    </React.Fragment>
+
+<ScrollView>
+<Text style={styles.title}>Meet Our Team..!!</Text>
+<Image source={require('../assets/images/S1.png')} style={styles.img} />
+  <Text style={styles.team}>
+ Prakruti Chandak
+  </Text>
+  <Text style={styles.profile}>
+ Team Lead
+  </Text>
+  <Image source={require('../assets/images/S3.png')} style={styles.img} />
+  <Text style={styles.team}>
+  Shlok Parida
+  </Text>
+  <Text style={styles.profile}>
+ Team Lead
+  </Text>
+  <Image source={require('../assets/images/S2.png')} style={styles.img} />
+  <Text style={styles.team}>
+  Abhishek
+  </Text>
+  <Text style={styles.profile}>
+ Team Lead
+  </Text>
+  <Image source={require('../assets/images/S4.png')} style={styles.img} />
+  <Text style={styles.team}>
+  Hrituja Khatavkar
+  </Text>
+  <Text style={styles.profile}>
+ Frontend Developer
+  </Text>
+  <Image source={require('../assets/images/S5.png')} style={styles.img} />
+  <Text style={styles.team}>
+ Akshat 
+  </Text>
+  <Text style={styles.profile}>
+ Android Developer
+  </Text>
+  <Image source={require('../assets/images/S6.png')} style={styles.img} />
+  <Text style={styles.team}>
+ Gaurav Roy
+  </Text>
+  <Text style={styles.profile}>
+ Frontend Developer
+  </Text>
+  <Image source={require('../assets/images/S7.png')} style={styles.img} />
+  <Text style={styles.team}>
+  Shubhankar
+  </Text>
+  <Text style={styles.profile}>
+ Android Developer
+  </Text>
+  <Image source={require('../assets/images/S8.jpeg')} style={styles.img} />
+  <Text style={styles.team}>
+  Palak Rai
+  </Text>
+  <Text style={styles.profile}>
+ Frontend Developer
+  </Text>
+
+</ScrollView>
+
+
   );
 }
 
 const styles = StyleSheet.create({
-  contentScreen: {
+  container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection:'row',
+    justifyContent:'center',
+    textAlign: 'center',
+    paddingTop: 40,
+    
   },
-  text: {
+  title: {
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 42,
+    marginTop:20,  
+    textAlign:'center', 
+    fontStyle:'italic',
   },
+  img:{
+    width:250,
+    height:250,
+    borderRadius:150,
+    marginTop:10,
+    marginBottom:10,
+  
+    
+  },
+  team: {
+    
+    fontSize: 30,
+    textAlign:"center",
+     },
+     profile:{
+       fontSize: 25,
+       textAlign:"center",
+   
+     },
 });
 
 export default AboutUsStackScreen;
