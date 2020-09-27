@@ -7,6 +7,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {createStackNavigator} from '@react-navigation/stack';
 import {AuthContext} from '../App';
 
+import axios from 'axios';
+import {URI} from '../App';
+
 const LoginStack = createStackNavigator();
 
 function LoginStackScreen({navigation, navHeaderStyles}) {
@@ -34,21 +37,42 @@ function LoginStackScreen({navigation, navHeaderStyles}) {
 function LoginScreen(props) {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [isSigningIn, setIsSigningIn] = React.useState(false);
 
   const {signIn} = React.useContext(AuthContext);
 
-  function handleSignIn(username, password) {
+  function handleSignIn() {
+    console.log(URI);
+    setIsSigningIn(true);
     if (username !== '' && password !== '') {
-      signIn({username, password});
+      axios
+        .post(URI + 'token_jwt_get/', {username, password})
+        .then((response) => {
+          if (response.status === 200) {
+            return response.data;
+          }
+        })
+        .then((user) => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          if (user) {
+            let userData = {
+              username,
+              token: user.token,
+              timestamp: new Date(),
+            };
+            signIn(userData);
+          }
+        })
+        .catch((error) => {
+          setIsSigningIn(false);
+        });
     } else {
+      setIsSigningIn(false);
       alert('Both values are needed');
     }
   }
   return (
     <ScrollView>
-      {/* <View style={styles.contentScreen}>
-        <Text style={styles.text}>Login</Text>
-      </View> */}
       <View style={styles.contentScreen}>
         <View style={styles.logoView}>
           <Avatar.Image
@@ -74,6 +98,7 @@ function LoginScreen(props) {
         </View>
         <View style={styles.buttonView}>
           <Button
+            loading={isSigningIn}
             mode="contained"
             icon="login"
             onPress={() => handleSignIn(username, password)}>

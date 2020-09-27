@@ -29,10 +29,16 @@ import DirectoryStackScreen from './screens/PatientDirectory';
 import LocalPatientListStackScreen from './screens/LocalPatientList';
 
 import AsyncStorage from '@react-native-community/async-storage';
+import axios from 'axios';
 
 const Drawer = createDrawerNavigator();
 
 export const AuthContext = React.createContext();
+
+export const URI =
+  process.env.NODE_ENV === 'production'
+    ? 'https://api-tracerind.covidindiataskforce.org/api/'
+    : 'https://api-tracerind.covidindiataskforce.org/api/';
 
 const fontConfig = {
   default: {
@@ -84,40 +90,78 @@ export default function App() {
         case 'SIGN_IN':
           return {
             ...prevState,
-            isSignout: false,
             userToken: action.token,
           };
         case 'SIGN_OUT':
           return {
             ...prevState,
-            isSignout: true,
             userToken: null,
+            isLoading: false,
           };
       }
     },
     {
       isLoading: true,
-      isSignout: false,
       userToken: null,
     },
   );
 
+  const refreshToken = (previousToken) => {
+    axios
+      .post(URI + 'token_jwt_refresh/', {token: previousToken})
+      .then((response) => {
+        if (response.status === 200) {
+          return response.data;
+        }
+      })
+      .then((data) => {
+        if (data) {
+          let newUserData = {
+            ...state,
+            token: data.token,
+            timestamp: new Date(),
+          };
+          AsyncStorage.setItem('userToken', newUserData).then(() => {
+            dispatch({type: 'SIGN_IN', token: newUserData});
+          });
+        }
+      })
+      .catch((error) => {
+        AsyncStorage.removeItem('userToken').then(() =>
+          dispatch({type: 'SIGN_OUT'}),
+        );
+      });
+  };
+
   React.useEffect(() => {
     // Fetch the token from storage then navigate to our appropriate place
+
     const bootstrapAsync = async () => {
       let userToken;
 
       try {
         userToken = await AsyncStorage.getItem('userToken');
+        console.log(userToken);
+        userToken = JSON.parse(userToken);
+        let msecDifference =
+          new Date().getTime() - new Date(userToken.timestamp).getTime();
+        if (msecDifference / (1000 * 60 * 60) >= 3.9) {
+          await AsyncStorage.removeItem('userToken');
+          dispatch({type: 'SIGN_OUT'});
+        } else {
+          dispatch({type: 'RESTORE_TOKEN', token: userToken});
+          refreshToken(userToken.token);
+        }
       } catch (e) {
         // Restoring token failed
+        await AsyncStorage.removeItem('userToken');
+        dispatch({type: 'SIGN_OUT'});
       }
 
       // After restoring token, we may need to validate it in production apps
 
       // This will switch to the App screen or Auth screen and this loading
       // screen will be unmounted and thrown away.
-      dispatch({type: 'RESTORE_TOKEN', token: userToken});
     };
 
     bootstrapAsync();
@@ -131,12 +175,9 @@ export default function App() {
         // After getting token, we need to persist the token using `AsyncStorage`
         // In the example, we'll use a dummy token
         try {
-          let userDetails = JSON.stringify({
-            token: 'dummy-auth-token',
-            timestamp: new Date(),
-          });
+          let userDetails = JSON.stringify(data);
           await AsyncStorage.setItem('userToken', userDetails);
-          dispatch({type: 'SIGN_IN', token: 'dummy-auth-token'});
+          dispatch({type: 'SIGN_IN', token: data});
         } catch (error) {
           // Error saving data
           console.log(error);
