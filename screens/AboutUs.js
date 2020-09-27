@@ -94,12 +94,15 @@ function AboutUs(props) {
 </ScrollView>
 
 
+
+
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+  flex:1,
     flexDirection:'row',
     justifyContent:'center',
     textAlign: 'center',
@@ -114,11 +117,11 @@ const styles = StyleSheet.create({
     fontStyle:'italic',
   },
   img:{
-    width:250,
-    height:250,
-    borderRadius:150,
-    marginTop:10,
-    marginBottom:10,
+    borderRadius:250,
+    marginTop:20,
+    marginBottom:20,
+    width:410,
+    height:410,
   
     
   },
