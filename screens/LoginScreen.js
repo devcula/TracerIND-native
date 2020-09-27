@@ -1,9 +1,10 @@
 import React from 'react';
 
-import {View, Text, StyleSheet} from 'react-native';
+import {View, TextInput, StyleSheet, Button} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createStackNavigator} from '@react-navigation/stack';
+import {AuthContext} from '../App';
 
 const LoginStack = createStackNavigator();
 
@@ -30,10 +31,28 @@ function LoginStackScreen({navigation, navHeaderStyles}) {
 }
 
 function LoginScreen(props) {
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const {signIn} = React.useContext(AuthContext);
   return (
     <React.Fragment>
-      <View style={styles.contentScreen}>
+      {/* <View style={styles.contentScreen}>
         <Text style={styles.text}>Login</Text>
+      </View> */}
+      <View style={styles.contentScreen}>
+        <TextInput
+          placeholder="Username"
+          value={username}
+          onChangeText={setUsername}
+        />
+        <TextInput
+          placeholder="Password"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
+        <Button title="Sign in" onPress={() => signIn({username, password})} />
       </View>
     </React.Fragment>
   );

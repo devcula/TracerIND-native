@@ -8,7 +8,10 @@ import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import {AuthContext} from '../App';
+
 export default function DrawerContent(props) {
+  const {signOut} = React.useContext(AuthContext);
   const {isSignedIn} = props;
   return (
     <View style={styles.drawerContent}>
@@ -76,7 +79,7 @@ export default function DrawerContent(props) {
                   <Icon name="exit-to-app" color={color} size={size} />
                 )}
                 label="Sign Out"
-                onPress={() => {}}
+                onPress={() => signOut()}
               />
             );
           } else {
