@@ -1,6 +1,7 @@
 import React from 'react';
 
-import {View, TextInput, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {TextInput, Avatar, Button} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createStackNavigator} from '@react-navigation/stack';
@@ -35,38 +36,81 @@ function LoginScreen(props) {
   const [password, setPassword] = React.useState('');
 
   const {signIn} = React.useContext(AuthContext);
+
+  function handleSignIn(username, password) {
+    if (username !== '' && password !== '') {
+      signIn({username, password});
+    } else {
+      alert('Both values are needed');
+    }
+  }
   return (
-    <React.Fragment>
+    <ScrollView>
       {/* <View style={styles.contentScreen}>
         <Text style={styles.text}>Login</Text>
       </View> */}
       <View style={styles.contentScreen}>
-        <TextInput
-          placeholder="Username"
-          value={username}
-          onChangeText={setUsername}
-        />
-        <TextInput
-          placeholder="Password"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry
-        />
-        <Button title="Sign in" onPress={() => signIn({username, password})} />
+        <View style={styles.logoView}>
+          <Avatar.Image
+            size={200}
+            source={require('../assets/images/logo.jpg')}
+          />
+          <Text style={styles.heading}>Enter your details</Text>
+        </View>
+        <View style={styles.usernameView}>
+          <TextInput
+            label="Username"
+            value={username}
+            onChangeText={(user) => setUsername(user)}
+          />
+        </View>
+        <View style={styles.passView}>
+          <TextInput
+            label="Password"
+            value={password}
+            onChangeText={(pass) => setPassword(pass)}
+            secureTextEntry
+          />
+        </View>
+        <View style={styles.buttonView}>
+          <Button
+            mode="contained"
+            icon="login"
+            onPress={() => handleSignIn(username, password)}>
+            Sign in
+          </Button>
+        </View>
       </View>
-    </React.Fragment>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   contentScreen: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
+    marginLeft: 10,
+    marginRight: 10,
   },
-  text: {
-    fontWeight: 'bold',
+  usernameView: {},
+  passView: {
+    marginTop: 10,
+  },
+  buttonView: {
+    marginTop: 10,
+  },
+  logoView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 30,
+    marginBottom: 10,
+  },
+  heading: {
     fontSize: 30,
+    marginTop: 15,
+    marginBottom: 15,
+    fontWeight: 'bold',
   },
 });
 

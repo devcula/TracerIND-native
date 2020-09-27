@@ -10,6 +10,11 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {
+  configureFonts,
+  DefaultTheme,
+  Provider as PaperProvider,
+} from 'react-native-paper';
 // import {StatusBar} from 'react-native';
 
 // import GlobalFont from 'react-native-global-font';
@@ -29,6 +34,27 @@ const Drawer = createDrawerNavigator();
 
 export const AuthContext = React.createContext();
 
+const fontConfig = {
+  default: {
+    regular: {
+      fontFamily: 'Montserrat-Regular',
+      fontWeight: 'normal',
+    },
+    medium: {
+      fontFamily: 'Montserrat-Medium',
+      fontWeight: 'normal',
+    },
+    light: {
+      fontFamily: 'Montserrat-Light',
+      fontWeight: 'normal',
+    },
+    thin: {
+      fontFamily: 'Montserrat-Thin',
+      fontWeight: 'normal',
+    },
+  },
+};
+
 const navHeaderStyles = {
   headerStyle: {
     backgroundColor: '#14213D',
@@ -38,6 +64,11 @@ const navHeaderStyles = {
     fontWeight: 'bold',
     fontStyle: 'italic',
   },
+};
+
+const paperTheme = {
+  ...DefaultTheme,
+  fonts: configureFonts(fontConfig),
 };
 
 export default function App() {
@@ -136,73 +167,78 @@ export default function App() {
   }
   return (
     <React.Fragment>
-      <NavigationContainer>
-        <AuthContext.Provider value={authContext}>
-          <Drawer.Navigator
-            overlayColor="#14213D"
-            drawerContent={(props) => (
-              <DrawerContent
-                {...props}
-                isSignedIn={state.userToken ? true : false}
-              />
-            )}>
-            <Drawer.Screen name="Home">
-              {(props) => (
-                <HomeStackScreen {...props} navHeaderStyles={navHeaderStyles} />
-              )}
-            </Drawer.Screen>
-            <Drawer.Screen name="AddPatient">
-              {(props) => (
-                <AddPatientStackScreen
+      <PaperProvider theme={paperTheme}>
+        <NavigationContainer>
+          <AuthContext.Provider value={authContext}>
+            <Drawer.Navigator
+              overlayColor="#14213D"
+              drawerContent={(props) => (
+                <DrawerContent
                   {...props}
-                  navHeaderStyles={navHeaderStyles}
+                  isSignedIn={state.userToken ? true : false}
                 />
-              )}
-            </Drawer.Screen>
-            <Drawer.Screen name="AboutUs">
-              {(props) => (
-                <AboutUsStackScreen
-                  {...props}
-                  navHeaderStyles={navHeaderStyles}
-                />
-              )}
-            </Drawer.Screen>
-            <Drawer.Screen name="LocalPatientList">
-              {(props) => (
-                <LocalPatientListStackScreen
-                  {...props}
-                  navHeaderStyles={navHeaderStyles}
-                />
-              )}
-            </Drawer.Screen>
-            {(() => {
-              if (!state.userToken) {
-                return (
-                  <Drawer.Screen name="Login">
-                    {(props) => (
-                      <LoginStackScreen
-                        {...props}
-                        navHeaderStyles={navHeaderStyles}
-                      />
-                    )}
-                  </Drawer.Screen>
-                );
-              } else {
-                return (
-                  <Drawer.Screen name="Directory">
-                    {(props) => (
-                      <DirectoryStackScreen
-                        {...props}
-                        navHeaderStyles={navHeaderStyles}
-                      />
-                    )}
-                  </Drawer.Screen>
-                );
-              }
-            })()}
-          </Drawer.Navigator>
-        </AuthContext.Provider>
-      </NavigationContainer>
+              )}>
+              <Drawer.Screen name="Home">
+                {(props) => (
+                  <HomeStackScreen
+                    {...props}
+                    navHeaderStyles={navHeaderStyles}
+                  />
+                )}
+              </Drawer.Screen>
+              <Drawer.Screen name="AddPatient">
+                {(props) => (
+                  <AddPatientStackScreen
+                    {...props}
+                    navHeaderStyles={navHeaderStyles}
+                  />
+                )}
+              </Drawer.Screen>
+              <Drawer.Screen name="AboutUs">
+                {(props) => (
+                  <AboutUsStackScreen
+                    {...props}
+                    navHeaderStyles={navHeaderStyles}
+                  />
+                )}
+              </Drawer.Screen>
+              <Drawer.Screen name="LocalPatientList">
+                {(props) => (
+                  <LocalPatientListStackScreen
+                    {...props}
+                    navHeaderStyles={navHeaderStyles}
+                  />
+                )}
+              </Drawer.Screen>
+              {(() => {
+                if (!state.userToken) {
+                  return (
+                    <Drawer.Screen name="Login">
+                      {(props) => (
+                        <LoginStackScreen
+                          {...props}
+                          navHeaderStyles={navHeaderStyles}
+                        />
+                      )}
+                    </Drawer.Screen>
+                  );
+                } else {
+                  return (
+                    <Drawer.Screen name="Directory">
+                      {(props) => (
+                        <DirectoryStackScreen
+                          {...props}
+                          navHeaderStyles={navHeaderStyles}
+                        />
+                      )}
+                    </Drawer.Screen>
+                  );
+                }
+              })()}
+            </Drawer.Navigator>
+          </AuthContext.Provider>
+        </NavigationContainer>
+      </PaperProvider>
     </React.Fragment>
   );
 }
