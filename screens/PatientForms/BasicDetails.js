@@ -4,8 +4,6 @@ import {Button, TextInput} from 'react-native-paper';
 
 const areaData = require('../../assets/data/areaData.json');
 
-import {PatientContext} from '../AddPatient';
-
 class BasicDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -26,11 +24,11 @@ class BasicDetails extends React.Component {
         <View>
           <TextInput
             mode="outlined"
-            value={this.context.data.mandal}
+            value={this.state.mandal}
             label="Mandal"
-            onChangeText={(value) =>
-              this.context.methods.update({mandal: value})
-            }
+            onChangeText={(value) => {
+              this.setState({mandal: value})
+            }}
           />
         </View>
         <View>
@@ -44,8 +42,6 @@ class BasicDetails extends React.Component {
     );
   }
 }
-
-BasicDetails.contextType = PatientContext;
 
 const styles = StyleSheet.create({
   contentScreen: {

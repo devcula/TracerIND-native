@@ -12,8 +12,6 @@ import HospitalDetails from './PatientForms/HospitalDetails';
 
 const AddPatientStack = createStackNavigator();
 
-export const PatientContext = React.createContext();
-
 class AddPatientStackScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -24,17 +22,7 @@ class AddPatientStackScreen extends React.Component {
 
   render() {
     let {navigation, navHeaderStyles} = this.props;
-    const updateFn = this.setState;
-    let contextValue = {
-      data: this.state,
-      methods: {
-        update: function (data) {
-          updateFn(data);
-        },
-      },
-    };
     return (
-      <PatientContext.Provider value={contextValue}>
         <AddPatientStack.Navigator screenOptions={navHeaderStyles}>
           <AddPatientStack.Screen
             name="BasicDetailsForm"
@@ -112,7 +100,6 @@ class AddPatientStackScreen extends React.Component {
             }}
           />
         </AddPatientStack.Navigator>
-      </PatientContext.Provider>
     );
   }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
 
-import {PatientContext} from '../AddPatient';
 class Observations extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +16,7 @@ class Observations extends React.Component {
     return (
       <ScrollView contentContainerStyle={styles.contentScreen}>
         <View>
-          <Text style={styles.text}>{this.context.data.mandal}</Text>
+          <Text style={styles.text}>Observations</Text>
         </View>
         <Button mode="contained" onPress={() => this.props.navigation.goBack()}>
           Previous
@@ -31,8 +30,6 @@ class Observations extends React.Component {
     );
   }
 }
-
-Observations.contextType = PatientContext;
 
 const styles = StyleSheet.create({
   contentScreen: {
