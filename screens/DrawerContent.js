@@ -33,7 +33,9 @@ export default function DrawerContent(props) {
               )}
               label="Add Patient"
               onPress={() => {
-                props.navigation.navigate('AddPatient');
+                props.navigation.navigate('AddPatient', {
+                  screen: 'BasicDetailsForm',
+                });
               }}
             />
             <DrawerItem
