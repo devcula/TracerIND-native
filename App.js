@@ -141,7 +141,7 @@ export default function App() {
 
       try {
         userToken = await AsyncStorage.getItem('userToken');
-        console.log(userToken);
+        // console.log(userToken);
         userToken = JSON.parse(userToken);
         let msecDifference =
           new Date().getTime() - new Date(userToken.timestamp).getTime();

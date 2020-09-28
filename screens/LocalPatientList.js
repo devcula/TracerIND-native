@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Text, StyleSheet} from 'react-native';
+import {ScrollView, View, Text, StyleSheet} from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -32,9 +32,11 @@ function LocalPatientListStackScreen({navigation, navHeaderStyles}) {
 
 function LocalPatientList() {
   return (
-    <View style={styles.contentScreen}>
-      <Text style={styles.text}>Patient List</Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.contentScreen}>
+      <View>
+        <Text style={styles.text}>Patient List</Text>
+      </View>
+    </ScrollView>
   );
 }
 

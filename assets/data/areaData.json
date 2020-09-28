@@ -1,0 +1,2381 @@
+[
+    {
+        "id": "01",
+        "name": "Chintoor",
+        "phcs": [
+            {
+                "PHC_id": "01",
+                "name": "Tulasipaka",
+                "mandal": "01",
+                "villageSecs": [
+                    {
+                        "villagesec_id": "1",
+                        "name": "N S PETA",
+                        "PHC": "01",
+                        "villages": [
+                            {
+                                "village_id": "1",
+                                "name": "AG KODERU",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "2",
+                                "name": "MUKUNURU",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "3",
+                                "name": "KONDAPALLY",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "4",
+                                "name": "PS PALLY",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "5",
+                                "name": "BUDRAIGUDEM",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "6",
+                                "name": "CS PALLY",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "7",
+                                "name": "RAMANAPALLEM",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "8",
+                                "name": "NARSINGAPETA",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "9",
+                                "name": "THIMMIRIGUDEM",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "10",
+                                "name": "ULLUMURU",
+                                "village_sec": "1"
+                            },
+                            {
+                                "village_id": "11",
+                                "name": "MALLETHOTA",
+                                "village_sec": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "2",
+                        "name": "CHINTHUR",
+                        "PHC": "01",
+                        "villages": [
+                            {
+                                "village_id": "12",
+                                "name": "KANSULURU",
+                                "village_sec": "2"
+                            },
+                            {
+                                "village_id": "13",
+                                "name": "KOLTHURU",
+                                "village_sec": "2"
+                            },
+                            {
+                                "village_id": "14",
+                                "name": "KANNAIGUDEM",
+                                "village_sec": "2"
+                            },
+                            {
+                                "village_id": "15",
+                                "name": "VEGITHOTA",
+                                "village_sec": "2"
+                            },
+                            {
+                                "village_id": "16",
+                                "name": "LAXMIPURAM",
+                                "village_sec": "2"
+                            },
+                            {
+                                "village_id": "17",
+                                "name": "CHUTURU",
+                                "village_sec": "2"
+                            },
+                            {
+                                "village_id": "18",
+                                "name": "CHINTURU",
+                                "village_sec": "2"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "3",
+                        "name": "KUYUGURU",
+                        "PHC": "01",
+                        "villages": [
+                            {
+                                "village_id": "19",
+                                "name": "KALLERU",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "20",
+                                "name": "KUYUGURU",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "21",
+                                "name": "NIMMALAGUDEM",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "22",
+                                "name": "YERRAMPETA",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "23",
+                                "name": "SUNNAMVARIGUDEM",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "24",
+                                "name": "POTHANAPALLY",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "25",
+                                "name": "RATNAPURAM",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "26",
+                                "name": "KARAMGUDEM",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "27",
+                                "name": "ALLIGUDEM",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "28",
+                                "name": "STAPARAPETA",
+                                "village_sec": "3"
+                            },
+                            {
+                                "village_id": "29",
+                                "name": "TERAPADU",
+                                "village_sec": "3"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "4",
+                        "name": "LAKKAVARAM",
+                        "PHC": "01",
+                        "villages": [
+                            {
+                                "village_id": "30",
+                                "name": "YERUWADA",
+                                "village_sec": "4"
+                            },
+                            {
+                                "village_id": "31",
+                                "name": "MITTAWADA",
+                                "village_sec": "4"
+                            },
+                            {
+                                "village_id": "32",
+                                "name": "CHOWLURU",
+                                "village_sec": "4"
+                            },
+                            {
+                                "village_id": "33",
+                                "name": "CHADALAWADA",
+                                "village_sec": "4"
+                            },
+                            {
+                                "village_id": "34",
+                                "name": "GAMALAKOTA",
+                                "village_sec": "4"
+                            },
+                            {
+                                "village_id": "35",
+                                "name": "TULASIPAKA",
+                                "village_sec": "4"
+                            },
+                            {
+                                "village_id": "36",
+                                "name": "SIRASANAPALLY",
+                                "village_sec": "4"
+                            },
+                            {
+                                "village_id": "37",
+                                "name": "LAKKAVARAM",
+                                "village_sec": "4"
+                            },
+                            {
+                                "village_id": "38",
+                                "name": "YERAGONDAPAKALA",
+                                "village_sec": "4"
+                            },
+                            {
+                                "village_id": "39",
+                                "name": "VALUMURIGONDI",
+                                "village_sec": "4"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "5",
+                        "name": "GUDURU",
+                        "PHC": "01",
+                        "villages": [
+                            {
+                                "village_id": "40",
+                                "name": "MADHUGURU/SURANAGONDI",
+                                "village_sec": "5"
+                            },
+                            {
+                                "village_id": "41",
+                                "name": "GUDURU",
+                                "village_sec": "5"
+                            },
+                            {
+                                "village_id": "42",
+                                "name": "KOTHAPALLY",
+                                "village_sec": "5"
+                            },
+                            {
+                                "village_id": "43",
+                                "name": "DEVARAPALLY",
+                                "village_sec": "5"
+                            },
+                            {
+                                "village_id": "44",
+                                "name": "VEMULARAI",
+                                "village_sec": "5"
+                            },
+                            {
+                                "village_id": "45",
+                                "name": "NELAKOTA",
+                                "village_sec": "5"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "6",
+                        "name": "TULUGONDA",
+                        "PHC": "01",
+                        "villages": [
+                            {
+                                "village_id": "46",
+                                "name": "GODLAGUDEM",
+                                "village_sec": "6"
+                            },
+                            {
+                                "village_id": "47",
+                                "name": "DONDAGUDEM&GOPALAPURAM",
+                                "village_sec": "6"
+                            },
+                            {
+                                "village_id": "48",
+                                "name": "DABBAGUDEM",
+                                "village_sec": "6"
+                            },
+                            {
+                                "village_id": "49",
+                                "name": "THULAGONDA",
+                                "village_sec": "6"
+                            },
+                            {
+                                "village_id": "50",
+                                "name": "MOTHUGUDEM-2",
+                                "village_sec": "6"
+                            },
+                            {
+                                "village_id": "51",
+                                "name": "SUKUMAMIDI",
+                                "village_sec": "6"
+                            },
+                            {
+                                "village_id": "52",
+                                "name": "GONDIGUDEM",
+                                "village_sec": "6"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "7",
+                        "name": "MOTHUGUDEM",
+                        "PHC": "01",
+                        "villages": [
+                            {
+                                "village_id": "53",
+                                "name": "MOTHUGUDEM-1",
+                                "village_sec": "7"
+                            },
+                            {
+                                "village_id": "54",
+                                "name": "FOR-BAY",
+                                "village_sec": "7"
+                            },
+                            {
+                                "village_id": "55",
+                                "name": "MCD-CAMP",
+                                "village_sec": "7"
+                            },
+                            {
+                                "village_id": "56",
+                                "name": "ODIYA-CAMP",
+                                "village_sec": "7"
+                            },
+                            {
+                                "village_id": "57",
+                                "name": "INTHULURUVAGU",
+                                "village_sec": "7"
+                            },
+                            {
+                                "village_id": "58",
+                                "name": "POLLURU",
+                                "village_sec": "7"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "PHC_id": "02",
+                "name": "Edugurallapally",
+                "mandal": "01",
+                "villageSecs": [
+                    {
+                        "villagesec_id": "8",
+                        "name": "EDUGURALLAPALLY",
+                        "PHC": "02",
+                        "villages": [
+                            {
+                                "village_id": "59",
+                                "name": "EDUGURALLAPALLY",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "60",
+                                "name": "REGULAGUMPU",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "61",
+                                "name": "BALIMELA",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "62",
+                                "name": "MADDIGUDEM",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "63",
+                                "name": "VIDYANAGARAM",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "64",
+                                "name": "BODDUGUDEM",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "65",
+                                "name": "CHUKKALAPADU",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "66",
+                                "name": "THATILANKA",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "67",
+                                "name": "TATIKOYAGONDI",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "68",
+                                "name": "NARSINGAPADU",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "69",
+                                "name": "KATUKAPALLY",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "70",
+                                "name": "YERRABORU",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "71",
+                                "name": "VENKATAPURAM",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "72",
+                                "name": "ALLIWAGU",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "73",
+                                "name": "CHIMILIWAGU",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "74",
+                                "name": "P.CHUKKALAPADU",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "75",
+                                "name": "DURGUTTA",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "76",
+                                "name": "GOLLAGUPPA",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "77",
+                                "name": "CH.BANDIREVU",
+                                "village_sec": "8"
+                            },
+                            {
+                                "village_id": "78",
+                                "name": "P.BANDIREVU",
+                                "village_sec": "8"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "9",
+                        "name": "PEGA",
+                        "PHC": "02",
+                        "villages": [
+                            {
+                                "village_id": "79",
+                                "name": "PEGA",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "80",
+                                "name": "KALIGONDA",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "81",
+                                "name": "VINAYAKAPURAM",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "82",
+                                "name": "SURAKUNTA",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "83",
+                                "name": "NARSINGAPETA",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "84",
+                                "name": "NARAKONDA",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "85",
+                                "name": "MALLAMPETA",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "86",
+                                "name": "DEYYALAVAYI",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "87",
+                                "name": "ALLIGUDEM",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "88",
+                                "name": "NARSINGALANKA",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "89",
+                                "name": "ERKAMPETA",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "90",
+                                "name": "VEDURUGUDEM",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "91",
+                                "name": "LANKAPALLI",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "92",
+                                "name": "D.JAGGARAM",
+                                "village_sec": "9"
+                            },
+                            {
+                                "village_id": "93",
+                                "name": "PAVURLANKA",
+                                "village_sec": "9"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "10",
+                        "name": "SARIVELA",
+                        "PHC": "02",
+                        "villages": [
+                            {
+                                "village_id": "94",
+                                "name": "THUMMALA",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "95",
+                                "name": "REGADA",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "96",
+                                "name": "BANDARIGUMPU",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "97",
+                                "name": "LACHIGUDEM",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "98",
+                                "name": "VENKATRAMPURAM",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "99",
+                                "name": "AHMEDALIPETA",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "100",
+                                "name": "SARIVELA",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "101",
+                                "name": "RINGALA",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "102",
+                                "name": "VEKAVARIGUDEM",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "103",
+                                "name": "VANKAGUDEM",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "104",
+                                "name": "PUNGUTTA",
+                                "village_sec": "10"
+                            },
+                            {
+                                "village_id": "105",
+                                "name": "GANGANNAMETTA",
+                                "village_sec": "10"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "11",
+                        "name": "CHATTI",
+                        "PHC": "02",
+                        "villages": [
+                            {
+                                "village_id": "106",
+                                "name": "CHATTI",
+                                "village_sec": "11"
+                            },
+                            {
+                                "village_id": "107",
+                                "name": "NARSIMHAPURAM",
+                                "village_sec": "11"
+                            },
+                            {
+                                "village_id": "108",
+                                "name": "SINGANNAGUDEM",
+                                "village_sec": "11"
+                            },
+                            {
+                                "village_id": "109",
+                                "name": "KUMMURU",
+                                "village_sec": "11"
+                            },
+                            {
+                                "village_id": "110",
+                                "name": "MAMILLAGUDEM",
+                                "village_sec": "11"
+                            },
+                            {
+                                "village_id": "111",
+                                "name": "GORLAGUDEM",
+                                "village_sec": "11"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "12",
+                        "name": "CHIDUMURU",
+                        "PHC": "02",
+                        "villages": [
+                            {
+                                "village_id": "112",
+                                "name": "CHIDUMURU",
+                                "village_sec": "12"
+                            },
+                            {
+                                "village_id": "113",
+                                "name": "PALAGUDEM",
+                                "village_sec": "12"
+                            },
+                            {
+                                "village_id": "114",
+                                "name": "JUVVIGUDEM",
+                                "village_sec": "12"
+                            },
+                            {
+                                "village_id": "115",
+                                "name": "BILLUGUDEM",
+                                "village_sec": "12"
+                            },
+                            {
+                                "village_id": "116",
+                                "name": "BURKANAKOTA",
+                                "village_sec": "12"
+                            },
+                            {
+                                "village_id": "117",
+                                "name": "VEERAPURAM",
+                                "village_sec": "12"
+                            },
+                            {
+                                "village_id": "118",
+                                "name": "SUDDAGUDEM",
+                                "village_sec": "12"
+                            },
+                            {
+                                "village_id": "119",
+                                "name": "KANNAPURAM",
+                                "village_sec": "12"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "13",
+                        "name": "JINNETHOGU",
+                        "PHC": "02",
+                        "villages": [
+                            {
+                                "village_id": "120",
+                                "name": "JINNETHOGU 1",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "121",
+                                "name": "RAMIDIKUNDA",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "122",
+                                "name": "CHINTAPAKA",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "123",
+                                "name": "PUTTAGANDI",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "124",
+                                "name": "VEGISAGANDI",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "125",
+                                "name": "KOMARANKOTTU",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "126",
+                                "name": "THADAKUPA",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "127",
+                                "name": "JINNETHOGU 2",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "128",
+                                "name": "MADDIKUNTA",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "129",
+                                "name": "MADDIBANDA",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "130",
+                                "name": "UTABOKKAPAKA",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "131",
+                                "name": "KASIRIGANDI",
+                                "village_sec": "13"
+                            },
+                            {
+                                "village_id": "132",
+                                "name": "ARAGANDI",
+                                "village_sec": "13"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "14",
+                        "name": "CHALLAKAVVAM",
+                        "PHC": "02",
+                        "villages": [
+                            {
+                                "village_id": "133",
+                                "name": "CHALLAKAVVAM",
+                                "village_sec": "14"
+                            },
+                            {
+                                "village_id": "134",
+                                "name": "VITAMINGANDI",
+                                "village_sec": "14"
+                            },
+                            {
+                                "village_id": "135",
+                                "name": "CHINTALAPADU",
+                                "village_sec": "14"
+                            },
+                            {
+                                "village_id": "136",
+                                "name": "THENERAYI",
+                                "village_sec": "14"
+                            },
+                            {
+                                "village_id": "137",
+                                "name": "UPPANAPALLY",
+                                "village_sec": "14"
+                            },
+                            {
+                                "village_id": "138",
+                                "name": "BAIBOKKA",
+                                "village_sec": "14"
+                            },
+                            {
+                                "village_id": "139",
+                                "name": "MADDIGANDI",
+                                "village_sec": "14"
+                            },
+                            {
+                                "village_id": "140",
+                                "name": "PEDDAVAGU",
+                                "village_sec": "14"
+                            },
+                            {
+                                "village_id": "141",
+                                "name": "KONDAPAKA",
+                                "village_sec": "14"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "02",
+        "name": "Yetapaka",
+        "phcs": [
+            {
+                "PHC_id": "04",
+                "name": "Laxmipuram",
+                "mandal": "02",
+                "villageSecs": [
+                    {
+                        "villagesec_id": "15",
+                        "name": "LAXMIPURAM",
+                        "PHC": "04",
+                        "villages": [
+                            {
+                                "village_id": "142",
+                                "name": "Madhavaraopeta",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "143",
+                                "name": "pattucheera",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "144",
+                                "name": "Rangapuram",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "145",
+                                "name": "Buruguvai",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "146",
+                                "name": "Lingalapalli",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "147",
+                                "name": "Basavagu",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "148",
+                                "name": "Bandaluru",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "149",
+                                "name": "palamadugu",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "150",
+                                "name": "chinthalapadu",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "151",
+                                "name": "LAXMIPURAM",
+                                "village_sec": "15"
+                            },
+                            {
+                                "village_id": "152",
+                                "name": "Maddigudem",
+                                "village_sec": "15"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "16",
+                        "name": "Gannavaram",
+                        "PHC": "04",
+                        "villages": [
+                            {
+                                "village_id": "153",
+                                "name": "Kannapuram",
+                                "village_sec": "16"
+                            },
+                            {
+                                "village_id": "154",
+                                "name": "Atchuthapuram",
+                                "village_sec": "16"
+                            },
+                            {
+                                "village_id": "155",
+                                "name": "Bhupathiraopeta",
+                                "village_sec": "16"
+                            },
+                            {
+                                "village_id": "156",
+                                "name": "Krishnavaram",
+                                "village_sec": "16"
+                            },
+                            {
+                                "village_id": "157",
+                                "name": "Gannavaram",
+                                "village_sec": "16"
+                            },
+                            {
+                                "village_id": "158",
+                                "name": "Kusumanapalli",
+                                "village_sec": "16"
+                            },
+                            {
+                                "village_id": "159",
+                                "name": "Boddugudem",
+                                "village_sec": "16"
+                            },
+                            {
+                                "village_id": "160",
+                                "name": "pandavarigudem",
+                                "village_sec": "16"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "PHC_id": "05",
+                "name": "NELLIPAKA",
+                "mandal": "02",
+                "villageSecs": [
+                    {
+                        "villagesec_id": "17",
+                        "name": "NELLIPAKA",
+                        "PHC": "05",
+                        "villages": [
+                            {
+                                "village_id": "161",
+                                "name": "NELLIPAKA",
+                                "village_sec": "17"
+                            },
+                            {
+                                "village_id": "162",
+                                "name": "CHODAVARAM",
+                                "village_sec": "17"
+                            },
+                            {
+                                "village_id": "163",
+                                "name": "CHINANALLAKUNTA",
+                                "village_sec": "17"
+                            },
+                            {
+                                "village_id": "164",
+                                "name": "YERRAGUNTA",
+                                "village_sec": "17"
+                            },
+                            {
+                                "village_id": "165",
+                                "name": "YERRAGUNTA PADU",
+                                "village_sec": "17"
+                            },
+                            {
+                                "village_id": "166",
+                                "name": "PANDURANGAPURAM",
+                                "village_sec": "17"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "18",
+                        "name": "GOGUBAKA",
+                        "PHC": "05",
+                        "villages": [
+                            {
+                                "village_id": "167",
+                                "name": "GOGUBAKA",
+                                "village_sec": "18"
+                            },
+                            {
+                                "village_id": "168",
+                                "name": "BUTTAIGUDEM",
+                                "village_sec": "18"
+                            },
+                            {
+                                "village_id": "169",
+                                "name": "VEERAIGUDEM",
+                                "village_sec": "18"
+                            },
+                            {
+                                "village_id": "170",
+                                "name": "BOTLAKUNTA",
+                                "village_sec": "18"
+                            },
+                            {
+                                "village_id": "171",
+                                "name": "RAMGOPALAPURAM",
+                                "village_sec": "18"
+                            },
+                            {
+                                "village_id": "172",
+                                "name": "NARSINGAPETA",
+                                "village_sec": "18"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "19",
+                        "name": "V.R.PETA",
+                        "PHC": "05",
+                        "villages": [
+                            {
+                                "village_id": "173",
+                                "name": "V.R.PETA",
+                                "village_sec": "19"
+                            },
+                            {
+                                "village_id": "174",
+                                "name": "PATIMALAGUDEM",
+                                "village_sec": "19"
+                            },
+                            {
+                                "village_id": "175",
+                                "name": "RAYANAPETA",
+                                "village_sec": "19"
+                            },
+                            {
+                                "village_id": "176",
+                                "name": "THATAKULAGUDEM",
+                                "village_sec": "19"
+                            },
+                            {
+                                "village_id": "177",
+                                "name": "MANGUVAI",
+                                "village_sec": "19"
+                            },
+                            {
+                                "village_id": "178",
+                                "name": "P.KONDIPALLI",
+                                "village_sec": "19"
+                            },
+                            {
+                                "village_id": "179",
+                                "name": "K.KONDIPALLI",
+                                "village_sec": "19"
+                            },
+                            {
+                                "village_id": "180",
+                                "name": "GOLLAGATTA",
+                                "village_sec": "19"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "20",
+                        "name": "GUNDALA COLONY",
+                        "PHC": "05",
+                        "villages": [
+                            {
+                                "village_id": "181",
+                                "name": "K.N.PURAM",
+                                "village_sec": "20"
+                            },
+                            {
+                                "village_id": "182",
+                                "name": "YERRABORU",
+                                "village_sec": "20"
+                            },
+                            {
+                                "village_id": "183",
+                                "name": "THUMMALA NAGARAM",
+                                "village_sec": "20"
+                            },
+                            {
+                                "village_id": "184",
+                                "name": "GUNDALA COLONY",
+                                "village_sec": "20"
+                            },
+                            {
+                                "village_id": "185",
+                                "name": "P.GUNDALA",
+                                "village_sec": "20"
+                            },
+                            {
+                                "village_id": "186",
+                                "name": "PURUSHOTHAPATNAM",
+                                "village_sec": "20"
+                            },
+                            {
+                                "village_id": "187",
+                                "name": "KOLLUGUDEM",
+                                "village_sec": "20"
+                            },
+                            {
+                                "village_id": "188",
+                                "name": "SRIRAMNAGAR COLONY",
+                                "village_sec": "20"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "21",
+                        "name": "YETAPAKA",
+                        "PHC": "05",
+                        "villages": [
+                            {
+                                "village_id": "189",
+                                "name": "YETAPAKA-I",
+                                "village_sec": "21"
+                            },
+                            {
+                                "village_id": "190",
+                                "name": "RAJUPETA",
+                                "village_sec": "21"
+                            },
+                            {
+                                "village_id": "191",
+                                "name": "MEDUVAI",
+                                "village_sec": "21"
+                            },
+                            {
+                                "village_id": "192",
+                                "name": "RAIGUDEM",
+                                "village_sec": "21"
+                            },
+                            {
+                                "village_id": "193",
+                                "name": "BOJJIGUPPA",
+                                "village_sec": "21"
+                            },
+                            {
+                                "village_id": "194",
+                                "name": "CHENNAMPETA",
+                                "village_sec": "21"
+                            },
+                            {
+                                "village_id": "195",
+                                "name": "CHANDRAMPALEM",
+                                "village_sec": "21"
+                            },
+                            {
+                                "village_id": "196",
+                                "name": "TUNIKICHERUVU",
+                                "village_sec": "21"
+                            },
+                            {
+                                "village_id": "197",
+                                "name": "GANGARAM",
+                                "village_sec": "21"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "22",
+                        "name": "CHINTHALAGUDEM",
+                        "PHC": "05",
+                        "villages": [
+                            {
+                                "village_id": "198",
+                                "name": "CHINTHALAGUDEM",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "199",
+                                "name": "LAXMIPURAM",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "200",
+                                "name": "GOLLAGUDEM",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "201",
+                                "name": "KANNAIGUDEM",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "202",
+                                "name": "SEETHAMPETA",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "203",
+                                "name": "GATTUGUDEM",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "204",
+                                "name": "S.N.PURAM",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "205",
+                                "name": "SRIRAM PURAM",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "206",
+                                "name": "PICHUKALAPADU",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "207",
+                                "name": "THOGUDEM",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "208",
+                                "name": "GUNDIVARI GUDEM",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "209",
+                                "name": "CHEDALAVADA",
+                                "village_sec": "22"
+                            },
+                            {
+                                "village_id": "210",
+                                "name": "VEERAPURAM",
+                                "village_sec": "22"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "PHC_id": "06",
+                "name": "Gowridevipeta",
+                "mandal": "02",
+                "villageSecs": [
+                    {
+                        "villagesec_id": "23",
+                        "name": "Murumuru",
+                        "PHC": "06",
+                        "villages": [
+                            {
+                                "village_id": "211",
+                                "name": "Kamanathogu",
+                                "village_sec": "23"
+                            },
+                            {
+                                "village_id": "212",
+                                "name": "Nandigama",
+                                "village_sec": "23"
+                            },
+                            {
+                                "village_id": "213",
+                                "name": "Nandigamapadu",
+                                "village_sec": "23"
+                            },
+                            {
+                                "village_id": "214",
+                                "name": "Bandarigudem",
+                                "village_sec": "23"
+                            },
+                            {
+                                "village_id": "215",
+                                "name": "Chalampalem",
+                                "village_sec": "23"
+                            },
+                            {
+                                "village_id": "216",
+                                "name": "Jaggaram",
+                                "village_sec": "23"
+                            },
+                            {
+                                "village_id": "217",
+                                "name": "Yerragattu",
+                                "village_sec": "23"
+                            },
+                            {
+                                "village_id": "218",
+                                "name": "Salubudapa",
+                                "village_sec": "23"
+                            },
+                            {
+                                "village_id": "219",
+                                "name": "Murumuru",
+                                "village_sec": "23"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "24",
+                        "name": "PV colony",
+                        "PHC": "06",
+                        "villages": [
+                            {
+                                "village_id": "220",
+                                "name": "Polipaka",
+                                "village_sec": "24"
+                            },
+                            {
+                                "village_id": "221",
+                                "name": "G V gudem",
+                                "village_sec": "24"
+                            },
+                            {
+                                "village_id": "222",
+                                "name": "R C pram",
+                                "village_sec": "24"
+                            },
+                            {
+                                "village_id": "223",
+                                "name": "PV colony",
+                                "village_sec": "24"
+                            },
+                            {
+                                "village_id": "224",
+                                "name": "Pochavaram",
+                                "village_sec": "24"
+                            },
+                            {
+                                "village_id": "225",
+                                "name": "Kachavaram",
+                                "village_sec": "24"
+                            },
+                            {
+                                "village_id": "226",
+                                "name": "Kullapadu",
+                                "village_sec": "24"
+                            },
+                            {
+                                "village_id": "227",
+                                "name": "Dugutta",
+                                "village_sec": "24"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "25",
+                        "name": "Seethapuram",
+                        "PHC": "06",
+                        "villages": [
+                            {
+                                "village_id": "228",
+                                "name": "Seethapuram",
+                                "village_sec": "25"
+                            },
+                            {
+                                "village_id": "229",
+                                "name": "NTR Colony",
+                                "village_sec": "25"
+                            },
+                            {
+                                "village_id": "230",
+                                "name": "Kapavaram",
+                                "village_sec": "25"
+                            },
+                            {
+                                "village_id": "231",
+                                "name": "G.Kothagudem",
+                                "village_sec": "25"
+                            },
+                            {
+                                "village_id": "232",
+                                "name": "G.Koyagudem",
+                                "village_sec": "25"
+                            },
+                            {
+                                "village_id": "233",
+                                "name": "Ayyavaripeta",
+                                "village_sec": "25"
+                            },
+                            {
+                                "village_id": "234",
+                                "name": "Yerraboru",
+                                "village_sec": "25"
+                            },
+                            {
+                                "village_id": "235",
+                                "name": "Regadigatta",
+                                "village_sec": "25"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "26",
+                        "name": "Gowridevipeta",
+                        "PHC": "06",
+                        "villages": [
+                            {
+                                "village_id": "236",
+                                "name": "Gowridevipeta",
+                                "village_sec": "26"
+                            },
+                            {
+                                "village_id": "237",
+                                "name": "Thotapalli",
+                                "village_sec": "26"
+                            },
+                            {
+                                "village_id": "238",
+                                "name": "Awere colony",
+                                "village_sec": "26"
+                            },
+                            {
+                                "village_id": "239",
+                                "name": "Gondiraju Peta",
+                                "village_sec": "26"
+                            },
+                            {
+                                "village_id": "240",
+                                "name": "Chinthalacheruvu",
+                                "village_sec": "26"
+                            },
+                            {
+                                "village_id": "241",
+                                "name": "Kapugompalli",
+                                "village_sec": "26"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "27",
+                        "name": "G.K Padu",
+                        "PHC": "06",
+                        "villages": [
+                            {
+                                "village_id": "242",
+                                "name": "G.K Padu",
+                                "village_sec": "27"
+                            },
+                            {
+                                "village_id": "243",
+                                "name": "Nallakunta",
+                                "village_sec": "27"
+                            },
+                            {
+                                "village_id": "244",
+                                "name": "Raghavapuram",
+                                "village_sec": "27"
+                            },
+                            {
+                                "village_id": "245",
+                                "name": "Vinayakapuram",
+                                "village_sec": "27"
+                            },
+                            {
+                                "village_id": "246",
+                                "name": "Pusugudem",
+                                "village_sec": "27"
+                            },
+                            {
+                                "village_id": "247",
+                                "name": "Yerraboru",
+                                "village_sec": "27"
+                            },
+                            {
+                                "village_id": "248",
+                                "name": "Vissapuram",
+                                "village_sec": "27"
+                            },
+                            {
+                                "village_id": "249",
+                                "name": "Sangampadu",
+                                "village_sec": "27"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "28",
+                        "name": "NS Peta",
+                        "PHC": "06",
+                        "villages": [
+                            {
+                                "village_id": "250",
+                                "name": "NS Peta",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "251",
+                                "name": "Tekubaka",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "252",
+                                "name": "V V Palem",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "253",
+                                "name": "Potlavaigudem",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "254",
+                                "name": "P NS Peta",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "255",
+                                "name": "Kannapuram",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "256",
+                                "name": "Karakagudem",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "257",
+                                "name": "Palagudema",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "258",
+                                "name": "G A Gudem",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "259",
+                                "name": "Bodunuru",
+                                "village_sec": "28"
+                            },
+                            {
+                                "village_id": "260",
+                                "name": "Metta Ramavaram",
+                                "village_sec": "28"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "03",
+        "name": "Kunnavaram",
+        "phcs": [
+            {
+                "PHC_id": "07",
+                "name": "Kuturu",
+                "mandal": "03",
+                "villageSecs": [
+                    {
+                        "villagesec_id": "29",
+                        "name": "Marrigudem",
+                        "PHC": "07",
+                        "villages": [
+                            {
+                                "village_id": "261",
+                                "name": "Marrigudem",
+                                "village_sec": "29"
+                            },
+                            {
+                                "village_id": "262",
+                                "name": "Gommugudem",
+                                "village_sec": "29"
+                            },
+                            {
+                                "village_id": "263",
+                                "name": "Kumaraswamy Gudem",
+                                "village_sec": "29"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "30",
+                        "name": "Bheemavaram",
+                        "PHC": "07",
+                        "villages": [
+                            {
+                                "village_id": "264",
+                                "name": "Palluru",
+                                "village_sec": "30"
+                            },
+                            {
+                                "village_id": "265",
+                                "name": "Ayyavarigudem",
+                                "village_sec": "30"
+                            },
+                            {
+                                "village_id": "266",
+                                "name": "Kondaigudem",
+                                "village_sec": "30"
+                            },
+                            {
+                                "village_id": "267",
+                                "name": "Bhairavapatnam",
+                                "village_sec": "30"
+                            },
+                            {
+                                "village_id": "268",
+                                "name": "Bheemavaram",
+                                "village_sec": "30"
+                            },
+                            {
+                                "village_id": "269",
+                                "name": "Jaggavaram",
+                                "village_sec": "30"
+                            },
+                            {
+                                "village_id": "270",
+                                "name": "Jaggavaram Colony",
+                                "village_sec": "30"
+                            },
+                            {
+                                "village_id": "271",
+                                "name": "Paidigudem",
+                                "village_sec": "30"
+                            },
+                            {
+                                "village_id": "272",
+                                "name": "ITDA FORM",
+                                "village_sec": "30"
+                            },
+                            {
+                                "village_id": "273",
+                                "name": "Pandrajupally",
+                                "village_sec": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "31",
+                        "name": "Tekulaboru",
+                        "PHC": "07",
+                        "villages": [
+                            {
+                                "village_id": "274",
+                                "name": "kondrajupeta",
+                                "village_sec": "31"
+                            },
+                            {
+                                "village_id": "275",
+                                "name": "Venkannagudem",
+                                "village_sec": "31"
+                            },
+                            {
+                                "village_id": "276",
+                                "name": "Srirampuram",
+                                "village_sec": "31"
+                            },
+                            {
+                                "village_id": "277",
+                                "name": "Tekulaboru -1",
+                                "village_sec": "31"
+                            },
+                            {
+                                "village_id": "278",
+                                "name": "Tekulaboru -2",
+                                "village_sec": "31"
+                            },
+                            {
+                                "village_id": "279",
+                                "name": "Wolford Peta",
+                                "village_sec": "31"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "32",
+                        "name": "kunavaram",
+                        "PHC": "07",
+                        "villages": [
+                            {
+                                "village_id": "280",
+                                "name": "Dhalithawada",
+                                "village_sec": "32"
+                            },
+                            {
+                                "village_id": "281",
+                                "name": "Gollabazar",
+                                "village_sec": "32"
+                            },
+                            {
+                                "village_id": "282",
+                                "name": "Besthabazar",
+                                "village_sec": "32"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "33",
+                        "name": "Arkuru",
+                        "PHC": "07",
+                        "villages": [
+                            {
+                                "village_id": "283",
+                                "name": "Arkuru",
+                                "village_sec": "33"
+                            },
+                            {
+                                "village_id": "284",
+                                "name": "Bandarigudem",
+                                "village_sec": "33"
+                            },
+                            {
+                                "village_id": "285",
+                                "name": "Jinnelagudem",
+                                "village_sec": "33"
+                            },
+                            {
+                                "village_id": "286",
+                                "name": "Pusugudem",
+                                "village_sec": "33"
+                            },
+                            {
+                                "village_id": "287",
+                                "name": "Ambothulagydem",
+                                "village_sec": "33"
+                            },
+                            {
+                                "village_id": "288",
+                                "name": "S K Gudem",
+                                "village_sec": "33"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "34",
+                        "name": "Kuturu",
+                        "PHC": "07",
+                        "villages": [
+                            {
+                                "village_id": "289",
+                                "name": "kuturu",
+                                "village_sec": "34"
+                            },
+                            {
+                                "village_id": "290",
+                                "name": "R Coliony",
+                                "village_sec": "34"
+                            },
+                            {
+                                "village_id": "291",
+                                "name": "Bhagavanpuram",
+                                "village_sec": "34"
+                            },
+                            {
+                                "village_id": "292",
+                                "name": "G K Gudem",
+                                "village_sec": "34"
+                            },
+                            {
+                                "village_id": "293",
+                                "name": "Mulluru",
+                                "village_sec": "34"
+                            },
+                            {
+                                "village_id": "294",
+                                "name": "Repaka",
+                                "village_sec": "34"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "35",
+                        "name": "Regulapadu",
+                        "PHC": "07",
+                        "villages": [
+                            {
+                                "village_id": "295",
+                                "name": "Abhicherla",
+                                "village_sec": "35"
+                            },
+                            {
+                                "village_id": "296",
+                                "name": "Seetharampuram",
+                                "village_sec": "35"
+                            },
+                            {
+                                "village_id": "297",
+                                "name": "Tekulodi",
+                                "village_sec": "35"
+                            },
+                            {
+                                "village_id": "298",
+                                "name": "Bojraigudem",
+                                "village_sec": "35"
+                            },
+                            {
+                                "village_id": "299",
+                                "name": "Thallagudem",
+                                "village_sec": "35"
+                            },
+                            {
+                                "village_id": "300",
+                                "name": "Raigudem",
+                                "village_sec": "35"
+                            },
+                            {
+                                "village_id": "301",
+                                "name": "Koderu",
+                                "village_sec": "35"
+                            },
+                            {
+                                "village_id": "302",
+                                "name": "Harvaigudem",
+                                "village_sec": "35"
+                            },
+                            {
+                                "village_id": "303",
+                                "name": "Regulapadu",
+                                "village_sec": "35"
+                            },
+                            {
+                                "village_id": "304",
+                                "name": "Lingapuram",
+                                "village_sec": "35"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "36",
+                        "name": "Karmankonda",
+                        "PHC": "07",
+                        "villages": [
+                            {
+                                "village_id": "305",
+                                "name": "Chinthagandi",
+                                "village_sec": "36"
+                            },
+                            {
+                                "village_id": "306",
+                                "name": "Karmankonda",
+                                "village_sec": "36"
+                            },
+                            {
+                                "village_id": "307",
+                                "name": "Thotamamidigondi",
+                                "village_sec": "36"
+                            },
+                            {
+                                "village_id": "308",
+                                "name": "Pathakarmankonda",
+                                "village_sec": "36"
+                            },
+                            {
+                                "village_id": "309",
+                                "name": "Gabbilalagondhi",
+                                "village_sec": "36"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "37",
+                        "name": "Kopirametta",
+                        "PHC": "07",
+                        "villages": [
+                            {
+                                "village_id": "310",
+                                "name": "Pulusumamidigondhi",
+                                "village_sec": "37"
+                            },
+                            {
+                                "village_id": "311",
+                                "name": "Kopirimetta",
+                                "village_sec": "37"
+                            },
+                            {
+                                "village_id": "312",
+                                "name": "Elugulagondhi",
+                                "village_sec": "37"
+                            },
+                            {
+                                "village_id": "313",
+                                "name": "Kalingamiddi",
+                                "village_sec": "37"
+                            },
+                            {
+                                "village_id": "314",
+                                "name": "Kindipakalu",
+                                "village_sec": "37"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "04",
+        "name": "V.R Puram",
+        "phcs": [
+            {
+                "PHC_id": "08",
+                "name": "Rekhapalli",
+                "mandal": "04",
+                "villageSecs": [
+                    {
+                        "villagesec_id": "38",
+                        "name": "Rekhapalli1",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "315",
+                                "name": "V.R.Puram Ramalayamstreet",
+                                "village_sec": "38"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "39",
+                        "name": "Rekhapalli2",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "316",
+                                "name": "V.R.Puram SC Colony",
+                                "village_sec": "39"
+                            },
+                            {
+                                "village_id": "323",
+                                "name": "Rekhapalli",
+                                "village_sec": "39"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "40",
+                        "name": "Rekhapalli3",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "317",
+                                "name": "V.R.Puram BC Colony",
+                                "village_sec": "40"
+                            },
+                            {
+                                "village_id": "324",
+                                "name": "Annavaram",
+                                "village_sec": "40"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "41",
+                        "name": "Rekhapalli4",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "318",
+                                "name": "V.R.Puram ST Colony",
+                                "village_sec": "41"
+                            },
+                            {
+                                "village_id": "325",
+                                "name": "Ummadivaram",
+                                "village_sec": "41"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "42",
+                        "name": "Rekhapalli5",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "319",
+                                "name": "Waddigudem Colony",
+                                "village_sec": "42"
+                            },
+                            {
+                                "village_id": "326",
+                                "name": "Gurrampeta",
+                                "village_sec": "42"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "43",
+                        "name": "Rekhapalli6",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "320",
+                                "name": "Waddigudem1",
+                                "village_sec": "43"
+                            },
+                            {
+                                "village_id": "327",
+                                "name": "Nuthigudem",
+                                "village_sec": "43"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "44",
+                        "name": "Rekhapalli7",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "321",
+                                "name": "Waddigudem2",
+                                "village_sec": "44"
+                            },
+                            {
+                                "village_id": "328",
+                                "name": "Kistaram",
+                                "village_sec": "44"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "45",
+                        "name": "Rekhapalli8",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "322",
+                                "name": "Darathallagudem",
+                                "village_sec": "45"
+                            },
+                            {
+                                "village_id": "329",
+                                "name": "Thammaipeta",
+                                "village_sec": "45"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "46",
+                        "name": "Pedhamattapalli",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "330",
+                                "name": "Pedhamattapalli",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "331",
+                                "name": "Burigivada",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "332",
+                                "name": "Nagendrapuram",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "333",
+                                "name": "Chinamattapalli",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "334",
+                                "name": "Sunnavarigudem",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "335",
+                                "name": "Kannaigudem",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "336",
+                                "name": "Chintharevupalli",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "337",
+                                "name": "Pathipaka",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "338",
+                                "name": "Venkampalem",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "339",
+                                "name": "Sunnammatka",
+                                "village_sec": "46"
+                            },
+                            {
+                                "village_id": "340",
+                                "name": "Garbalanka",
+                                "village_sec": "46"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "47",
+                        "name": "Choppalli",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "341",
+                                "name": "Choppalli",
+                                "village_sec": "47"
+                            },
+                            {
+                                "village_id": "342",
+                                "name": "Ramavarampaadu",
+                                "village_sec": "47"
+                            },
+                            {
+                                "village_id": "343",
+                                "name": "Ramavaramgommu",
+                                "village_sec": "47"
+                            },
+                            {
+                                "village_id": "344",
+                                "name": "Somulagudem",
+                                "village_sec": "47"
+                            },
+                            {
+                                "village_id": "345",
+                                "name": "Sabaraigudem",
+                                "village_sec": "47"
+                            },
+                            {
+                                "village_id": "346",
+                                "name": "Koppalli",
+                                "village_sec": "47"
+                            },
+                            {
+                                "village_id": "347",
+                                "name": "Adavivenkannagudem",
+                                "village_sec": "47"
+                            },
+                            {
+                                "village_id": "348",
+                                "name": "Soderupaadu",
+                                "village_sec": "47"
+                            },
+                            {
+                                "village_id": "349",
+                                "name": "Thustivarigudem",
+                                "village_sec": "47"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "48",
+                        "name": "Kundhuluru",
+                        "PHC": "08",
+                        "villages": [
+                            {
+                                "village_id": "350",
+                                "name": "Kundhuluru",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "351",
+                                "name": "Thellavarigudem",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "352",
+                                "name": "Kaaramgudem",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "353",
+                                "name": "Gulletvada",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "354",
+                                "name": "Kokkeragudem",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "355",
+                                "name": "Kannampeta",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "356",
+                                "name": "Tekuluru",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "357",
+                                "name": "Mulakanapalli",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "358",
+                                "name": "Jallivarigudem",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "359",
+                                "name": "Kunjavarigudem",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "360",
+                                "name": "Kothapeta",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "361",
+                                "name": "Gollagudem",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "362",
+                                "name": "Bangarugudem",
+                                "village_sec": "48"
+                            },
+                            {
+                                "village_id": "363",
+                                "name": "V.P.Kunta",
+                                "village_sec": "48"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "PHC_id": "09",
+                "name": "Jeediguppa",
+                "mandal": "04",
+                "villageSecs": [
+                    {
+                        "villagesec_id": "49",
+                        "name": "Pochavaram",
+                        "PHC": "09",
+                        "villages": [
+                            {
+                                "village_id": "364",
+                                "name": "Pochavaram",
+                                "village_sec": "49"
+                            },
+                            {
+                                "village_id": "365",
+                                "name": "Thummileru",
+                                "village_sec": "49"
+                            },
+                            {
+                                "village_id": "366",
+                                "name": "Eppuru",
+                                "village_sec": "49"
+                            },
+                            {
+                                "village_id": "367",
+                                "name": "Kotarugommu",
+                                "village_sec": "49"
+                            },
+                            {
+                                "village_id": "368",
+                                "name": "Maredupudi",
+                                "village_sec": "49"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "50",
+                        "name": "Kolluru",
+                        "PHC": "09",
+                        "villages": [
+                            {
+                                "village_id": "369",
+                                "name": "Kondepudi",
+                                "village_sec": "50"
+                            },
+                            {
+                                "village_id": "370",
+                                "name": "Kolluru",
+                                "village_sec": "50"
+                            },
+                            {
+                                "village_id": "371",
+                                "name": "Gondhuru",
+                                "village_sec": "50"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "51",
+                        "name": "Jeediguppa",
+                        "PHC": "09",
+                        "villages": [
+                            {
+                                "village_id": "372",
+                                "name": "Kalthunuru",
+                                "village_sec": "51"
+                            },
+                            {
+                                "village_id": "373",
+                                "name": "Jeediguppa",
+                                "village_sec": "51"
+                            },
+                            {
+                                "village_id": "374",
+                                "name": "Raigudem",
+                                "village_sec": "51"
+                            },
+                            {
+                                "village_id": "375",
+                                "name": "Esunuru",
+                                "village_sec": "51"
+                            },
+                            {
+                                "village_id": "376",
+                                "name": "Darapalli",
+                                "village_sec": "51"
+                            },
+                            {
+                                "village_id": "377",
+                                "name": "Mulakapalli",
+                                "village_sec": "51"
+                            },
+                            {
+                                "village_id": "378",
+                                "name": "Muthyalamma Gandi",
+                                "village_sec": "51"
+                            },
+                            {
+                                "village_id": "379",
+                                "name": "Beemavaram",
+                                "village_sec": "51"
+                            }
+                        ]
+                    },
+                    {
+                        "villagesec_id": "52",
+                        "name": "Seethampeta",
+                        "PHC": "09",
+                        "villages": [
+                            {
+                                "village_id": "380",
+                                "name": "Rajupetagommu",
+                                "village_sec": "52"
+                            },
+                            {
+                                "village_id": "381",
+                                "name": "Rajupeta Colony",
+                                "village_sec": "52"
+                            },
+                            {
+                                "village_id": "382",
+                                "name": "Patharajupeta",
+                                "village_sec": "52"
+                            },
+                            {
+                                "village_id": "383",
+                                "name": "Moddulagudem",
+                                "village_sec": "52"
+                            },
+                            {
+                                "village_id": "384",
+                                "name": "Seethampeta",
+                                "village_sec": "52"
+                            },
+                            {
+                                "village_id": "385",
+                                "name": "Sriramagiri",
+                                "village_sec": "52"
+                            },
+                            {
+                                "village_id": "386",
+                                "name": "Chokkanapalli",
+                                "village_sec": "52"
+                            },
+                            {
+                                "village_id": "387",
+                                "name": "Kothuru",
+                                "village_sec": "52"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
