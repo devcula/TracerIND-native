@@ -42,7 +42,7 @@ function LoginScreen(props) {
   const {signIn} = React.useContext(AuthContext);
 
   function handleSignIn() {
-    console.log(URI);
+    // console.log(URI);
     setIsSigningIn(true);
     if (username !== '' && password !== '') {
       axios
@@ -83,6 +83,7 @@ function LoginScreen(props) {
         </View>
         <View style={styles.usernameView}>
           <TextInput
+            mode="outlined"
             label="Username"
             value={username}
             onChangeText={(user) => setUsername(user)}
@@ -90,6 +91,7 @@ function LoginScreen(props) {
         </View>
         <View style={styles.passView}>
           <TextInput
+            mode="outlined"
             label="Password"
             value={password}
             onChangeText={(pass) => setPassword(pass)}
