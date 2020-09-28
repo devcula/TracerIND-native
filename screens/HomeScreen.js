@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Text, ScrollView, StyleSheet } from 'react-native';
-import { Card } from 'react-native-elements';
-import { CountUp } from 'use-count-up'
-import { Image } from 'react-native';
+import React, {Component} from 'react';
+import {Text, ScrollView, StyleSheet} from 'react-native';
+import {Card} from 'react-native-elements';
+import {CountUp} from 'use-count-up';
+import {Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
 const HomeStack = createStackNavigator();
 
-function HomeStackScreen({ navigation, navHeaderStyles }) {
+function HomeStackScreen({navigation, navHeaderStyles}) {
   return (
     <HomeStack.Navigator screenOptions={navHeaderStyles}>
       <HomeStack.Screen
@@ -80,7 +80,11 @@ class HomeScreen extends Component {
           <Text style={styles.titleConfirmed}> Confirmed</Text>
           <Text style={styles.confirmedCardBody}>
             <Text>
-              <CountUp isCounting end={this.state.data.confirmed} duration={2} />
+              <CountUp
+                isCounting
+                end={this.state.data.confirmed}
+                duration={2}
+              />
             </Text>
           </Text>
         </Card>
@@ -88,7 +92,11 @@ class HomeScreen extends Component {
           <Text style={styles.titleRecovered}>Recovered</Text>
           <Text style={styles.recoveredCardBody}>
             <Text>
-              <CountUp isCounting end={this.state.data.recovered} duration={2} />
+              <CountUp
+                isCounting
+                end={this.state.data.recovered}
+                duration={2}
+              />
             </Text>
           </Text>
         </Card>

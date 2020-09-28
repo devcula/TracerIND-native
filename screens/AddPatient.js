@@ -23,83 +23,83 @@ class AddPatientStackScreen extends React.Component {
   render() {
     let {navigation, navHeaderStyles} = this.props;
     return (
-        <AddPatientStack.Navigator screenOptions={navHeaderStyles}>
-          <AddPatientStack.Screen
-            name="BasicDetailsForm"
-            component={BasicDetails}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          />
-          <AddPatientStack.Screen
-            name="ObservationsForm"
-            component={Observations}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          />
-          <AddPatientStack.Screen
-            name="BloodProfileForm"
-            component={BloodProfile}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          />
-          <AddPatientStack.Screen
-            name="TestDetailsForm"
-            component={TestDetails}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          />
-          <AddPatientStack.Screen
-            name="HospitalDetailsForm"
-            component={HospitalDetails}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          />
-        </AddPatientStack.Navigator>
+      <AddPatientStack.Navigator screenOptions={navHeaderStyles}>
+        <AddPatientStack.Screen
+          name="BasicDetailsForm"
+          component={BasicDetails}
+          options={{
+            title: 'Add new Patient',
+            headerLeft: () => (
+              <Icon.Button
+                name="ios-menu"
+                size={25}
+                backgroundColor="#14213D"
+                onPress={() => navigation.openDrawer()}
+              />
+            ),
+          }}
+        />
+        <AddPatientStack.Screen
+          name="ObservationsForm"
+          component={Observations}
+          options={{
+            title: 'Add new Patient',
+            headerLeft: () => (
+              <Icon.Button
+                name="ios-menu"
+                size={25}
+                backgroundColor="#14213D"
+                onPress={() => navigation.openDrawer()}
+              />
+            ),
+          }}
+        />
+        <AddPatientStack.Screen
+          name="BloodProfileForm"
+          component={BloodProfile}
+          options={{
+            title: 'Add new Patient',
+            headerLeft: () => (
+              <Icon.Button
+                name="ios-menu"
+                size={25}
+                backgroundColor="#14213D"
+                onPress={() => navigation.openDrawer()}
+              />
+            ),
+          }}
+        />
+        <AddPatientStack.Screen
+          name="TestDetailsForm"
+          component={TestDetails}
+          options={{
+            title: 'Add new Patient',
+            headerLeft: () => (
+              <Icon.Button
+                name="ios-menu"
+                size={25}
+                backgroundColor="#14213D"
+                onPress={() => navigation.openDrawer()}
+              />
+            ),
+          }}
+        />
+        <AddPatientStack.Screen
+          name="HospitalDetailsForm"
+          component={HospitalDetails}
+          options={{
+            title: 'Add new Patient',
+            headerLeft: () => (
+              <Icon.Button
+                name="ios-menu"
+                size={25}
+                backgroundColor="#14213D"
+                onPress={() => navigation.openDrawer()}
+              />
+            ),
+          }}
+        />
+      </AddPatientStack.Navigator>
     );
   }
 }

@@ -27,7 +27,7 @@ class BasicDetails extends React.Component {
             value={this.state.mandal}
             label="Mandal"
             onChangeText={(value) => {
-              this.setState({mandal: value})
+              this.setState({mandal: value});
             }}
           />
         </View>
