@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {Text, ScrollView, StyleSheet} from 'react-native';
-import {Card} from 'react-native-elements';
-import AnimateNumber from 'react-native-countup';
-import {Image} from 'react-native';
+import React, { Component } from 'react';
+import { Text, ScrollView, StyleSheet } from 'react-native';
+import { Card } from 'react-native-elements';
+import { CountUp } from 'use-count-up'
+import { Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 const HomeStack = createStackNavigator();
 
-function HomeStackScreen({navigation, navHeaderStyles}) {
+function HomeStackScreen({ navigation, navHeaderStyles }) {
   return (
     <HomeStack.Navigator screenOptions={navHeaderStyles}>
       <HomeStack.Screen
@@ -71,45 +71,33 @@ class HomeScreen extends Component {
         <Card>
           <Text style={styles.titleActive}>Active</Text>
           <Text style={styles.activeCardBody}>
-            <AnimateNumber
-              initial={0}
-              steps={5}
-              value={this.state.data.active}
-              interval={10}
-            />
+            <Text>
+              <CountUp isCounting end={this.state.data.active} duration={2} />
+            </Text>
           </Text>
         </Card>
         <Card>
           <Text style={styles.titleConfirmed}> Confirmed</Text>
           <Text style={styles.confirmedCardBody}>
-            <AnimateNumber
-              initial={0}
-              steps={5}
-              value={this.state.data.confirmed}
-              interval={10}
-            />
+            <Text>
+              <CountUp isCounting end={this.state.data.confirmed} duration={2} />
+            </Text>
           </Text>
         </Card>
         <Card>
           <Text style={styles.titleRecovered}>Recovered</Text>
           <Text style={styles.recoveredCardBody}>
-            <AnimateNumber
-              initial={0}
-              steps={5}
-              value={this.state.data.recovered}
-              interval={10}
-            />
+            <Text>
+              <CountUp isCounting end={this.state.data.recovered} duration={2} />
+            </Text>
           </Text>
         </Card>
         <Card>
           <Text style={styles.titleDeath}>Deaths</Text>
           <Text style={styles.deathCardBody}>
-            <AnimateNumber
-              initial={0}
-              steps={5}
-              value={this.state.data.deaths}
-              interval={10}
-            />
+            <Text>
+              <CountUp isCounting end={this.state.data.deaths} duration={2} />
+            </Text>
           </Text>
         </Card>
       </ScrollView>
