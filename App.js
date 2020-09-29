@@ -30,15 +30,11 @@ import LocalPatientListStackScreen from './screens/LocalPatientList';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
+import AuthContext from './components/AuthContext';
+
+import URI from './components/URI';
 
 const Drawer = createDrawerNavigator();
-
-export const AuthContext = React.createContext();
-
-export const URI =
-  process.env.NODE_ENV === 'production'
-    ? 'https://api-tracerind.covidindiataskforce.org/api/'
-    : 'https://api-tracerind.covidindiataskforce.org/api/';
 
 const fontConfig = {
   default: {
@@ -107,6 +103,7 @@ export default function App() {
   );
 
   const refreshToken = (previousToken) => {
+    console.log('Refreshing token');
     axios
       .post(URI + 'token_jwt_refresh/', {token: previousToken})
       .then((response) => {
@@ -121,9 +118,11 @@ export default function App() {
             token: data.token,
             timestamp: new Date(),
           };
-          AsyncStorage.setItem('userToken', newUserData).then(() => {
-            dispatch({type: 'SIGN_IN', token: newUserData});
-          });
+          AsyncStorage.setItem('userToken', JSON.stringify(newUserData)).then(
+            () => {
+              dispatch({type: 'SIGN_IN', token: newUserData});
+            },
+          );
         }
       })
       .catch((error) => {
@@ -138,7 +137,7 @@ export default function App() {
 
     const bootstrapAsync = async () => {
       let userToken;
-
+      console.log('Checking for previous sign in');
       try {
         userToken = await AsyncStorage.getItem('userToken');
         // console.log(userToken);
@@ -146,9 +145,11 @@ export default function App() {
         let msecDifference =
           new Date().getTime() - new Date(userToken.timestamp).getTime();
         if (msecDifference / (1000 * 60 * 60) >= 3.9) {
+          console.log('Token Expired: Removing token');
           await AsyncStorage.removeItem('userToken');
           dispatch({type: 'SIGN_OUT'});
         } else {
+          console.log('Token still valid, Restoring...');
           dispatch({type: 'RESTORE_TOKEN', token: userToken});
           refreshToken(userToken.token);
         }
@@ -170,12 +171,14 @@ export default function App() {
   const authContext = React.useMemo(
     () => ({
       signIn: async (data) => {
+        console.log('Inside sign in');
         // In a production app, we need to send some data (usually username, password) to server and get a token
         // We will also need to handle errors if sign in failed
         // After getting token, we need to persist the token using `AsyncStorage`
         // In the example, we'll use a dummy token
         try {
           let userDetails = JSON.stringify(data);
+          console.log(userDetails);
           await AsyncStorage.setItem('userToken', userDetails);
           dispatch({type: 'SIGN_IN', token: data});
         } catch (error) {
@@ -185,19 +188,12 @@ export default function App() {
       },
       signOut: async () => {
         try {
+          console.log('Signing out');
           await AsyncStorage.removeItem('userToken');
           dispatch({type: 'SIGN_OUT'});
         } catch (error) {
           //Error handling
         }
-      },
-      signUp: async (data) => {
-        // In a production app, we need to send user data to server and get a token
-        // We will also need to handle errors if sign up failed
-        // After getting token, we need to persist the token using `AsyncStorage`
-        // In the example, we'll use a dummy token
-
-        dispatch({type: 'SIGN_IN', token: 'dummy-auth-token'});
       },
     }),
     [],

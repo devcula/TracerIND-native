@@ -5,10 +5,10 @@ import {TextInput, Avatar, Button} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createStackNavigator} from '@react-navigation/stack';
-import {AuthContext} from '../App';
+import AuthContext from '../components/AuthContext';
 
 import axios from 'axios';
-import {URI} from '../App';
+import URI from '../components/URI';
 
 const LoginStack = createStackNavigator();
 
