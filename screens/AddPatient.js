@@ -20,8 +20,7 @@ class AddPatientStackScreen extends React.Component {
     super(props);
     this.state = {
       pkid: this.generatePkid(32),
-      mandal: 'Mandal',
-      phc: 'PHC',
+      ...initialState,
     };
   }
 
@@ -57,7 +56,7 @@ class AddPatientStackScreen extends React.Component {
 
   componentDidMount() {
     this._unsubscribe = this.props.navigation.addListener('blur', () => {
-      this.setState({});
+      this.reset();
     });
   }
 
