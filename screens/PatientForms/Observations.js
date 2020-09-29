@@ -3,14 +3,8 @@ import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
 
 class Observations extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mandal: '',
-      phc: '',
-      village_sec: '',
-      vilage: '',
-    };
+  constructor() {
+    super();
   }
   render() {
     return (

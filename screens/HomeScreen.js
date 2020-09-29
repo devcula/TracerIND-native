@@ -32,8 +32,8 @@ function HomeStackScreen({navigation, navHeaderStyles}) {
 }
 
 class HomeScreen extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       data: '',
     };

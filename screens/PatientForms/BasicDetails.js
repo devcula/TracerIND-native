@@ -8,10 +8,33 @@ class BasicDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mandal: '',
-      phc: '',
-      village_sec: '',
-      vilage: '',
+      adhaarFirst: '',
+      adhaarSecond: '',
+      adhaarThird: '',
+      mandal: props.getValue('mandal'),
+      phc: props.getValue('phc'),
+      village_sec: props.getValue('village_sec'),
+      village: props.getValue('village'),
+      name: props.getValue('name'),
+      surname: props.getValue('surname'),
+      relation: props.getValue('relation'),
+      gaurdian_name: props.getValue('gaurdian_name'),
+      age: props.getValue('age'),
+      gender: props.getValue('gender'),
+      maritalstatus: props.getValue('maritalstatus'),
+      phone: props.getValue('phone'),
+      bloodgroup: props.getValue('bloodgroup'),
+      PVTG: props.getValue('PVTG'),
+      address: props.getValue('address'),
+      deworming: props.getValue('deworming'),
+      phcList: props.getValue('phcList'),
+      villageList: props.getValue('villageList'),
+      villageSecList: props.getValue('villageSecList'),
+      phcLoading: false,
+      villageSecLoading: false,
+      villageLoading: false,
+      smoking: props.getValue('smoking'),
+      drinking: props.getValue('drinking'),
     };
   }
   render() {

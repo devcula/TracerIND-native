@@ -3,8 +3,8 @@ import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
 
 class BloodProfile extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
   render() {
     return (

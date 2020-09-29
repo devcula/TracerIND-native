@@ -13,12 +13,35 @@ import HospitalDetails from './PatientForms/HospitalDetails';
 const AddPatientStack = createStackNavigator();
 
 class AddPatientStackScreen extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      mandal: '',
+      pkid: this.generatePkid(32),
     };
   }
+
+  generatePkid = (length) => {
+    var result = '';
+    var characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  };
+
+  appendState = (childState, callback) => {
+    if (callback) {
+      this.setState(childState, callback());
+    } else {
+      this.setState(childState);
+    }
+  };
+
+  getValue = (key) => {
+    return this.state[key] === undefined ? '' : this.state[key];
+  };
 
   render() {
     let {navigation, navHeaderStyles} = this.props;
