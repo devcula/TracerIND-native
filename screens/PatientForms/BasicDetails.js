@@ -24,19 +24,31 @@ class BasicDetails extends React.Component {
     return (
       <ScrollView contentContainerStyle={styles.contentScreen}>
         <View>
-          <Text style={styles.text}>
-            {this.context.getValue('phc')}
-            {this.context.getValue('mandal')}
-            {this.context.getValue('pkid')}
-          </Text>
+          <Text style={styles.text}>Basic Details</Text>
         </View>
         <View>
           <TextInput
             mode="outlined"
-            value={this.context.getValue('mandal')}
-            label="Mandal"
+            value={this.context.getValue('name')}
+            label="Name"
             onChangeText={(value) => {
-              this.context.saveDataToParent({mandal: value});
+              this.context.saveDataToParent({name: value});
+            }}
+          />
+          <TextInput
+            mode="outlined"
+            value={this.context.getValue('surname')}
+            label="Surname"
+            onChangeText={(value) => {
+              this.context.saveDataToParent({surname: value});
+            }}
+          />
+          <TextInput
+            mode="outlined"
+            value={this.context.getValue('phone')}
+            label="Phone"
+            onChangeText={(value) => {
+              this.context.saveDataToParent({phone: value});
             }}
           />
         </View>
@@ -48,6 +60,16 @@ class BasicDetails extends React.Component {
           </Button>
           <Button mode="contained" onPress={() => this.context.resetForm()}>
             Reset form
+          </Button>
+          <Button
+            mode="contained"
+            onPress={() =>
+              this.context.submitForm(
+                () => alert('Saved'),
+                () => alert('Failed'),
+              )
+            }>
+            Submit Form
           </Button>
         </View>
       </ScrollView>

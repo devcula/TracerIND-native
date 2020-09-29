@@ -1,11 +1,12 @@
 import React from 'react';
 
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
 
 export default function SplashScreen() {
   return (
     <View style={styles.contentScreen}>
-      <Text style={styles.text}>Loading...</Text>
+      <ActivityIndicator size="large" color="#14213D" />
+      <Text style={styles.text}>Loading</Text>
     </View>
   );
 }

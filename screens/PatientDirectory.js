@@ -11,10 +11,10 @@ function DirectoryStackScreen({navigation, navHeaderStyles}) {
   return (
     <DirectoryStack.Navigator screenOptions={navHeaderStyles}>
       <DirectoryStack.Screen
-        name="Login"
+        name="PatientDirectory"
         component={PatientDirectory}
         options={{
-          title: 'Login',
+          title: 'Patient Directory',
           headerLeft: () => (
             <Icon.Button
               name="ios-menu"

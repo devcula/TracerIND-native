@@ -227,6 +227,7 @@ export default function App() {
                 {(props) => (
                   <AddPatientStackScreen
                     {...props}
+                    userToken={state.userToken}
                     navHeaderStyles={navHeaderStyles}
                   />
                 )}
@@ -243,6 +244,7 @@ export default function App() {
                 {(props) => (
                   <LocalPatientListStackScreen
                     {...props}
+                    userToken={state.userToken}
                     navHeaderStyles={navHeaderStyles}
                   />
                 )}

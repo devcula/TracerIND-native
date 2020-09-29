@@ -104,7 +104,7 @@ function LoginScreen(props) {
             mode="contained"
             icon="login"
             onPress={() => handleSignIn(username, password)}>
-            Sign in
+            <Text style={styles.buttonText}>Sign in</Text>
           </Button>
         </View>
       </View>
@@ -138,6 +138,10 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 15,
     fontWeight: 'bold',
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    fontSize: 15,
   },
 });
 
