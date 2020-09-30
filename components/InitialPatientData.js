@@ -34,6 +34,7 @@ const initialState = {
   pcv: '',
   rbc: '',
   mcv: '',
+  mch: '',
   mchc: '',
   rdw: '',
   monocytes: '',
