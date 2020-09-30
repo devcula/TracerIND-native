@@ -25,8 +25,8 @@ const initialState = {
   phcLoading: false,
   villageSecLoading: false,
   villageLoading: false,
-  smoking: '',
-  drinking: '',
+  smoking: false,
+  drinking: false,
   //Basic Details: End
   //Blood profile: Start
   date: '',

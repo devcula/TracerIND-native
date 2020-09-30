@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
-import {Button, TextInput} from 'react-native-paper';
+import {Button, TextInput, RadioButton, Checkbox} from 'react-native-paper';
 import {Picker} from '@react-native-community/picker';
 
 const areaData = require('../../assets/data/areaData.json');
@@ -57,6 +57,13 @@ class BasicDetails extends React.Component {
     }
   };
 
+  handleCheckboxClick = (field) => {
+    let currentValue = this.context.getValue(field);
+    let newValue = {};
+    newValue[field] = !currentValue;
+    this.context.saveDataToParent(newValue);
+  };
+
   render() {
     // console.log(this.context);
     return (
@@ -68,11 +75,12 @@ class BasicDetails extends React.Component {
           <View style={styles.inputLabelView}>
             <Text style={styles.inputLabel}>Adhaar</Text>
           </View>
-          <View style={styles.adhaarView}>
+          <View style={styles.rowFlex}>
             <TextInput
               mode="outlined"
               value={this.context.getValue('adhaarFirst')}
               style={styles.adhaarInput}
+              maxLength={4}
               keyboardType="numeric"
               onChangeText={(value) => {
                 this.context.saveDataToParent({adhaarFirst: value});
@@ -82,6 +90,7 @@ class BasicDetails extends React.Component {
               mode="outlined"
               value={this.context.getValue('adhaarSecond')}
               style={styles.adhaarInput}
+              maxLength={4}
               keyboardType="numeric"
               onChangeText={(value) => {
                 this.context.saveDataToParent({adhaarSecond: value});
@@ -91,6 +100,7 @@ class BasicDetails extends React.Component {
               mode="outlined"
               value={this.context.getValue('adhaarThird')}
               style={styles.adhaarInput}
+              maxLength={4}
               keyboardType="numeric"
               onChangeText={(value) => {
                 this.context.saveDataToParent({adhaarThird: value});
@@ -134,7 +144,7 @@ class BasicDetails extends React.Component {
                 this.context.saveDataToParent({village_sec: itemValue});
                 this.updateVillageList(itemValue);
               }}>
-              <Picker.Item label="Select Village Sec." value="" />
+              <Picker.Item label="Select Sub Center" value="" />
               {this.context.getValue('villageSecList').map((village_sec, i) => {
                 return (
                   <Picker.Item
@@ -165,7 +175,230 @@ class BasicDetails extends React.Component {
             </Picker>
           </View>
           <View>
+            <TextInput
+              mode="outlined"
+              value={this.context.getValue('name')}
+              label="First Name"
+              onChangeText={(value) => {
+                this.context.saveDataToParent({name: value});
+              }}
+              style={styles.textinput}
+            />
+          </View>
+          <View>
+            <TextInput
+              mode="outlined"
+              value={this.context.getValue('surname')}
+              label="Surname"
+              onChangeText={(value) => {
+                this.context.saveDataToParent({surname: value});
+              }}
+              style={styles.textinput}
+            />
+          </View>
+          <View>
+            <Picker
+              selectedValue={this.context.getValue('relation')}
+              onValueChange={(itemValue, itemIndex) => {
+                this.context.saveDataToParent({relation: itemValue});
+              }}>
+              <Picker.Item label="Select S/o, D/o, W/o" value="" />
+              <Picker.Item label="Son Of" value="son" />
+              <Picker.Item label="Daughter Of" value="daughter" />
+              <Picker.Item label="Wife Of" value="wife" />
+            </Picker>
+          </View>
+          {(() => {
+            if (this.context.getValue('relation')) {
+              return (
+                <View>
+                  <TextInput
+                    mode="outlined"
+                    value={this.context.getValue('gaurdian_name')}
+                    label="Guardian Name"
+                    onChangeText={(value) => {
+                      this.context.saveDataToParent({gaurdian_name: value});
+                    }}
+                    style={styles.textinput}
+                  />
+                </View>
+              );
+            }
+          })()}
+          <View>
+            <TextInput
+              mode="outlined"
+              keyboardType="numeric"
+              value={this.context.getValue('age')}
+              label="Age"
+              maxLength={2}
+              onChangeText={(value) => {
+                this.context.saveDataToParent({age: value});
+              }}
+              style={styles.textinput}
+            />
+          </View>
+          <View style={styles.rowFlex}>
+            <View style={styles.contentScreen}>
+              <Text style={styles.inputLabel}>Sex :</Text>
+            </View>
+            <View style={[styles.rowFlex, {flex: 4}]}>
+              <RadioButton.Group
+                onValueChange={(value) =>
+                  this.context.saveDataToParent({gender: value})
+                }
+                value={this.context.getValue('gender')}>
+                <View style={styles.contentScreen}>
+                  <Text>Male</Text>
+                  <RadioButton color="#14213D" value="M" />
+                </View>
+                <View style={styles.contentScreen}>
+                  <Text>Female</Text>
+                  <RadioButton color="#14213D" value="F" />
+                </View>
+                <View style={styles.contentScreen}>
+                  <Text>Transgender</Text>
+                  <RadioButton color="#14213D" value="NB" />
+                </View>
+              </RadioButton.Group>
+            </View>
+          </View>
+          <View>
+            <Picker
+              selectedValue={this.context.getValue('maritalstatus')}
+              onValueChange={(itemValue, itemIndex) => {
+                this.context.saveDataToParent({maritalstatus: itemValue});
+              }}>
+              <Picker.Item label="Select Marital Status" value="" />
+              <Picker.Item label="Single" value="single" />
+              <Picker.Item label="Married" value="married" />
+              <Picker.Item label="Separated" value="separated" />
+              <Picker.Item label="Divorced" value="divorced" />
+              <Picker.Item label="Widowed" value="widowed" />
+            </Picker>
+          </View>
+          <View>
+            <TextInput
+              mode="outlined"
+              keyboardType="phone-pad"
+              maxLength={10}
+              value={this.context.getValue('phone')}
+              label="Phone Number"
+              onChangeText={(value) => {
+                this.context.saveDataToParent({phone: value});
+              }}
+              style={styles.textinput}
+            />
+          </View>
+          <View>
+            <TextInput
+              mode="outlined"
+              value={this.context.getValue('address')}
+              label="Address"
+              onChangeText={(value) => {
+                this.context.saveDataToParent({address: value});
+              }}
+              style={styles.textinput}
+            />
+          </View>
+          <View>
+            <Picker
+              selectedValue={this.context.getValue('bloodgroup')}
+              onValueChange={(itemValue, itemIndex) => {
+                this.context.saveDataToParent({bloodgroup: itemValue});
+              }}>
+              <Picker.Item label="Select Blood Group" value="" />
+              <Picker.Item label="O-" value="o-" />
+              <Picker.Item label="O+" value="o+" />
+              <Picker.Item label="A-" value="a-" />
+              <Picker.Item label="A+" value="a+" />
+              <Picker.Item label="B-" value="b-" />
+              <Picker.Item label="B+" value="b+" />
+              <Picker.Item label="AB-" value="ab-" />
+              <Picker.Item label="AB+" value="ab+" />
+              <Picker.Item label="Not Yet Known" value="N.A." />
+            </Picker>
+          </View>
+          <View style={styles.rowFlex}>
+            <View style={styles.contentScreen}>
+              <Text style={styles.inputLabel}>Deworming :</Text>
+            </View>
+            <View style={[styles.rowFlex, {flex: 2}]}>
+              <RadioButton.Group
+                onValueChange={(value) =>
+                  this.context.saveDataToParent({deworming: value})
+                }
+                value={this.context.getValue('deworming')}>
+                <View style={styles.contentScreen}>
+                  <Text>Yes</Text>
+                  <RadioButton color="#14213D" value="true" />
+                </View>
+                <View style={styles.contentScreen}>
+                  <Text>No</Text>
+                  <RadioButton color="#14213D" value="false" />
+                </View>
+              </RadioButton.Group>
+            </View>
+          </View>
+          <View style={styles.rowFlex}>
+            <View style={styles.contentScreen}>
+              <Text style={styles.inputLabel}>Caste :</Text>
+            </View>
+            <View style={[styles.rowFlex, {flex: 3}]}>
+              <RadioButton.Group
+                onValueChange={(value) =>
+                  this.context.saveDataToParent({PVTG: value})
+                }
+                value={this.context.getValue('PVTG')}>
+                <View style={styles.contentScreen}>
+                  <Text>ST</Text>
+                  <RadioButton color="#14213D" value="ST" />
+                </View>
+                <View style={styles.contentScreen}>
+                  <Text>Non ST</Text>
+                  <RadioButton color="#14213D" value="NST" />
+                </View>
+                <View style={styles.contentScreen}>
+                  <Text>PVTG</Text>
+                  <RadioButton color="#14213D" value="PVTG" />
+                </View>
+              </RadioButton.Group>
+            </View>
+          </View>
+          <View style={styles.rowFlex}>
+            <View style={styles.contentScreen}>
+              <Text style={styles.inputLabel}>Habits :</Text>
+            </View>
+            <View style={[styles.rowFlex, {flex: 3}]}>
+              <View style={styles.contentScreen}>
+                <Text>Smoking</Text>
+                <Checkbox
+                  color="#14213D"
+                  status={
+                    this.context.getValue('smoking') ? 'checked' : 'unchecked'
+                  }
+                  onPress={() => {
+                    this.handleCheckboxClick('smoking');
+                  }}
+                />
+              </View>
+              <View style={styles.contentScreen}>
+                <Text>Drinking</Text>
+                <Checkbox
+                  color="#14213D"
+                  status={
+                    this.context.getValue('drinking') ? 'checked' : 'unchecked'
+                  }
+                  onPress={() => {
+                    this.handleCheckboxClick('drinking');
+                  }}
+                />
+              </View>
+            </View>
+          </View>
+          <View>
             <Button
+              style={styles.button}
               mode="contained"
               onPress={() =>
                 this.props.navigation.navigate('ObservationsForm')
@@ -193,13 +426,13 @@ const styles = StyleSheet.create({
   },
   textinput: {
     marginBottom: 5,
-    marginTop: 5,
-    marginLeft: 10,
-    marginRight: 10,
+    // marginTop: 5,
   },
-  adhaarView: {
-    flex: 1,
+  rowFlex: {
     flexDirection: 'row',
+  },
+  flexOne: {
+    flex: 1,
   },
   adhaarInput: {
     flex: 1,
@@ -216,6 +449,9 @@ const styles = StyleSheet.create({
   },
   horizontalMargin: {
     marginHorizontal: 5,
+  },
+  button: {
+    marginBottom: 10,
   },
 });
 
