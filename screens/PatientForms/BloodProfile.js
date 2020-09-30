@@ -126,7 +126,7 @@ class BloodProfile extends React.Component {
         />
         <TextInput
           value={this.context.getValue('eosinophils')}
-          label="Eosinophils:"
+          label="Eosinophils"
           mode="outlined"
           onChangeText={(value) => {
             this.context.saveDataToParent({eosinophils: value});
@@ -189,7 +189,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   buttons: {
-    padding: 10,
     margin: 5,
   },
 });

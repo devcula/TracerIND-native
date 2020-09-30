@@ -104,12 +104,7 @@ function LocalPatientList(props) {
   };
 
   if (loading) {
-    return (
-      // <View style={styles.contentScreen}>
-      //   <Text style={styles.text}>Loading...</Text>
-      // </View>
-      <SplashScreen />
-    );
+    return <SplashScreen />;
   } else if (patientsData.length === 0) {
     return (
       <View style={styles.contentScreen}>
