@@ -16,6 +16,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('wbc')}
           label="Total WBC Count(K/microL)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({wbc: value});
           }}
@@ -25,6 +26,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('haemoglobin')}
           label="Haemoglobin (g/dL)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({haemoglobin: value});
           }}
@@ -34,6 +36,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('pcv')}
           label="Packed Cell Volume (%)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({pcv: value});
           }}
@@ -43,6 +46,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('rbc')}
           label="Total RBC Count (mill/mm3)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({rbc: value});
           }}
@@ -52,6 +56,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('mcv')}
           label="MCV (fL)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({mcv: value});
           }}
@@ -62,6 +67,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('mch')}
           label="MCH (g)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({mch: value});
           }}
@@ -71,6 +77,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('mchc')}
           label="MCHC (g/dL)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({mchc: value});
           }}
@@ -81,6 +88,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('mchc')}
           label="MCHC (g/dL)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({mchc: value});
           }}
@@ -90,6 +98,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('rdw')}
           label="Red Cell Distotion Width (%)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({rdw: value});
           }}
@@ -99,6 +108,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('platelet')}
           label="Platelet Count (K/microL)"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({platelet: value});
           }}
@@ -110,6 +120,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('monocytes')}
           label="Monocytes"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({monocytes: value});
           }}
@@ -119,6 +130,7 @@ class BloodProfile extends React.Component {
           mode="outlined"
           value={this.context.getValue('lymphocytes')}
           label="lymphocytes"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({lymphocytes: value});
           }}
@@ -128,6 +140,7 @@ class BloodProfile extends React.Component {
           value={this.context.getValue('eosinophils')}
           label="Eosinophils"
           mode="outlined"
+          keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({eosinophils: value});
           }}
