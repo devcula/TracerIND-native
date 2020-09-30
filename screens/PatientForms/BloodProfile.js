@@ -84,7 +84,7 @@ class BloodProfile extends React.Component {
           style={styles.textinput}
         />
 
-        <TextInput
+        {/* <TextInput
           mode="outlined"
           value={this.context.getValue('mchc')}
           label="MCHC (g/dL)"
@@ -93,7 +93,7 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({mchc: value});
           }}
           style={styles.textinput}
-        />
+        /> */}
         <TextInput
           mode="outlined"
           value={this.context.getValue('rdw')}
