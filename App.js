@@ -202,11 +202,15 @@ export default function App() {
   if (state.isLoading) {
     return <SplashScreen />;
   }
+  let contextValue = {
+    ...authContext,
+    ...state
+  }
   return (
     <React.Fragment>
       <PaperProvider theme={paperTheme}>
         <NavigationContainer>
-          <AuthContext.Provider value={authContext}>
+          <AuthContext.Provider value={contextValue} >
             <Drawer.Navigator
               overlayColor="#14213D"
               drawerContent={(props) => (
