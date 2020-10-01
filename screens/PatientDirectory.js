@@ -50,6 +50,7 @@ class PatientDirectory extends Component {
       data: '',
       searchQuery: '',
       patientDetails: [],
+      villageList: []
     };
   }
 
@@ -70,12 +71,25 @@ class PatientDirectory extends Component {
           return (
             <View>
               <Text>{item.name}</Text>
+              <Text>{item.phone}</Text>
             </View>
           );
         }
       )
     }
   };
+
+  getVillageNameFromId = (id) => {
+    // console.log("Id received " + id);
+    let { villageList } = this.state;
+    if (villageList.length > 0) {
+        for (let i = 0; i < villageList.length; i++) {
+            if (villageList[i].village_id === id) {
+                return villageList[i].name;
+            }
+        }
+    }
+}
 
   onChangeSearch = query => {
     this.setState({ searchQuery: query });
@@ -93,9 +107,7 @@ class PatientDirectory extends Component {
         // console.log(response);
         axios.get(URI + 'GetAllVillage/', { headers: { "Authorization": `JWT ${token}` } })
           .then(responseVillage => {
-            // this.setState({ villageList: responseVillage.data });
-            // this.setState({ loading: false });
-            //Hiding Development data
+            this.setState({ villageList: responseVillage.data });
             console.log(responseVillage)
           })
           .catch(err => {
