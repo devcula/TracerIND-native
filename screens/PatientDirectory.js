@@ -47,31 +47,37 @@ class PatientDirectory extends Component {
   }
 
   patientList = () => {
-    if (this.state.searchQuery.length === 0) {
-      return this.state.patientDetails.map((element, i) => {
-        return (
-          <View style={{margin: 10}} key={i}>
-            <Text>{element.name}</Text>
-            <Text>{element.phone}</Text>
-          </View>
-        );
-      });
-    } else {
-      return this.state.patientDetails
-        .filter((person) =>
-          person.name
-            .toLowerCase()
-            .includes(this.state.searchQuery.toLowerCase()),
-        )
-        .map((item, i) => {
-          return (
-            <View style={{margin: 10}} key={i}>
-              <Text>{item.name}</Text>
-              <Text>{item.phone}</Text>
-            </View>
-          );
-        });
+    let filteredData = this.state.patientDetails;
+    if (this.state.searchQuery.length !== 0) {
+      filteredData = filteredData.filter((person) =>
+        person.name
+          .toLowerCase()
+          .includes(this.state.searchQuery.toLowerCase()),
+      );
     }
+    return filteredData.map((patient, i) => {
+      return (
+        <View style={styles.cardView} key={i}>
+          <View
+            style={[styles.flexCenter, styles.cardTitleView, styles.flexOne]}>
+            <Text style={styles.cardTitleText}>{patient.name}</Text>
+          </View>
+          <View style={[styles.rowFlex, styles.cardBodyView]}>
+            <View style={[styles.flexCenter, {flex: 2}]}>
+              <Text style={styles.cardBodyText}>
+                {this.getVillageNameFromId(patient.village)}
+              </Text>
+            </View>
+            <View style={[styles.flexCenter, {flex: 2}]}>
+              <Text style={styles.cardBodyText}>{patient.phone}</Text>
+            </View>
+            <View style={[styles.flexCenter, styles.flexOne]}>
+              <Text style={styles.cardBodyText}>{patient.PVTG}</Text>
+            </View>
+          </View>
+        </View>
+      );
+    });
   };
 
   getVillageNameFromId = (id) => {
@@ -155,21 +161,57 @@ class PatientDirectory extends Component {
           value={this.state.searchQuery}
         />
 
-        <ScrollView>{this.patientList()}</ScrollView>
+        <ScrollView>
+          <View style={{marginBottom: 40}}>{this.patientList()}</View>
+        </ScrollView>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  contentScreen: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  // contentScreen: {
+  //   flex: 1,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // },
   text: {
     fontWeight: 'bold',
     fontSize: 30,
+  },
+  cardView: {
+    margin: 10,
+    backgroundColor: '#14213D',
+    borderRadius: 10,
+  },
+  rowFlex: {
+    flexDirection: 'row',
+  },
+  flexOne: {
+    flex: 1,
+  },
+  cardBodyText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    paddingVertical: 10,
+  },
+  cardTitleText: {
+    color: '#FCA311',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  cardTitleView: {
+    marginVertical: 10,
+    borderBottomColor: '#E5E5E5',
+    borderBottomWidth: 1,
+    marginHorizontal: 20,
+  },
+  cardBodyView: {
+    marginBottom: 10,
+  },
+  flexCenter: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

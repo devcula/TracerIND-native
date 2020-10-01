@@ -204,13 +204,13 @@ export default function App() {
   }
   let contextValue = {
     ...authContext,
-    ...state
-  }
+    ...state,
+  };
   return (
     <React.Fragment>
       <PaperProvider theme={paperTheme}>
         <NavigationContainer>
-          <AuthContext.Provider value={contextValue} >
+          <AuthContext.Provider value={contextValue}>
             <Drawer.Navigator
               overlayColor="#14213D"
               drawerContent={(props) => (

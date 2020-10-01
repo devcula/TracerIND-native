@@ -95,11 +95,11 @@ const initialState = {
   pedaltype: '',
   kidneystatus: '',
   ailments: '',
-  dialysis: '',
+  // dialysis: '',
   doctorreq: '',
   opd: '',
-  btn: 'Submit',
-  loading: false,
+  // btn: 'Submit',
+  // loading: false,
   //Test Details: End
 };
 
