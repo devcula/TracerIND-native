@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import {View, Text, StyleSheet} from 'react-native';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-import {createStackNavigator} from '@react-navigation/stack';
+import { Image } from 'react-native';
+//import { SearchBar } from 'react-native-elements';
+import { Card } from 'react-native-elements';
+import { Searchbar } from 'react-native-paper';
+import { createStackNavigator } from '@react-navigation/stack';
+import AuthContext from '../components/AuthContext';
+import axios from 'axios';
+import URI from '../components/URI';
 
 const DirectoryStack = createStackNavigator();
 
-function DirectoryStackScreen({navigation, navHeaderStyles}) {
+function DirectoryStackScreen({ navigation, navHeaderStyles }) {
   return (
     <DirectoryStack.Navigator screenOptions={navHeaderStyles}>
       <DirectoryStack.Screen
@@ -29,12 +35,97 @@ function DirectoryStackScreen({navigation, navHeaderStyles}) {
   );
 }
 
-function PatientDirectory() {
-  return (
-    <View style={styles.contentScreen}>
-      <Text style={styles.text}>Patient Directory</Text>
-    </View>
-  );
+// function PatientDirectory() {
+//   return (
+//     <View style={styles.contentScreen}>
+//       <Text style={styles.text}>Patient Directory</Text>
+//     </View>
+//   );
+// }
+
+class PatientDirectory extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: '',
+      searchQuery: '',
+      patientDetails: [],
+    };
+  }
+
+  patientList = () => {
+    if (this.state.searchQuery.length == 0) {
+      return this.state.patientDetails.map(element => {
+        return (
+          <View style={{ margin: 10 }}>
+            <Text>{element.name}</Text>
+            <Text>{element.phone}</Text>
+          </View>
+        );
+      });
+    }
+    else {
+      return this.state.patientDetails.filter(person => person.name.toLowerCase().includes(this.state.searchQuery.toLowerCase())).map(
+        item => {
+          return (
+            <View>
+              <Text>{item.name}</Text>
+            </View>
+          );
+        }
+      )
+    }
+  };
+
+  onChangeSearch = query => {
+    this.setState({ searchQuery: query });
+  };
+
+
+  componentDidMount = () => {
+    const token = this.context.userToken.token
+
+    console.log(token)
+    axios.get(URI + 'GetAllPatient/', { headers: { "Authorization": `JWT ${token}` } })
+      .then(response => {
+        console.log(response)
+        this.setState({ patientDetails: response.data });
+        // console.log(response);
+        axios.get(URI + 'GetAllVillage/', { headers: { "Authorization": `JWT ${token}` } })
+          .then(responseVillage => {
+            // this.setState({ villageList: responseVillage.data });
+            // this.setState({ loading: false });
+            //Hiding Development data
+            console.log(responseVillage)
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  };
+
+  render() {
+    const { search } = this.state;
+    let structuredData = []
+    console.log(this.state.patientDetails)
+    console.log("After patient details")
+
+    return (
+      <View>
+        <Searchbar
+          placeholder="Enter patient name"
+          onChangeText={this.onChangeSearch}
+          value={this.state.searchQuery}
+        />
+
+        <ScrollView>{this.patientList()}</ScrollView>
+
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -49,4 +140,5 @@ const styles = StyleSheet.create({
   },
 });
 
+PatientDirectory.contextType = AuthContext;
 export default DirectoryStackScreen;
