@@ -66,6 +66,7 @@ class BasicDetails extends React.Component {
 
   render() {
     // console.log(this.context);
+    console.log('Rendering BasicDetails');
     return (
       <ScrollView>
         <View style={styles.horizontalMargin}>
@@ -117,7 +118,7 @@ class BasicDetails extends React.Component {
               <Picker.Item label="Select Mandal" value="" />
               {areaData.map((mandal, i) => {
                 return (
-                  <Picker.Item label={mandal.name} value={mandal.id} id={i} />
+                  <Picker.Item label={mandal.name} value={mandal.id} key={i} />
                 );
               })}
             </Picker>

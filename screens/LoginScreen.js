@@ -13,6 +13,7 @@ import URI from '../components/URI';
 const LoginStack = createStackNavigator();
 
 function LoginStackScreen({navigation, navHeaderStyles}) {
+  console.log('Rendering LoginStackScreen');
   return (
     <LoginStack.Navigator screenOptions={navHeaderStyles}>
       <LoginStack.Screen
@@ -71,6 +72,7 @@ function LoginScreen(props) {
       alert('Both values are needed');
     }
   }
+  console.log('Rendering Login');
   return (
     <ScrollView>
       <View style={styles.contentScreen}>

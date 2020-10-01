@@ -7,6 +7,7 @@ class TestDetails extends React.Component {
     super();
   }
   render() {
+    console.log('Rendering TestDetails');
     return (
       <ScrollView contentContainerStyle={styles.contentScreen}>
         <View>

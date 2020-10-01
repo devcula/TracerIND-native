@@ -214,6 +214,7 @@ class AddPatientStackScreen extends React.Component {
   };
 
   render() {
+    console.log('Rendering AddPatientStackScreen');
     let {navigation, navHeaderStyles} = this.props;
     return (
       <PatientContext.Provider

@@ -13,6 +13,7 @@ import SplashScreen from './SplashScreen';
 const DirectoryStack = createStackNavigator();
 
 function DirectoryStackScreen({navigation, navHeaderStyles}) {
+  console.log('Rendering DirectoryStackScreen');
   return (
     <DirectoryStack.Navigator screenOptions={navHeaderStyles}>
       <DirectoryStack.Screen
@@ -148,6 +149,7 @@ class PatientDirectory extends Component {
   };
 
   render() {
+    console.log('Rendering Directory');
     // console.log(this.state.patientDetails);
     // console.log('After patient details');
     if (this.state.isLoading) {

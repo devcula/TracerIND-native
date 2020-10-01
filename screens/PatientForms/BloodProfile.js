@@ -8,6 +8,7 @@ class BloodProfile extends React.Component {
     super();
   }
   render() {
+    console.log('Rendering BloodProfile');
     return (
       <ScrollView>
         <Text style={styles.text}>Blood Profile</Text>

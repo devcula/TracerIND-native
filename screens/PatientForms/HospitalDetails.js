@@ -8,6 +8,7 @@ class HospitalDetails extends React.Component {
     super();
   }
   render() {
+    console.log('Rendering HospitalDetails');
     return (
       <ScrollView contentContainerStyle={styles.contentScreen}>
         <View>

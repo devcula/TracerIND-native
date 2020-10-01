@@ -9,6 +9,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 const AboutUsStack = createStackNavigator();
 
 function AboutUsStackScreen({navigation, navHeaderStyles}) {
+  console.log('Rendering AboutUsStackScreen');
   return (
     <AboutUsStack.Navigator screenOptions={navHeaderStyles}>
       <AboutUsStack.Screen
@@ -31,6 +32,7 @@ function AboutUsStackScreen({navigation, navHeaderStyles}) {
 }
 
 function AboutUs(props) {
+  console.log('Rendering AboutUs');
   return (
     <ScrollView>
       <Text style={styles.title}>Meet Our Team..!!</Text>

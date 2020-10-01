@@ -9,6 +9,7 @@ class Observations extends React.Component {
     super();
   }
   render() {
+    console.log('Rendering Observations');
     return (
       <ScrollView>
         <View style={styles.contentScreen}>

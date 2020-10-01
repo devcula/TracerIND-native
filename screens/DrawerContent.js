@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AuthContext from '../components/AuthContext';
 
 export default function DrawerContent(props) {
+  console.log('Rendering DrawerContent');
   const {signOut} = React.useContext(AuthContext);
   const {isSignedIn} = props;
   return (

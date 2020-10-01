@@ -19,6 +19,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 const LocalListStack = createStackNavigator();
 
 function LocalPatientListStackScreen({navigation, navHeaderStyles, userToken}) {
+  console.log('Rendering LocalPatientListStackScreen');
   return (
     <LocalListStack.Navigator screenOptions={navHeaderStyles}>
       <LocalListStack.Screen
@@ -45,11 +46,47 @@ function LocalPatientList(props) {
   let [loading, setLoading] = React.useState(true);
   let [isSynchronizing, setIsSynchronizing] = React.useState(false);
 
+  const [state, dispatch] = React.useReducer(
+    (prevState, action) => {
+      switch (action.type) {
+        case 'LOAD_DATA':
+          return {
+            ...prevState,
+            patientsData: action.patientsData ? action.patientsData : [],
+            loading: false,
+          };
+        case 'BLUR':
+          return {
+            ...prevState,
+            loading: true,
+            patientsData: [],
+            isSynchronizing: false,
+          };
+        case 'START_SYNC':
+          return {
+            ...prevState,
+            isSynchronizing: true,
+          };
+        case 'STOP_SYNC':
+          return {
+            ...prevState,
+            isSynchronizing: false,
+          };
+      }
+    },
+    {
+      loading: true,
+      patientsData: [],
+      isSynchronizing: false,
+    },
+  );
+
   React.useEffect(() => {
     let blurUnsubscribe = props.navigation.addListener('blur', () => {
-      setLoading(true);
-      setPatientsData([]);
-      setIsSynchronizing(false);
+      // setLoading(true);
+      // setPatientsData([]);
+      // setIsSynchronizing(false);
+      dispatch({type: 'BLUR'});
     });
 
     let focusUnsubscribe = props.navigation.addListener(
@@ -62,13 +99,15 @@ function LocalPatientList(props) {
         let data = await AsyncStorage.getItem('savedPatientsData');
         // console.log(data);
         if (data !== null) {
-          setPatientsData(JSON.parse(data));
+          // setPatientsData(JSON.parse(data));
+          dispatch({type: 'LOAD_DATA', patientsData: JSON.parse(data)});
+        } else {
+          dispatch({type: 'LOAD_DATA'});
         }
-        setLoading(false);
       } catch (error) {
         console.log(error);
         alert('Some error occured');
-        setLoading(false);
+        dispatch({type: 'LOAD_DATA'});
       }
     }
 
@@ -84,28 +123,32 @@ function LocalPatientList(props) {
       props.navigation.navigate('Login');
     } else {
       try {
-        setIsSynchronizing(true);
+        // setIsSynchronizing(true);
+        dispatch({type: 'START_SYNC'});
         let dataToSync = patientsData;
         for (let i = dataToSync.length - 1; i >= 0; i--) {
           await new Promise((resolve) => setTimeout(resolve, 800));
           dataToSync.pop();
-          setPatientsData(dataToSync);
+          // setPatientsData(dataToSync);
         }
         await AsyncStorage.setItem(
           'savedPatientsData',
           JSON.stringify(dataToSync),
         );
         setPatientsData(dataToSync);
-        setIsSynchronizing(false);
+        // setIsSynchronizing(false);
+        dispatch({type: 'STOP_SYNC'});
       } catch (error) {
         alert('Failed to upload');
       }
     }
   };
 
-  if (loading) {
+  console.log('Rendering LocalPatientList');
+
+  if (state.loading) {
     return <SplashScreen />;
-  } else if (patientsData.length === 0) {
+  } else if (state.patientsData.length === 0) {
     return (
       <View style={styles.contentScreen}>
         <Text style={styles.text}>Nothing here...</Text>
@@ -115,7 +158,7 @@ function LocalPatientList(props) {
     return (
       <View style={styles.MainContainer}>
         <ScrollView>
-          {patientsData.map((patient, i) => {
+          {state.patientsData.map((patient, i) => {
             return (
               <Card key={i} style={styles.card}>
                 <Text style={styles.cardTitle}>

@@ -10,6 +10,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 const HomeStack = createStackNavigator();
 
 function HomeStackScreen({navigation, navHeaderStyles}) {
+  console.log('Rendering HomeStackScreen');
   return (
     <HomeStack.Navigator screenOptions={navHeaderStyles}>
       <HomeStack.Screen
@@ -64,6 +65,7 @@ class HomeScreen extends Component {
   };
 
   render() {
+    console.log('Rendering HomeScreen');
     return (
       <ScrollView>
         <Image source={require('../assets/images/5.png')} style={styles.logo} />
