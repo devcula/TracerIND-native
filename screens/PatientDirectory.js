@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import {View, ScrollView, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Image } from 'react-native';
-//import { SearchBar } from 'react-native-elements';
-import { Card } from 'react-native-elements';
-import { Searchbar } from 'react-native-paper';
-import { createStackNavigator } from '@react-navigation/stack';
+import {Card} from 'react-native-elements';
+import {Searchbar} from 'react-native-paper';
+import {createStackNavigator} from '@react-navigation/stack';
 import AuthContext from '../components/AuthContext';
 import axios from 'axios';
 import URI from '../components/URI';
+import SplashScreen from './SplashScreen';
 
 const DirectoryStack = createStackNavigator();
 
-function DirectoryStackScreen({ navigation, navHeaderStyles }) {
+function DirectoryStackScreen({navigation, navHeaderStyles}) {
   return (
     <DirectoryStack.Navigator screenOptions={navHeaderStyles}>
       <DirectoryStack.Screen
@@ -35,14 +34,6 @@ function DirectoryStackScreen({ navigation, navHeaderStyles }) {
   );
 }
 
-// function PatientDirectory() {
-//   return (
-//     <View style={styles.contentScreen}>
-//       <Text style={styles.text}>Patient Directory</Text>
-//     </View>
-//   );
-// }
-
 class PatientDirectory extends Component {
   constructor() {
     super();
@@ -50,91 +41,121 @@ class PatientDirectory extends Component {
       data: '',
       searchQuery: '',
       patientDetails: [],
-      villageList: []
+      villageList: [],
+      isLoading: true,
     };
   }
 
   patientList = () => {
-    if (this.state.searchQuery.length == 0) {
-      return this.state.patientDetails.map(element => {
+    if (this.state.searchQuery.length === 0) {
+      return this.state.patientDetails.map((element, i) => {
         return (
-          <View style={{ margin: 10 }}>
+          <View style={{margin: 10}} key={i}>
             <Text>{element.name}</Text>
             <Text>{element.phone}</Text>
           </View>
         );
       });
-    }
-    else {
-      return this.state.patientDetails.filter(person => person.name.toLowerCase().includes(this.state.searchQuery.toLowerCase())).map(
-        item => {
+    } else {
+      return this.state.patientDetails
+        .filter((person) =>
+          person.name
+            .toLowerCase()
+            .includes(this.state.searchQuery.toLowerCase()),
+        )
+        .map((item, i) => {
           return (
-            <View>
+            <View style={{margin: 10}} key={i}>
               <Text>{item.name}</Text>
               <Text>{item.phone}</Text>
             </View>
           );
-        }
-      )
+        });
     }
   };
 
   getVillageNameFromId = (id) => {
     // console.log("Id received " + id);
-    let { villageList } = this.state;
+    let {villageList} = this.state;
     if (villageList.length > 0) {
-        for (let i = 0; i < villageList.length; i++) {
-            if (villageList[i].village_id === id) {
-                return villageList[i].name;
-            }
+      for (let i = 0; i < villageList.length; i++) {
+        if (villageList[i].village_id === id) {
+          return villageList[i].name;
         }
+      }
     }
-}
-
-  onChangeSearch = query => {
-    this.setState({ searchQuery: query });
   };
 
+  onChangeSearch = (query) => {
+    this.setState({searchQuery: query});
+  };
 
-  componentDidMount = () => {
-    const token = this.context.userToken.token
+  fetchData = () => {
+    const token = this.context.userToken.token;
 
-    console.log(token)
-    axios.get(URI + 'GetAllPatient/', { headers: { "Authorization": `JWT ${token}` } })
-      .then(response => {
-        console.log(response)
-        this.setState({ patientDetails: response.data });
+    // console.log(token);
+    axios
+      .get(URI + 'GetAllPatient/', {headers: {Authorization: `JWT ${token}`}})
+      .then((response) => {
         // console.log(response);
-        axios.get(URI + 'GetAllVillage/', { headers: { "Authorization": `JWT ${token}` } })
-          .then(responseVillage => {
-            this.setState({ villageList: responseVillage.data });
-            console.log(responseVillage)
+        this.setState({patientDetails: response.data});
+        // console.log(response);
+        axios
+          .get(URI + 'GetAllVillage/', {
+            headers: {Authorization: `JWT ${token}`},
           })
-          .catch(err => {
+          .then((responseVillage) => {
+            this.setState({
+              villageList: responseVillage.data,
+              isLoading: false,
+            });
+            // console.log(responseVillage);
+          })
+          .catch((err) => {
             console.log(err);
           });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
-      })
+      });
+  };
+
+  componentDidMount = () => {
+    this.unsubscribeFocus = this.props.navigation.addListener(
+      'focus',
+      this.fetchData,
+    );
+    this.unsubscribeBlur = this.props.navigation.addListener('blur', () => {
+      this.setState({
+        data: '',
+        searchQuery: '',
+        patientDetails: [],
+        villageList: [],
+        isLoading: true,
+      });
+    });
+  };
+
+  componentWillUnmount = () => {
+    this.unsubscribeFocus();
+    this.unsubscribeBlur();
   };
 
   render() {
-    const { search } = this.state;
-    let structuredData = []
-    console.log(this.state.patientDetails)
-    console.log("After patient details")
-
+    // console.log(this.state.patientDetails);
+    // console.log('After patient details');
+    if (this.state.isLoading) {
+      return <SplashScreen />;
+    }
     return (
       <View>
         <Searchbar
-          placeholder="Enter patient name"
+          placeholder="Search by name"
           onChangeText={this.onChangeSearch}
           value={this.state.searchQuery}
         />
 
         <ScrollView>{this.patientList()}</ScrollView>
-
       </View>
     );
   }
