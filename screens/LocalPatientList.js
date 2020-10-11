@@ -107,7 +107,7 @@ function LocalPatientList(props) {
       blurUnsubscribe();
       focusUnsubscribe();
     };
-  }, []);
+  });
 
   const syncDataToCloud = async () => {
     // console.log(props);

@@ -7,6 +7,7 @@ class BloodProfile extends React.Component {
   constructor() {
     super();
   }
+
   render() {
     console.log('Rendering BloodProfile');
     return (
@@ -153,7 +154,9 @@ class BloodProfile extends React.Component {
             <Button
               style={styles.buttons}
               mode="contained"
-              onPress={() => this.props.navigation.goBack()}>
+              onPress={() =>
+                this.context.saveDataToParent({formName: 'ObservationsForm'})
+              }>
               Previous
             </Button>
           </View>
@@ -162,7 +165,9 @@ class BloodProfile extends React.Component {
             <Button
               style={styles.buttons}
               mode="contained"
-              onPress={() => this.props.navigation.navigate('TestDetailsForm')}>
+              onPress={() =>
+                this.context.saveDataToParent({formName: 'TestDetailsForm'})
+              }>
               Next
             </Button>
           </View>

@@ -8,6 +8,7 @@ class Observations extends React.Component {
   constructor() {
     super();
   }
+
   render() {
     console.log('Rendering Observations');
     return (
@@ -190,7 +191,9 @@ class Observations extends React.Component {
             <Button
               style={styles.buttons}
               mode="contained"
-              onPress={() => this.props.navigation.goBack()}>
+              onPress={() =>
+                this.context.saveDataToParent({formName: 'BasicDetailsForm'})
+              }>
               Previous
             </Button>
           </View>
@@ -200,7 +203,7 @@ class Observations extends React.Component {
               style={styles.buttons}
               mode="contained"
               onPress={() =>
-                this.props.navigation.navigate('BloodProfileForm')
+                this.context.saveDataToParent({formName: 'BloodProfileForm'})
               }>
               Next
             </Button>

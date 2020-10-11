@@ -98,7 +98,7 @@ class TestDetails extends React.Component {
   render() {
     console.log('Rendering TestDetails');
     return (
-      <ScrollView contentContainerStyle={styles.contentScreen}>
+      <ScrollView>
         <View>
           <Text style={styles.text}>Test Details</Text>
         </View>
@@ -212,15 +212,29 @@ class TestDetails extends React.Component {
 
         {this.kidneyCheck()}
         {this.patientTypeCheck()}
+        <View style={styles.buttonView}>
+          <View style={{flex: 1}}>
+            <Button
+              style={styles.buttons}
+              mode="contained"
+              onPress={() =>
+                this.context.saveDataToParent({formName: 'BloodProfileForm'})
+              }>
+              Previous
+            </Button>
+          </View>
 
-        <Button mode="contained" onPress={() => this.props.navigation.goBack()}>
-          Previous
-        </Button>
-        <Button
-          mode="contained"
-          onPress={() => this.props.navigation.navigate('HospitalDetailsForm')}>
-          Next
-        </Button>
+          <View style={{flex: 1}}>
+            <Button
+              style={styles.buttons}
+              mode="contained"
+              onPress={() =>
+                this.context.saveDataToParent({formName: 'HospitalDetailsForm'})
+              }>
+              Next
+            </Button>
+          </View>
+        </View>
       </ScrollView>
     );
   }

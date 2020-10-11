@@ -402,7 +402,7 @@ class BasicDetails extends React.Component {
               style={styles.button}
               mode="contained"
               onPress={() =>
-                this.props.navigation.navigate('ObservationsForm')
+                this.context.saveDataToParent({formName: 'ObservationsForm'})
               }>
               Next
             </Button>

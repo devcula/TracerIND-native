@@ -4,11 +4,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-import BasicDetails from './PatientForms/BasicDetails';
-import BloodProfile from './PatientForms/BloodProfile';
-import TestDetails from './PatientForms/TestDetails';
-import Observations from './PatientForms/Observations';
-import HospitalDetails from './PatientForms/HospitalDetails';
+// import BasicDetails from './PatientForms/BasicDetails';
+// import BloodProfile from './PatientForms/BloodProfile';
+// import TestDetails from './PatientForms/TestDetails';
+// import Observations from './PatientForms/Observations';
+// import HospitalDetails from './PatientForms/HospitalDetails';
+import MainForm from './MainForm';
 
 import PatientContext from '../components/PatientContext';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -17,8 +18,8 @@ import initialState from '../components/InitialPatientData';
 const AddPatientStack = createStackNavigator();
 
 class AddPatientStackScreen extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       pkid: this.generatePkid(32),
       ...initialState,
@@ -226,6 +227,21 @@ class AddPatientStackScreen extends React.Component {
         }}>
         <AddPatientStack.Navigator screenOptions={navHeaderStyles}>
           <AddPatientStack.Screen
+            name="MainForm"
+            options={{
+              title: 'Add new Patient',
+              headerLeft: () => (
+                <Icon.Button
+                  name="ios-menu"
+                  size={25}
+                  backgroundColor="#14213D"
+                  onPress={() => navigation.openDrawer()}
+                />
+              ),
+            }}>
+            {(props) => <MainForm {...props} formName={this.state.formName} />}
+          </AddPatientStack.Screen>
+          {/* <AddPatientStack.Screen
             name="BasicDetailsForm"
             component={BasicDetails}
             options={{
@@ -299,7 +315,7 @@ class AddPatientStackScreen extends React.Component {
                 />
               ),
             }}
-          />
+          /> */}
         </AddPatientStack.Navigator>
       </PatientContext.Provider>
     );
