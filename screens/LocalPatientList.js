@@ -42,10 +42,6 @@ function LocalPatientListStackScreen({navigation, navHeaderStyles, userToken}) {
 }
 
 function LocalPatientList(props) {
-  let [patientsData, setPatientsData] = React.useState([]);
-  let [loading, setLoading] = React.useState(true);
-  let [isSynchronizing, setIsSynchronizing] = React.useState(false);
-
   const [state, dispatch] = React.useReducer(
     (prevState, action) => {
       switch (action.type) {
@@ -83,9 +79,6 @@ function LocalPatientList(props) {
 
   React.useEffect(() => {
     let blurUnsubscribe = props.navigation.addListener('blur', () => {
-      // setLoading(true);
-      // setPatientsData([]);
-      // setIsSynchronizing(false);
       dispatch({type: 'BLUR'});
     });
 
@@ -99,7 +92,6 @@ function LocalPatientList(props) {
         let data = await AsyncStorage.getItem('savedPatientsData');
         // console.log(data);
         if (data !== null) {
-          // setPatientsData(JSON.parse(data));
           dispatch({type: 'LOAD_DATA', patientsData: JSON.parse(data)});
         } else {
           dispatch({type: 'LOAD_DATA'});
@@ -123,20 +115,17 @@ function LocalPatientList(props) {
       props.navigation.navigate('Login');
     } else {
       try {
-        // setIsSynchronizing(true);
         dispatch({type: 'START_SYNC'});
-        let dataToSync = patientsData;
+        let dataToSync = state.patientsData;
         for (let i = dataToSync.length - 1; i >= 0; i--) {
           await new Promise((resolve) => setTimeout(resolve, 800));
           dataToSync.pop();
-          // setPatientsData(dataToSync);
         }
         await AsyncStorage.setItem(
           'savedPatientsData',
           JSON.stringify(dataToSync),
         );
-        setPatientsData(dataToSync);
-        // setIsSynchronizing(false);
+        dispatch({type: 'LOAD_DATA', patientsData: dataToSync});
         dispatch({type: 'STOP_SYNC'});
       } catch (error) {
         alert('Failed to upload');
@@ -173,7 +162,7 @@ function LocalPatientList(props) {
           activeOpacity={0.7}
           style={styles.TouchableOpacityStyle}>
           <Button
-            loading={isSynchronizing}
+            loading={state.isSynchronizing}
             mode="contained"
             icon="sync"
             style={styles.FloatingButtonStyle}

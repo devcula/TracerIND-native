@@ -1,6 +1,6 @@
 import React from 'react';
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
-import { Button, TextInput, RadioButton } from 'react-native-paper';
+import {ScrollView, View, Text, StyleSheet} from 'react-native';
+import {Button, TextInput, RadioButton} from 'react-native-paper';
 import PatientContext from '../../components/PatientContext';
 
 class TestDetails extends React.Component {
@@ -11,23 +11,23 @@ class TestDetails extends React.Component {
   kidneyCheck = () => {
     if (this.context.getValue('kidneystatus') === 'abnormal') {
       return (
-        <ScrollView >
+        <ScrollView>
           <TextInput
             style={styles.textinput}
             value={this.context.getValue('ailments')}
             label="Specify the Ailments"
             onChangeText={(value) => {
-              this.context.saveDataToParent({ ailments: value });
+              this.context.saveDataToParent({ailments: value});
             }}
           />
           <View style={styles.rowFlex}>
             <View style={styles.contentScreen}>
               <Text style={styles.inputLabel}>Need for Dialysis :</Text>
             </View>
-            <View style={[styles.rowFlex, { flex: 2 }]}>
+            <View style={[styles.rowFlex, {flex: 2}]}>
               <RadioButton.Group
                 onValueChange={(value) =>
-                  this.context.saveDataToParent({ dialysis: value })
+                  this.context.saveDataToParent({dialysis: value})
                 }
                 value={this.context.getValue('dialysis')}>
                 <View style={styles.contentScreen}>
@@ -45,10 +45,10 @@ class TestDetails extends React.Component {
             <View style={styles.contentScreen}>
               <Text style={styles.inputLabel}>Need for doctor :</Text>
             </View>
-            <View style={[styles.rowFlex, { flex: 2 }]}>
+            <View style={[styles.rowFlex, {flex: 2}]}>
               <RadioButton.Group
                 onValueChange={(value) =>
-                  this.context.saveDataToParent({ doctorreq: value })
+                  this.context.saveDataToParent({doctorreq: value})
                 }
                 value={this.context.getValue('doctorreq')}>
                 <View style={styles.contentScreen}>
@@ -63,37 +63,37 @@ class TestDetails extends React.Component {
             </View>
           </View>
         </ScrollView>
-      )
+      );
     }
-  }
+  };
 
   patientTypeCheck = () => {
-  if(this.context.getValue('doctorreq') === 'true'){
-    return(
-      <View style={styles.rowFlex}>
-      <View style={styles.contentScreen}>
-        <Text style={styles.inputLabel}>Need for Dialysis :</Text>
-      </View>
-      <View style={[styles.rowFlex, { flex: 2 }]}>
-        <RadioButton.Group
-          onValueChange={(value) =>
-            this.context.saveDataToParent({ opd: value })
-          }
-          value={this.context.getValue('dialysis')}>
+    if (this.context.getValue('doctorreq') === 'true') {
+      return (
+        <View style={styles.rowFlex}>
           <View style={styles.contentScreen}>
-            <Text>IP</Text>
-            <RadioButton color="#14213D" value="true" />
+            <Text style={styles.inputLabel}>Need for Dialysis :</Text>
           </View>
-          <View style={styles.contentScreen}>
-            <Text>OP</Text>
-            <RadioButton color="#14213D" value="false" />
+          <View style={[styles.rowFlex, {flex: 2}]}>
+            <RadioButton.Group
+              onValueChange={(value) =>
+                this.context.saveDataToParent({opd: value})
+              }
+              value={this.context.getValue('dialysis')}>
+              <View style={styles.contentScreen}>
+                <Text>IP</Text>
+                <RadioButton color="#14213D" value="true" />
+              </View>
+              <View style={styles.contentScreen}>
+                <Text>OP</Text>
+                <RadioButton color="#14213D" value="false" />
+              </View>
+            </RadioButton.Group>
           </View>
-        </RadioButton.Group>
-      </View>
-    </View>
-    )
-  }
-  }
+        </View>
+      );
+    }
+  };
 
   render() {
     console.log('Rendering TestDetails');
@@ -108,7 +108,7 @@ class TestDetails extends React.Component {
           label="Serum Creatinine (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({ serumCreatinine: value });
+            this.context.saveDataToParent({serumCreatinine: value});
           }}
           style={styles.textinput}
         />
@@ -118,7 +118,7 @@ class TestDetails extends React.Component {
           label="Blood Urea (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({ bloodUrea: value });
+            this.context.saveDataToParent({bloodUrea: value});
           }}
           style={styles.textinput}
         />
@@ -128,7 +128,7 @@ class TestDetails extends React.Component {
           label="Sodium (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({ uricAcid: value });
+            this.context.saveDataToParent({uricAcid: value});
           }}
           style={styles.textinput}
         />
@@ -141,7 +141,7 @@ class TestDetails extends React.Component {
           label="Potassium (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({ electrolytes_sodium: value });
+            this.context.saveDataToParent({electrolytes_sodium: value});
           }}
           style={styles.textinput}
         />
@@ -151,7 +151,7 @@ class TestDetails extends React.Component {
           label="BUN (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({ electrolytes_potassium: value });
+            this.context.saveDataToParent({electrolytes_potassium: value});
           }}
           style={styles.textinput}
         />
@@ -161,7 +161,7 @@ class TestDetails extends React.Component {
           label="Uric Acid (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({ bun: value });
+            this.context.saveDataToParent({bun: value});
           }}
           style={styles.textinput}
         />
@@ -170,10 +170,10 @@ class TestDetails extends React.Component {
           <View style={styles.contentScreen}>
             <Text style={styles.inputLabel}>Pedal Edema :</Text>
           </View>
-          <View style={[styles.rowFlex, { flex: 2 }]}>
+          <View style={[styles.rowFlex, {flex: 2}]}>
             <RadioButton.Group
               onValueChange={(value) =>
-                this.context.saveDataToParent({ pedalEdema: value })
+                this.context.saveDataToParent({pedalEdema: value})
               }
               value={this.context.getValue('pedalEdema')}>
               <View style={styles.contentScreen}>
@@ -192,10 +192,10 @@ class TestDetails extends React.Component {
           <View style={styles.contentScreen}>
             <Text style={styles.inputLabel}>Kidney Status :</Text>
           </View>
-          <View style={[styles.rowFlex, { flex: 2 }]}>
+          <View style={[styles.rowFlex, {flex: 2}]}>
             <RadioButton.Group
               onValueChange={(value) =>
-                this.context.saveDataToParent({ kidneystatus: value })
+                this.context.saveDataToParent({kidneystatus: value})
               }
               value={this.context.getValue('kidneystatus')}>
               <View style={styles.contentScreen}>
@@ -209,10 +209,10 @@ class TestDetails extends React.Component {
             </RadioButton.Group>
           </View>
         </View>
-        
+
         {this.kidneyCheck()}
         {this.patientTypeCheck()}
-          
+
         <Button mode="contained" onPress={() => this.props.navigation.goBack()}>
           Previous
         </Button>
