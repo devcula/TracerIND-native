@@ -4,17 +4,14 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-// import BasicDetails from './PatientForms/BasicDetails';
-// import BloodProfile from './PatientForms/BloodProfile';
-// import TestDetails from './PatientForms/TestDetails';
-// import Observations from './PatientForms/Observations';
-// import HospitalDetails from './PatientForms/HospitalDetails';
 import MainForm from './MainForm';
 
 import PatientContext from '../components/PatientContext';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import initialState from '../components/InitialPatientData';
+import {Alert, BackHandler} from 'react-native';
+
 const AddPatientStack = createStackNavigator();
 
 class AddPatientStackScreen extends React.Component {
@@ -25,6 +22,22 @@ class AddPatientStackScreen extends React.Component {
       ...initialState,
     };
   }
+
+  backAction = () => {
+    Alert.alert(
+      'All changes will be lost!',
+      'Are you sure you want to go back?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => null,
+          style: 'cancel',
+        },
+        {text: 'YES', onPress: () => this.props.navigation.goBack()},
+      ],
+    );
+    return true;
+  };
 
   generatePkid = (length) => {
     var result = '';
@@ -57,13 +70,24 @@ class AddPatientStackScreen extends React.Component {
   };
 
   componentDidMount() {
-    this._unsubscribe = this.props.navigation.addListener('blur', () => {
+    this._unsubscribeBlur = this.props.navigation.addListener('blur', () => {
       this.reset();
+      BackHandler.removeEventListener('hardwareBackPress', this.backAction);
+    });
+    //Platform independent back button functionality but not working
+    // this.props.navigation.addListener('beforeRemove', (e) => {
+    //   e.preventDefault();
+    //   return () => {};
+    // });
+    this._unsubscribeFocus = this.props.navigation.addListener('focus', () => {
+      //Android only custom back button functionality
+      BackHandler.addEventListener('hardwareBackPress', this.backAction);
     });
   }
 
   componentWillUnmount() {
-    this._unsubscribe();
+    this._unsubscribeBlur();
+    this._unsubscribeFocus();
   }
 
   reset = () => {
@@ -241,97 +265,10 @@ class AddPatientStackScreen extends React.Component {
             }}>
             {(props) => <MainForm {...props} formName={this.state.formName} />}
           </AddPatientStack.Screen>
-          {/* <AddPatientStack.Screen
-            name="BasicDetailsForm"
-            component={BasicDetails}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          />
-          <AddPatientStack.Screen
-            name="ObservationsForm"
-            component={Observations}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          />
-          <AddPatientStack.Screen
-            name="BloodProfileForm"
-            component={BloodProfile}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          />
-          <AddPatientStack.Screen
-            name="TestDetailsForm"
-            component={TestDetails}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          />
-          <AddPatientStack.Screen
-            name="HospitalDetailsForm"
-            component={HospitalDetails}
-            options={{
-              title: 'Add new Patient',
-              headerLeft: () => (
-                <Icon.Button
-                  name="ios-menu"
-                  size={25}
-                  backgroundColor="#14213D"
-                  onPress={() => navigation.openDrawer()}
-                />
-              ),
-            }}
-          /> */}
         </AddPatientStack.Navigator>
       </PatientContext.Provider>
     );
   }
 }
-
-// const styles = StyleSheet.create({
-//   contentScreen: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   text: {
-//     fontWeight: 'bold',
-//     fontSize: 30,
-//   },
-// });
 
 export default AddPatientStackScreen;
