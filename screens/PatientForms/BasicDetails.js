@@ -108,7 +108,7 @@ class BasicDetails extends React.Component {
               }}
             />
           </View>
-          <View>
+          <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('mandal')}
               onValueChange={(itemValue, itemIndex) => {
@@ -123,7 +123,7 @@ class BasicDetails extends React.Component {
               })}
             </Picker>
           </View>
-          <View>
+          <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('phc')}
               onValueChange={(itemValue, itemIndex) => {
@@ -138,7 +138,7 @@ class BasicDetails extends React.Component {
               })}
             </Picker>
           </View>
-          <View>
+          <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('village_sec')}
               onValueChange={(itemValue, itemIndex) => {
@@ -157,7 +157,7 @@ class BasicDetails extends React.Component {
               })}
             </Picker>
           </View>
-          <View>
+          <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('village')}
               onValueChange={(itemValue, itemIndex) => {
@@ -296,6 +296,8 @@ class BasicDetails extends React.Component {
               mode="outlined"
               value={this.context.getValue('address')}
               label="Address"
+              multiline
+              numberOfLines={4}
               onChangeText={(value) => {
                 this.context.saveDataToParent({address: value});
               }}
@@ -453,6 +455,12 @@ const styles = StyleSheet.create({
   },
   button: {
     marginBottom: 10,
+  },
+  pickerView: {
+    borderColor: '#888888',
+    borderWidth: 1,
+    borderRadius: 4,
+    marginTop: 5,
   },
 });
 
