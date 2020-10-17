@@ -2,45 +2,53 @@ import React from 'react';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {Button,TextInput} from 'react-native-paper';
 import PatientContext from '../../components/PatientContext';
-import DateTimePicker from "react-native-modal-datetime-picker";
+import DatePicker from 'react-native-datepicker';
 
 class BloodProfile extends React.Component {
   constructor() {
     super();
-    this.state = {
-      isDatePickerVisible: false,
-      pickedDate: ""
-    };
+    this.state = { date: new Date() };
+
   }
-  hideDatePicker = () => {
-    this.setState({ isDatePickerVisible: false });
-  };
-  handleDatePicked = date => {
-    const mdate = date.toString().split(" ");
-    this.setState({
-      pickedDate: mdate[1] + " " + mdate[2] + ", " + mdate[3]
-    });
-    this.hideDatePicker();
-  };
-  showDatePicker = () => {
-    this.setState({ isDatePickerVisible: true });
-  };
+  onDateChangeTesting = (date) => {
+    this.setState({ date })
+    this.context.saveDataToParent({ date: date })
+  }
+ 
   render() {
-    const { date } = this.state;
+   
 
 
 
     return (
-      <ScrollView contentContainerStyle={styles.contentScreen}>
+      <ScrollView >
         
           <Text style={styles.text}>Blood Profile</Text>
           <Text style={styles.subtext}>Basic Blood Profile</Text>
-          <DateTimePicker
+          <DatePicker
+          date={this.state.date}
           mode="date"
-          isVisible={this.state.isDatePickerVisible}
-          onConfirm={this.handleDatePicked}
-          onCancel={this.hideDatePicker}
+          placeholder="date of testing"
+          format="DD-MM-YYYY"
+          minDate="01-01-2016"
+          maxDate={new Date()}
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              //display: 'none',
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0,
+            },
+            dateInput: {
+              marginLeft: 36,
+            },
+          }}
+          onDateChange={this.onDateChangeEvent}
         />
+        
 
           <TextInput
           mode="outlined"
