@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import {View, ScrollView, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {Card} from 'react-native-elements';
 import {Searchbar} from 'react-native-paper';
 import {createStackNavigator} from '@react-navigation/stack';
 import AuthContext from '../components/AuthContext';
