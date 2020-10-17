@@ -64,7 +64,7 @@ const navHeaderStyles = {
   headerTintColor: '#FFFFFF',
   headerTitleStyle: {
     fontWeight: 'bold',
-    fontStyle: 'italic',
+    letterSpacing: 1,
   },
 };
 
@@ -166,7 +166,7 @@ export default function App() {
     };
 
     bootstrapAsync();
-  }, []);
+  });
 
   const authContext = React.useMemo(
     () => ({

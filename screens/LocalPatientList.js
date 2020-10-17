@@ -13,6 +13,9 @@ import {Card} from 'react-native-elements';
 import {Button} from 'react-native-paper';
 import SplashScreen from './SplashScreen';
 
+import axios from 'axios';
+import URI from '../components/URI';
+
 import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -118,8 +121,24 @@ function LocalPatientList(props) {
         dispatch({type: 'START_SYNC'});
         let dataToSync = state.patientsData;
         for (let i = dataToSync.length - 1; i >= 0; i--) {
-          await new Promise((resolve) => setTimeout(resolve, 800));
-          dataToSync.pop();
+          await new Promise((resolve) => {
+            axios
+              .post(URI + 'AddPatient/', dataToSync[i], {
+                headers: {Authorization: props.userToken.token},
+              })
+              .then((response) => {
+                if (response.status === 200) {
+                  return response.data;
+                }
+              })
+              .then((data) => {
+                //Do some manipulation with data if needed
+                if (dataToSync[i].pkid === data.pkid) {
+                  dataToSync.splice(i, 1);
+                }
+                resolve();
+              });
+          });
         }
         await AsyncStorage.setItem(
           'savedPatientsData',

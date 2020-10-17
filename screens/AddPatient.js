@@ -14,6 +14,9 @@ import {Alert, BackHandler} from 'react-native';
 
 const AddPatientStack = createStackNavigator();
 
+const CryptoJS = require('crypto-js');
+import {CIPHER_KEY} from 'react-native-dotenv';
+
 class AddPatientStackScreen extends React.Component {
   constructor() {
     super();
@@ -94,6 +97,13 @@ class AddPatientStackScreen extends React.Component {
     this.setState({pkid: this.generatePkid(32), ...initialState});
   };
 
+  getEncryptedAdhaar = () => {
+    let decryptedAdhaar =
+      this.state.adhaarFirst + this.state.adhaarSecond + this.state.adhaarThird;
+    let encryptedAdhaar = CryptoJS.AES.encrypt(decryptedAdhaar, CIPHER_KEY);
+    return encryptedAdhaar;
+  };
+
   savePatient = async (successCallback, failedCallback) => {
     let opdCheck = false;
     let dialysisCheck = false;
@@ -127,7 +137,7 @@ class AddPatientStackScreen extends React.Component {
     }
     let dataToSave = {
       pkid: this.state.pkid,
-      adhaar: '',
+      adhaar: this.getEncryptedAdhaar(),
       mandal: this.state.mandal,
       phc: this.state.phc,
       villagesec: this.state.village_sec,
