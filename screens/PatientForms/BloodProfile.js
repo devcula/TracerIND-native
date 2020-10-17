@@ -1,56 +1,70 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet} from 'react-native';
-import {Button,TextInput} from 'react-native-paper';
+import {ScrollView, View, Text, StyleSheet, Platform} from 'react-native';
+import {Button, TextInput} from 'react-native-paper';
 import PatientContext from '../../components/PatientContext';
-import DatePicker from 'react-native-datepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class BloodProfile extends React.Component {
   constructor() {
     super();
-    this.state = { date: new Date() };
+    this.state = {showDatePicker: false};
+  }
+  onDateChange = (event, selectedDate) => {
+    this.setState({showDatePicker: false});
+    if (selectedDate) {
+      this.context.saveDataToParent({
+        dateOfBloodTest: `${selectedDate.getFullYear()}-${
+          selectedDate.getMonth() + 1
+        }-${selectedDate.getDate()}`,
+      });
+    }
+  };
 
-  }
-  onDateChangeTesting = (date) => {
-    this.setState({ date })
-    this.context.saveDataToParent({ date: date })
-  }
- 
   render() {
-   
-
-
-
     return (
-      <ScrollView >
-        
-          <Text style={styles.text}>Blood Profile</Text>
-          <Text style={styles.subtext}>Basic Blood Profile</Text>
-          <DatePicker
-          date={this.state.date}
-          mode="date"
-          placeholder="date of testing"
-          format="DD-MM-YYYY"
-          minDate="01-01-2016"
-          maxDate={new Date()}
-          confirmBtnText="Confirm"
-          cancelBtnText="Cancel"
-          customStyles={{
-            dateIcon: {
-              //display: 'none',
-              position: 'absolute',
-              left: 0,
-              top: 4,
-              marginLeft: 0,
-            },
-            dateInput: {
-              marginLeft: 36,
-            },
-          }}
-          onDateChange={this.onDateChangeEvent}
-        />
-        
-
-          <TextInput
+      <ScrollView>
+        <Text style={styles.text}>Blood Profile</Text>
+        <Text style={styles.subtext}>Basic Blood Profile</Text>
+        <View>
+          <View>
+            <Text style={styles.inputLabel}>Date of Testing</Text>
+          </View>
+          <View style={{flex: 1, flexDirection: 'row'}}>
+            <View style={{flex: 3}}>
+              <TextInput
+                mode="flat"
+                value={this.context.getValue('dateOfBloodTest')}
+                disabled
+                style={styles.textinput}
+              />
+            </View>
+            <View
+              style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+              <Button
+                onPress={() => {
+                  this.setState({showDatePicker: true});
+                }}>
+                <Icon name="calendar" color={'#000000'} size={30} />
+              </Button>
+            </View>
+          </View>
+        </View>
+        {this.state.showDatePicker && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={
+              this.context.getValue('dateOfBloodTest')
+                ? new Date(this.context.getValue('dateOfBloodTest'))
+                : new Date()
+            }
+            mode={'date'}
+            is24Hour={true}
+            display="default"
+            onChange={this.onDateChange}
+          />
+        )}
+        <TextInput
           mode="outlined"
           value={this.context.getValue('wbc')}
           label="Total WBC Count(K/microL)"
@@ -59,7 +73,7 @@ class BloodProfile extends React.Component {
           }}
           style={styles.textinput}
         />
-                <TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('haemoglobin')}
           label="Haemoglobin (g/dL)"
@@ -67,9 +81,8 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({haemoglobin: value});
           }}
           style={styles.textinput}
-
         />
-                <TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('pcv')}
           label="Packed Cell Volume (%)"
@@ -77,9 +90,8 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({pcv: value});
           }}
           style={styles.textinput}
-
         />
-                  <TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('rbc')}
           label="Total RBC Count (mill/mm3)"
@@ -88,7 +100,7 @@ class BloodProfile extends React.Component {
           }}
           style={styles.textinput}
         />
-                            <TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('mcv')}
           label="MCV (fL)"
@@ -96,10 +108,9 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({mcv: value});
           }}
           style={styles.textinput}
-
         />
 
-<TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('mch')}
           label="MCH (g)"
@@ -107,9 +118,8 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({mch: value});
           }}
           style={styles.textinput}
-
         />
-              <TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('mchc')}
           label="MCHC (g/dL)"
@@ -117,18 +127,9 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({mchc: value});
           }}
           style={styles.textinput}
-
         />
 
-            
-
-
-
-
-
-
-
-<TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('mchc')}
           label="MCHC (g/dL)"
@@ -136,9 +137,8 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({mchc: value});
           }}
           style={styles.textinput}
-
         />
-          <TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('rdw')}
           label="Red Cell Distotion Width (%)"
@@ -146,9 +146,8 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({rdw: value});
           }}
           style={styles.textinput}
-
         />
-            <TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('platelet')}
           label="Platelet Count (K/microL)"
@@ -156,9 +155,8 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({platelet: value});
           }}
           style={styles.textinput}
-
         />
-                
+
         <Text style={styles.subtext}>Differential Count</Text>
         <TextInput
           mode="outlined"
@@ -168,9 +166,8 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({monocytes: value});
           }}
           style={styles.textinput}
-
         />
-          <TextInput
+        <TextInput
           mode="outlined"
           value={this.context.getValue('lymphocytes')}
           label="lymphocytes"
@@ -178,68 +175,82 @@ class BloodProfile extends React.Component {
             this.context.saveDataToParent({lymphocytes: value});
           }}
           style={styles.textinput}
-
         />
-          <TextInput
-          
+        <TextInput
+          mode="outlined"
           value={this.context.getValue('eosinophils:')}
           label="Eosinophils:"
           onChangeText={(value) => {
             this.context.saveDataToParent({eosinophils: value});
           }}
           style={styles.textinput}
-
         />
-  
-      
-  
+        <View style={styles.buttonView}>
+          <View style={{flex: 1}}>
+            <Button
+              style={styles.buttons}
+              mode="contained"
+              onPress={() =>
+                this.context.saveDataToParent({formName: 'ObservationsForm'})
+              }>
+              Previous
+            </Button>
+          </View>
 
-
-
-
-        <Button mode="contained" onPress={() => this.props.navigation.goBack()}>
-          Previous
-        </Button>
-        <Button
-          mode="contained"
-          onPress={() => this.props.navigation.navigate('TestDetailsForm')}>
-          Next
-        </Button>
+          <View style={{flex: 1}}>
+            <Button
+              style={styles.buttons}
+              mode="contained"
+              onPress={() =>
+                this.context.saveDataToParent({formName: 'TestDetailsForm'})
+              }>
+              Next
+            </Button>
+          </View>
+        </View>
       </ScrollView>
     );
   }
 }
 BloodProfile.contextType = PatientContext;
 
-
 const styles = StyleSheet.create({
   contentScreen: {
     flex: 1,
     // alignItems: 'center',
     // justifyContent: 'center',
-   
   },
   text: {
     fontWeight: 'bold',
     fontSize: 30,
-    marginTop:20,
-    marginLeft:10,
+    marginTop: 20,
+    marginLeft: 10,
   },
-  subtext:{
+  subtext: {
     fontWeight: 'bold',
     fontSize: 25,
-    marginBottom:10,
-    marginTop:20,
-    marginLeft:10,
-
+    marginBottom: 10,
+    marginTop: 20,
+    marginLeft: 10,
   },
-  textinput:{
-    marginBottom:5,
-    marginTop:5,
-    marginLeft:10,
-    marginRight:10,
-
-  }
+  textinput: {
+    marginBottom: 5,
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  buttonView: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  buttons: {
+    margin: 5,
+  },
+  inputLabel: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginHorizontal: 10,
+  },
 });
 
 export default BloodProfile;

@@ -178,6 +178,8 @@ class Observations extends React.Component {
         </View>
         <View>
           <TextInput
+            multiline
+            numberOfLines={4}
             style={styles.textinput}
             value={this.context.getValue('otherSymptoms')}
             label="Other Symptoms"

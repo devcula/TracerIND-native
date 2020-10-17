@@ -137,6 +137,10 @@ function LocalPatientList(props) {
                   dataToSync.splice(i, 1);
                 }
                 resolve();
+              })
+              .catch((err) => {
+                console.log(err);
+                resolve();
               });
           });
         }

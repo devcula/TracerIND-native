@@ -64,7 +64,7 @@ const navHeaderStyles = {
   headerTintColor: '#FFFFFF',
   headerTitleStyle: {
     fontWeight: 'bold',
-    fontStyle: 'italic',
+    letterSpacing: 1,
   },
 };
 

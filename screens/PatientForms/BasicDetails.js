@@ -197,7 +197,7 @@ class BasicDetails extends React.Component {
               style={styles.textinput}
             />
           </View>
-          <View>
+          <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('relation')}
               onValueChange={(itemValue, itemIndex) => {
@@ -264,7 +264,7 @@ class BasicDetails extends React.Component {
               </RadioButton.Group>
             </View>
           </View>
-          <View>
+          <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('maritalstatus')}
               onValueChange={(itemValue, itemIndex) => {
@@ -304,7 +304,7 @@ class BasicDetails extends React.Component {
               style={styles.textinput}
             />
           </View>
-          <View>
+          <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('bloodgroup')}
               onValueChange={(itemValue, itemIndex) => {

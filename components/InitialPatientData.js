@@ -30,7 +30,7 @@ const initialState = {
   drinking: false,
   //Basic Details: End
   //Blood profile: Start
-  date: '',
+  dateOfBloodTest: '',
   wbc: '',
   pcv: '',
   rbc: '',
