@@ -14,6 +14,8 @@ import {Alert, BackHandler} from 'react-native';
 
 const AddPatientStack = createStackNavigator();
 
+const CryptoJS = require('crypto-js');
+
 class AddPatientStackScreen extends React.Component {
   constructor() {
     super();
@@ -67,6 +69,30 @@ class AddPatientStackScreen extends React.Component {
 
   getValue = (key) => {
     return this.state[key] === undefined ? '' : this.state[key];
+  };
+
+  getEncryptedAdhaar = () => {
+    if (
+      !(
+        this.state.adhaarFirst &&
+        this.state.adhaarSecond &&
+        this.state.adhaarThird
+      )
+    ) {
+      return '';
+    } else {
+      let decrypted =
+        this.state.adhaarFirst +
+        this.state.adhaarSecond +
+        this.state.adhaarThird;
+      let encryptedText = CryptoJS.AES.encrypt(
+        decrypted,
+        'test_cipher_key',
+      ).toString();
+      console.log(decrypted);
+      console.log(encryptedText);
+      return encryptedText;
+    }
   };
 
   componentDidMount() {
@@ -127,7 +153,7 @@ class AddPatientStackScreen extends React.Component {
     }
     let dataToSave = {
       pkid: this.state.pkid,
-      adhaar: '',
+      adhaar: this.getEncryptedAdhaar(),
       mandal: this.state.mandal,
       phc: this.state.phc,
       villagesec: this.state.village_sec,
@@ -142,21 +168,26 @@ class AddPatientStackScreen extends React.Component {
       phone: this.state.phone,
       bloodgroup: this.state.bloodgroup,
       PVTG: this.state.PVTG,
-      dateoftesting: this.state.dateoftesting ? this.state.dateoftesting : '',
-      serumCreatinine: this.state.serumCreatinine
-        ? this.state.serumCreatinine
-        : 0,
-      bloodUrea: this.state.bloodUrea ? this.state.bloodUrea : 0,
-      uricAcid: this.state.uricAcid ? this.state.uricAcid : 0,
-      electrolytes_sodium: this.state.electrolytes_sodium
-        ? this.state.electrolytes_sodium
-        : 0,
-      electrolytes_potassium: this.state.electrolytes_potassium
-        ? this.state.electrolytes_potassium
-        : 0,
-      bun: this.state.bun ? this.state.bun : 0,
       pedalEdema: this.state.pedalEdema ? this.state.pedalEdema : '',
-      pedaltype: this.state.pedalEdema === 'N' ? '' : this.state.pedaltype,
+      pedal_profile:
+        this.state.pedalEdema == 'false'
+          ? {}
+          : {
+              pedaltype: this.state.pedaltype,
+              dateoftesting: this.state.dateoftesting,
+              serumCreatinine: this.state.serumCreatinine
+                ? this.state.serumCreatinine
+                : 0,
+              bloodUrea: this.state.bloodUrea ? this.state.bloodUrea : 0,
+              uricAcid: this.state.uricAcid ? this.state.uricAcid : 0,
+              electrolytes_sodium: this.state.electrolytes_sodium
+                ? this.state.electrolytes_sodium
+                : 0,
+              electrolytes_potassium: this.state.electrolytes_potassium
+                ? this.state.electrolytes_potassium
+                : 0,
+              bun: this.state.bun ? this.state.bun : 0,
+            },
       kidneystatus:
         this.state.kidneystatus !== undefined ? this.state.kidneystatus : '',
       ailments: this.state.kidneystatus === 'good' ? '' : this.state.ailments,
@@ -175,11 +206,17 @@ class AddPatientStackScreen extends React.Component {
       dischargeStatus:
         this.state.referred === 'no' ? this.state.dischargeStatus : '',
       deceased: this.state.referred === 'no' ? this.state.deceased : false,
-      deathDate: this.state.deceased === 'yes' ? this.state.deathDate : '',
-      placeOfDeath:
-        this.state.deceased === 'yes' ? this.state.placeOfDeath : '',
-      causeOfDeath:
-        this.state.deceased === 'yes' ? this.state.causeOfDeath : '',
+      DetailsDeath:
+        this.state.deceased === 'no'
+          ? {}
+          : {
+              deathDate:
+                this.state.deceased === 'yes' ? this.state.deathDate : '',
+              placeOfDeath:
+                this.state.deceased === 'yes' ? this.state.placeOfDeath : '',
+              causeOfDeath:
+                this.state.deceased === 'yes' ? this.state.causeOfDeath : '',
+            },
       deworming: this.state.deworming ? this.state.deworming : false,
       type_data: process.env.NODE_ENV,
       opd: opdCheck,
@@ -205,17 +242,25 @@ class AddPatientStackScreen extends React.Component {
       },
       report: {},
       patient_status: 'Closed',
-      hb: this.state.haemoglobin ? this.state.haemoglobin : 0.0,
-      wbc_count: this.state.wbc ? this.state.wbc : 0.0,
-      diffrential_count: {
-        monocytes: this.state.monocytes ? this.state.monocytes : null,
-        lymphocytes: this.state.lymphocytes ? this.state.lymphocytes : null,
-        eosinophils: this.state.eosinophils ? this.state.eosinophils : null,
-      },
-      plat_count: this.state.platelet ? this.state.platelet : 0.0,
       habits: {
         smoking: this.state.smoking,
         drinking: this.state.drinking,
+      },
+      AnemiaProfile: {
+        wbc_count: this.state.wbc ? this.state.wbc : 0.0,
+        hb: this.state.haemoglobin ? this.state.haemoglobin : 0.0,
+        diffrential_count: {
+          monocytes: this.state.monocytes ? this.state.monocytes : null,
+          lymphocytes: this.state.lymphocytes ? this.state.lymphocytes : null,
+          eosinophils: this.state.eosinophils ? this.state.eosinophils : null,
+        },
+        plat_count: this.state.platelet ? this.state.platelet : 0.0,
+        pcv: this.state.pcv,
+        rbc: this.state.rbc,
+        mcv: this.state.mcv,
+        mch: this.state.mch,
+        mchc: this.state.mchc,
+        rdw: this.state.rdw,
       },
     };
     try {

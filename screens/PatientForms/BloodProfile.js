@@ -131,15 +131,6 @@ class BloodProfile extends React.Component {
 
         <TextInput
           mode="outlined"
-          value={this.context.getValue('mchc')}
-          label="MCHC (g/dL)"
-          onChangeText={(value) => {
-            this.context.saveDataToParent({mchc: value});
-          }}
-          style={styles.textinput}
-        />
-        <TextInput
-          mode="outlined"
           value={this.context.getValue('rdw')}
           label="Red Cell Distotion Width (%)"
           onChangeText={(value) => {

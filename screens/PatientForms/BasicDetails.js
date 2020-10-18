@@ -133,7 +133,7 @@ class BasicDetails extends React.Component {
               <Picker.Item label="Select PHC" value="" />
               {this.context.getValue('phcList').map((phc, i) => {
                 return (
-                  <Picker.Item label={phc.name} value={phc.PHC_id} id={i} />
+                  <Picker.Item label={phc.name} value={phc.PHC_id} key={i} />
                 );
               })}
             </Picker>
