@@ -1,6 +1,6 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet} from 'react-native';
-import {Button, TextInput, RadioButton} from 'react-native-paper';
+import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import { Button, TextInput, RadioButton } from 'react-native-paper';
 import PatientContext from '../../components/PatientContext';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 class TestDetails extends React.Component {
   constructor() {
     super();
-    this.state = {showDatePicker: false};
+    this.state = { showDatePicker: false };
   }
 
   kidneyCheck = () => {
@@ -23,17 +23,17 @@ class TestDetails extends React.Component {
             value={this.context.getValue('ailments')}
             label="Specify the Ailments"
             onChangeText={(value) => {
-              this.context.saveDataToParent({ailments: value});
+              this.context.saveDataToParent({ ailments: value });
             }}
           />
           <View style={styles.rowFlex}>
             <View style={styles.contentScreen}>
               <Text style={styles.inputLabel}>Need for Dialysis :</Text>
             </View>
-            <View style={[styles.rowFlex, {flex: 2}]}>
+            <View style={[styles.rowFlex, { flex: 2 }]}>
               <RadioButton.Group
                 onValueChange={(value) =>
-                  this.context.saveDataToParent({dialysis: value})
+                  this.context.saveDataToParent({ dialysis: value })
                 }
                 value={this.context.getValue('dialysis')}>
                 <View style={styles.contentScreen}>
@@ -51,10 +51,10 @@ class TestDetails extends React.Component {
             <View style={styles.contentScreen}>
               <Text style={styles.inputLabel}>Need for doctor :</Text>
             </View>
-            <View style={[styles.rowFlex, {flex: 2}]}>
+            <View style={[styles.rowFlex, { flex: 2 }]}>
               <RadioButton.Group
                 onValueChange={(value) =>
-                  this.context.saveDataToParent({doctorreq: value})
+                  this.context.saveDataToParent({ doctorreq: value })
                 }
                 value={this.context.getValue('doctorreq')}>
                 <View style={styles.contentScreen}>
@@ -78,14 +78,14 @@ class TestDetails extends React.Component {
       return (
         <View style={styles.rowFlex}>
           <View style={styles.contentScreen}>
-            <Text style={styles.inputLabel}>Need for Dialysis :</Text>
+            <Text style={styles.inputLabel}>Patient Type :</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 2}]}>
+          <View style={[styles.rowFlex, { flex: 2 }]}>
             <RadioButton.Group
               onValueChange={(value) =>
-                this.context.saveDataToParent({opd: value})
+                this.context.saveDataToParent({ opd: value })
               }
-              value={this.context.getValue('dialysis')}>
+              value={this.context.getValue('opd')}>
               <View style={styles.contentScreen}>
                 <Text>IP</Text>
                 <RadioButton color="#14213D" value="true" />
@@ -101,20 +101,48 @@ class TestDetails extends React.Component {
     }
   };
 
+  pedalEdemaType = () => {
+    if (this.context.getValue('pedalEdema') === 'true') {
+      return (
+        <View style={styles.rowFlex}>
+          <View style={styles.contentScreen}>
+            <Text style={styles.inputLabel}>Pedal Type :</Text>
+          </View>
+          <View style={[styles.rowFlex, { flex: 2 }]}>
+            <RadioButton.Group
+              onValueChange={(value) =>
+                this.context.saveDataToParent({ pedaltype: value })
+              }
+              value={this.context.getValue('pedaltype')}>
+              <View style={styles.contentScreen}>
+                <Text>Single Leg</Text>
+                <RadioButton color="#14213D" value="single leg" />
+              </View>
+              <View style={styles.contentScreen}>
+                <Text>Bilateral</Text>
+                <RadioButton color="#14213D" value="bilateral" />
+              </View>
+            </RadioButton.Group>
+          </View>
+        </View>
+      );
+    }
+  };
+
   onDateChange = (event, selectedDate) => {
-    this.setState({showDatePicker: false});
+    this.setState({ showDatePicker: false });
     if (selectedDate) {
       this.context.saveDataToParent({
         dateoftesting: `${selectedDate.getFullYear()}-${
           selectedDate.getMonth() + 1
-        }-${selectedDate.getDate()}`,
+          }-${selectedDate.getDate()}`,
       });
     }
   };
 
   render() {
     console.log('Rendering TestDetails');
-    const {data} = this.state;
+    const { data } = this.state;
     return (
       <ScrollView>
         <View>
@@ -124,8 +152,8 @@ class TestDetails extends React.Component {
           <View>
             <Text style={styles.inputLabel}>Date of Testing</Text>
           </View>
-          <View style={{flex: 1, flexDirection: 'row'}}>
-            <View style={{flex: 3}}>
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+            <View style={{ flex: 3 }}>
               <TextInput
                 mode="flat"
                 value={this.context.getValue('dateoftesting')}
@@ -134,10 +162,10 @@ class TestDetails extends React.Component {
               />
             </View>
             <View
-              style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+              style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
               <Button
                 onPress={() => {
-                  this.setState({showDatePicker: true});
+                  this.setState({ showDatePicker: true });
                 }}>
                 <Icon name="calendar" color={'#000000'} size={30} />
               </Button>
@@ -164,7 +192,7 @@ class TestDetails extends React.Component {
           label="Serum Creatinine (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({serumCreatinine: value});
+            this.context.saveDataToParent({ serumCreatinine: value });
           }}
           style={styles.textinput}
         />
@@ -174,7 +202,7 @@ class TestDetails extends React.Component {
           label="Blood Urea (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({bloodUrea: value});
+            this.context.saveDataToParent({ bloodUrea: value });
           }}
           style={styles.textinput}
         />
@@ -184,7 +212,7 @@ class TestDetails extends React.Component {
           label="Sodium (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({uricAcid: value});
+            this.context.saveDataToParent({ uricAcid: value });
           }}
           style={styles.textinput}
         />
@@ -197,7 +225,7 @@ class TestDetails extends React.Component {
           label="Potassium (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({electrolytes_sodium: value});
+            this.context.saveDataToParent({ electrolytes_sodium: value });
           }}
           style={styles.textinput}
         />
@@ -207,7 +235,7 @@ class TestDetails extends React.Component {
           label="BUN (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({electrolytes_potassium: value});
+            this.context.saveDataToParent({ electrolytes_potassium: value });
           }}
           style={styles.textinput}
         />
@@ -217,7 +245,7 @@ class TestDetails extends React.Component {
           label="Uric Acid (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({bun: value});
+            this.context.saveDataToParent({ bun: value });
           }}
           style={styles.textinput}
         />
@@ -226,10 +254,10 @@ class TestDetails extends React.Component {
           <View style={styles.contentScreen}>
             <Text style={styles.inputLabel}>Pedal Edema :</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 2}]}>
+          <View style={[styles.rowFlex, { flex: 2 }]}>
             <RadioButton.Group
               onValueChange={(value) =>
-                this.context.saveDataToParent({pedalEdema: value})
+                this.context.saveDataToParent({ pedalEdema: value })
               }
               value={this.context.getValue('pedalEdema')}>
               <View style={styles.contentScreen}>
@@ -243,15 +271,15 @@ class TestDetails extends React.Component {
             </RadioButton.Group>
           </View>
         </View>
-
+        {this.pedalEdemaType()}
         <View style={styles.rowFlex}>
           <View style={styles.contentScreen}>
             <Text style={styles.inputLabel}>Kidney Status :</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 2}]}>
+          <View style={[styles.rowFlex, { flex: 2 }]}>
             <RadioButton.Group
               onValueChange={(value) =>
-                this.context.saveDataToParent({kidneystatus: value})
+                this.context.saveDataToParent({ kidneystatus: value })
               }
               value={this.context.getValue('kidneystatus')}>
               <View style={styles.contentScreen}>
@@ -268,29 +296,63 @@ class TestDetails extends React.Component {
 
         {this.kidneyCheck()}
         {this.patientTypeCheck()}
-        <View style={styles.buttonView}>
-          <View style={{flex: 1}}>
-            <Button
-              style={styles.buttons}
-              mode="contained"
-              onPress={() =>
-                this.context.saveDataToParent({formName: 'BloodProfileForm'})
-              }>
-              Previous
-            </Button>
-          </View>
 
-          <View style={{flex: 1}}>
-            <Button
-              style={styles.buttons}
-              mode="contained"
-              onPress={() =>
-                this.context.saveDataToParent({formName: 'HospitalDetailsForm'})
-              }>
-              Next
+        {(() => {
+          if (this.context.getValue('opd') === 'true' && this.context.getValue('doctorreq') === 'true' && this.context.getValue('kidneystatus') === 'abnormal') {
+            return (
+              <View style={styles.buttonView}>
+                <View style={{ flex: 1 }}>
+                  <Button
+                    style={styles.buttons}
+                    mode="contained"
+                    onPress={() =>
+                      this.context.saveDataToParent({ formName: 'BloodProfileForm' })
+                    }>
+                    Previous
             </Button>
-          </View>
-        </View>
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Button
+                    style={styles.buttons}
+                    mode="contained"
+                    onPress={() =>
+                      this.context.saveDataToParent({ formName: 'HospitalDetailsForm' })
+                    }>
+                    Next
+            </Button>
+                </View>
+              </View>
+            )
+          }
+          else {
+            return (
+              <View style={styles.buttonView}>
+                <View style={{ flex: 1 }}>
+                  <Button
+                    style={styles.buttons}
+                    mode="contained"
+                    onPress={() =>
+                      this.context.saveDataToParent({ formName: 'BloodProfileForm' })
+                    }>
+                    Previous
+                                    </Button>
+                </View>
+                <Button
+                  mode="contained"
+                  style={styles.buttons}
+                  onPress={() =>
+                    this.context.submitForm(
+                      () => alert('Saved'),
+                      () => alert('Failed'),
+                    )
+                  }>
+                  Submit Form
+                                    </Button>
+              </View>
+            )
+          }
+        })()}
+
       </ScrollView>
     );
   }
