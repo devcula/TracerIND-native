@@ -231,7 +231,7 @@ class HospitalDetails extends React.Component {
                     style={styles.textinput}
                     value={this.context.getValue('treatmentDone')}
                     onChangeText={(value) => {
-                      this.context.saveDataToParent({status: value});
+                      this.context.saveDataToParent({ treatmentDone: value});
                     }}
                   />
                 </View>

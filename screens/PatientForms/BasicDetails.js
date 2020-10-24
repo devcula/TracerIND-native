@@ -74,7 +74,7 @@ class BasicDetails extends React.Component {
             <Text style={styles.text}>Basic Details</Text>
           </View>
           <View style={styles.inputLabelView}>
-            <Text style={styles.inputLabel}>Adhaar</Text>
+            <Text style={styles.inputLabel}>Adhaar (Optional)</Text>
           </View>
           <View style={styles.rowFlex}>
             <TextInput
@@ -151,7 +151,7 @@ class BasicDetails extends React.Component {
                   <Picker.Item
                     label={village_sec.name}
                     value={village_sec.villagesec_id}
-                    id={i}
+                    key={i}
                   />
                 );
               })}

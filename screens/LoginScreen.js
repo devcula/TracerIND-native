@@ -44,6 +44,7 @@ function LoginScreen(props) {
 
   function handleSignIn() {
     // console.log(URI);
+    // console.log('Inside handle sign in');
     setIsSigningIn(true);
     if (username !== '' && password !== '') {
       axios
@@ -51,6 +52,9 @@ function LoginScreen(props) {
         .then((response) => {
           if (response.status === 200) {
             return response.data;
+          } else if (response.status === 400) {
+            console.log('Invalid creds');
+            alert('Invalid Credentials');
           }
         })
         .then((user) => {
@@ -65,6 +69,7 @@ function LoginScreen(props) {
           }
         })
         .catch((error) => {
+          console.log(error);
           setIsSigningIn(false);
         });
     } else {

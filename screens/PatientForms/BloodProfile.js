@@ -169,7 +169,7 @@ class BloodProfile extends React.Component {
         />
         <TextInput
           mode="outlined"
-          value={this.context.getValue('eosinophils:')}
+          value={this.context.getValue('eosinophils')}
           label="Eosinophils:"
           onChangeText={(value) => {
             this.context.saveDataToParent({eosinophils: value});
