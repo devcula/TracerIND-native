@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import initialState from '../components/InitialPatientData';
 import {Alert, BackHandler} from 'react-native';
+import {CIPHER_KEY} from '@env';
 
 const AddPatientStack = createStackNavigator();
 
@@ -87,10 +88,10 @@ class AddPatientStackScreen extends React.Component {
         this.state.adhaarThird;
       let encryptedText = CryptoJS.AES.encrypt(
         decrypted,
-        'test_cipher_key',
+        CIPHER_KEY,
       ).toString();
-      console.log(decrypted);
-      console.log(encryptedText);
+      // console.log(decrypted);
+      // console.log(encryptedText);
       return encryptedText;
     }
   };
