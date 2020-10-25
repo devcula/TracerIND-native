@@ -151,6 +151,10 @@ class BasicDetails extends React.Component {
       Alert.alert('Missing value', 'Please Select Bloodgroup');
       return;
     }
+    if (!this.context.getValue('PVTG')) {
+      Alert.alert('Missing value', 'Please Select Caste');
+      return;
+    }
     this.context.saveDataToParent({formName: 'ObservationsForm'});
   };
 

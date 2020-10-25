@@ -18,6 +18,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import axios from 'axios';
 import URI from '../components/URI';
+const areaData = require('../assets/data/areaData.json');
 
 const LocalListStack = createStackNavigator();
 
@@ -42,6 +43,30 @@ function LocalPatientListStackScreen({navigation, navHeaderStyles, userToken}) {
       </LocalListStack.Screen>
     </LocalListStack.Navigator>
   );
+}
+
+function getVillageNameForPatient(patientData) {
+  // console.log(patientData);
+  for (let i = 0; i < areaData.length; i++) {
+    if (patientData.mandal === areaData[i].id) {
+      let phcs = areaData[i].phcs;
+      for (let j = 0; j < phcs.length; j++) {
+        if (patientData.phc === phcs[j].PHC_id) {
+          let villageSecs = phcs[j].villageSecs;
+          for (let k = 0; k < villageSecs.length; k++) {
+            if (patientData.villagesec === villageSecs[k].villagesec_id) {
+              let villages = villageSecs[k].villages;
+              for (let p = 0; p < villages.length; p++) {
+                if (villages[p].village_id === patientData.village) {
+                  return villages[p].name;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 function LocalPatientList(props) {
@@ -177,7 +202,60 @@ function LocalPatientList(props) {
                 <Text style={styles.cardTitle}>
                   {patient.name + ' ' + patient.surname}
                 </Text>
-                <Text style={styles.cardBody}>{patient.phone}</Text>
+                <View style={styles.cardBody}>
+                  <View
+                    style={{
+                      flex: 1,
+                      flexDirection: 'row',
+                    }}>
+                    <Text
+                      style={{
+                        flex: 3,
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                      }}>
+                      Village
+                    </Text>
+                    <Text
+                      style={{
+                        flex: 3,
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                      }}>
+                      Phone
+                    </Text>
+                    <Text
+                      style={{
+                        flex: 2,
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                      }}>
+                      Caste
+                    </Text>
+                    <Text
+                      style={{
+                        flex: 1,
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                      }}>
+                      BG
+                    </Text>
+                  </View>
+                  <View style={{flex: 1, flexDirection: 'row'}}>
+                    <Text style={{flex: 3, textAlign: 'center'}}>
+                      {getVillageNameForPatient(patient)}
+                    </Text>
+                    <Text style={{flex: 3, textAlign: 'center'}}>
+                      {patient.phone}
+                    </Text>
+                    <Text style={{flex: 2, textAlign: 'center'}}>
+                      {patient.PVTG}
+                    </Text>
+                    <Text style={{flex: 1, textAlign: 'center'}}>
+                      {patient.bloodgroup.toUpperCase()}
+                    </Text>
+                  </View>
+                </View>
               </Card>
             );
           })}
