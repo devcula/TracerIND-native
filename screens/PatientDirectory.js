@@ -60,19 +60,26 @@ class PatientDirectory extends Component {
         <View style={styles.cardView} key={i}>
           <View
             style={[styles.flexCenter, styles.cardTitleView, styles.flexOne]}>
-            <Text style={styles.cardTitleText}>{patient.name}</Text>
+            <Text style={styles.cardTitleText}>
+              {patient.name} {patient.surname}
+            </Text>
           </View>
           <View style={[styles.rowFlex, styles.cardBodyView]}>
-            <View style={[styles.flexCenter, {flex: 2}]}>
+            <View style={[styles.flexCenter, {flex: 3}]}>
               <Text style={styles.cardBodyText}>
                 {this.getVillageNameFromId(patient.village)}
               </Text>
             </View>
-            <View style={[styles.flexCenter, {flex: 2}]}>
+            <View style={[styles.flexCenter, {flex: 3}]}>
               <Text style={styles.cardBodyText}>{patient.phone}</Text>
             </View>
             <View style={[styles.flexCenter, styles.flexOne]}>
               <Text style={styles.cardBodyText}>{patient.PVTG}</Text>
+            </View>
+            <View style={[styles.flexCenter, styles.flexOne]}>
+              <Text style={styles.cardBodyText}>
+                {patient.bloodgroup.toUpperCase()}
+              </Text>
             </View>
           </View>
         </View>
