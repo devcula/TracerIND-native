@@ -145,8 +145,8 @@ class TestDetails extends React.Component {
     const {data} = this.state;
     return (
       <ScrollView>
-        <View>
-          <Text style={styles.text}>Test Details</Text>
+        <View style={styles.headingView}>
+          <Text style={styles.headingText}>Test Details</Text>
         </View>
         <View>
           <View>
@@ -405,6 +405,20 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     marginHorizontal: 10,
+    marginTop: 10,
+  },
+  headingView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 15,
+    borderBottomColor: '#888888',
+    borderBottomWidth: 1,
+    marginHorizontal: 20,
+  },
+  headingText: {
+    fontWeight: 'bold',
+    fontSize: 30,
   },
 });
 

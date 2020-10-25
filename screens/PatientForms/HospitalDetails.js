@@ -70,8 +70,8 @@ class HospitalDetails extends React.Component {
 
     return (
       <ScrollView>
-        <View>
-          <Text style={styles.heading}>Hospital Details</Text>
+        <View style={styles.headingView}>
+          <Text style={styles.headingText}>Hospital Details</Text>
         </View>
         <View>
           <View>
@@ -477,6 +477,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 4,
     margin: 5,
+  },
+  headingView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 15,
+    borderBottomColor: '#888888',
+    borderBottomWidth: 1,
+    marginHorizontal: 20,
+  },
+  headingText: {
+    fontWeight: 'bold',
+    fontSize: 30,
   },
 });
 

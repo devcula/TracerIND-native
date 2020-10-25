@@ -13,8 +13,8 @@ class Observations extends React.Component {
     console.log('Rendering Observations');
     return (
       <ScrollView>
-        <View style={styles.contentScreen}>
-          <Text style={styles.text}>Observations</Text>
+        <View style={styles.headingView}>
+          <Text style={styles.headingText}>Observations</Text>
         </View>
         <View>
           <Text style={styles.subtext}>Basic Vitals</Text>
@@ -24,6 +24,7 @@ class Observations extends React.Component {
             mode="outlined"
             value={this.context.getValue('weight')}
             label="Weight (kg)"
+            keyboardType="numeric"
             onChangeText={(value) => {
               this.context.saveDataToParent({weight: value});
             }}
@@ -35,6 +36,7 @@ class Observations extends React.Component {
             mode="outlined"
             value={this.context.getValue('height')}
             label="Height (cm)"
+            keyboardType="numeric"
             onChangeText={(value) => {
               this.context.saveDataToParent({height: value});
             }}
@@ -46,6 +48,7 @@ class Observations extends React.Component {
             mode="outlined"
             value={this.context.getValue('temperature')}
             label="Temperature (° Farhenheit) "
+            keyboardType="numeric"
             onChangeText={(value) => {
               this.context.saveDataToParent({temperature: value});
             }}
@@ -68,6 +71,7 @@ class Observations extends React.Component {
             mode="outlined"
             value={this.context.getValue('heartrate')}
             label="Heart Rate (bpm)"
+            keyboardType="numeric"
             onChangeText={(value) => {
               this.context.saveDataToParent({heartrate: value});
             }}
@@ -79,6 +83,7 @@ class Observations extends React.Component {
             mode="outlined"
             value={this.context.getValue('pulserate')}
             label="Pulse Rate (bpm) "
+            keyboardType="numeric"
             onChangeText={(value) => {
               this.context.saveDataToParent({pulserate: value});
             }}
@@ -90,6 +95,7 @@ class Observations extends React.Component {
             mode="outlined"
             value={this.context.getValue('respiratoryrate')}
             label="Respiratory Rate (bpm) "
+            keyboardType="numeric"
             onChangeText={(value) => {
               this.context.saveDataToParent({respiratoryrate: value});
             }}
@@ -256,6 +262,19 @@ const styles = StyleSheet.create({
   },
   buttons: {
     margin: 5,
+  },
+  headingView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 15,
+    borderBottomColor: '#888888',
+    borderBottomWidth: 1,
+    marginHorizontal: 20,
+  },
+  headingText: {
+    fontWeight: 'bold',
+    fontSize: 30,
   },
 });
 

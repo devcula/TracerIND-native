@@ -164,8 +164,8 @@ class BasicDetails extends React.Component {
     return (
       <ScrollView>
         <View style={styles.horizontalMargin}>
-          <View style={styles.contentScreen}>
-            <Text style={styles.text}>Basic Details</Text>
+          <View style={styles.headingView}>
+            <Text style={styles.headingText}>Basic Details</Text>
           </View>
           <View style={styles.inputLabelView}>
             <Text style={styles.inputLabel}>Adhaar (Optional)</Text>
@@ -468,7 +468,7 @@ class BasicDetails extends React.Component {
             <TextInput
               mode="outlined"
               value={this.context.getValue('address')}
-              label="Address"
+              // label="Address"
               multiline
               numberOfLines={4}
               onChangeText={(value) => {
@@ -644,6 +644,19 @@ const styles = StyleSheet.create({
   mandatoryAsterisk: {
     fontWeight: 'bold',
     color: '#FF0000',
+  },
+  headingView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 15,
+    borderBottomColor: '#888888',
+    borderBottomWidth: 1,
+    marginHorizontal: 20,
+  },
+  headingText: {
+    fontWeight: 'bold',
+    fontSize: 30,
   },
 });
 
