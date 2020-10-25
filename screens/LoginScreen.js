@@ -48,13 +48,10 @@ function LoginScreen(props) {
     setIsSigningIn(true);
     if (username !== '' && password !== '') {
       axios
-        .post(URI + 'token_jwt_get/', {username, password})
+        .post(URI + 'token_jwt_get/', {username, password}, {timeout: 10000})
         .then((response) => {
           if (response.status === 200) {
             return response.data;
-          } else if (response.status === 400) {
-            console.log('Invalid creds');
-            alert('Invalid Credentials');
           }
         })
         .then((user) => {
@@ -70,6 +67,9 @@ function LoginScreen(props) {
         })
         .catch((error) => {
           console.log(error);
+          if (error.response.status === 400) {
+            alert('Invalid credentials');
+          }
           setIsSigningIn(false);
         });
     } else {
@@ -86,7 +86,7 @@ function LoginScreen(props) {
             size={200}
             source={require('../assets/images/logo.jpg')}
           />
-          <Text style={styles.heading}>Enter your details</Text>
+          <Text style={styles.heading}>Enter login details</Text>
         </View>
         <View style={styles.usernameView}>
           <TextInput

@@ -124,9 +124,10 @@ function LocalPatientList(props) {
           await new Promise((resolve) => {
             axios
               .post(URI + 'AddPatient/', dataToSync[i], {
-                headers: {Authorization: props.userToken.token},
+                headers: {Authorization: `JWT ${props.userToken.token}`},
               })
               .then((response) => {
+                console.log(response.status);
                 if (response.status === 200) {
                   return response.data;
                 }
@@ -139,7 +140,7 @@ function LocalPatientList(props) {
                 resolve();
               })
               .catch((err) => {
-                console.log(err);
+                console.log(JSON.stringify(err.response.data));
                 resolve();
               });
           });

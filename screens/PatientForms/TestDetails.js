@@ -102,7 +102,7 @@ class TestDetails extends React.Component {
   };
 
   pedalEdemaType = () => {
-    if (this.context.getValue('pedalEdema') === 'true') {
+    if (this.context.getValue('pedalEdema') === 'Y') {
       return (
         <View style={styles.rowFlex}>
           <View style={styles.contentScreen}>
@@ -262,11 +262,11 @@ class TestDetails extends React.Component {
               value={this.context.getValue('pedalEdema')}>
               <View style={styles.contentScreen}>
                 <Text>Yes</Text>
-                <RadioButton color="#14213D" value="true" />
+                <RadioButton color="#14213D" value="Y" />
               </View>
               <View style={styles.contentScreen}>
                 <Text>No</Text>
-                <RadioButton color="#14213D" value="false" />
+                <RadioButton color="#14213D" value="N" />
               </View>
             </RadioButton.Group>
           </View>

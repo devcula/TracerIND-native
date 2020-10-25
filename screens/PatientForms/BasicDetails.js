@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet} from 'react-native';
+import {ScrollView, View, Text, StyleSheet, Alert} from 'react-native';
 import {Button, TextInput, RadioButton, Checkbox} from 'react-native-paper';
 import {Picker} from '@react-native-community/picker';
 
@@ -64,6 +64,96 @@ class BasicDetails extends React.Component {
     this.context.saveDataToParent(newValue);
   };
 
+  validateAndNext = () => {
+    let adhaarFilledCount = 0;
+    let incompleteAdhaarField = false;
+    if (this.context.getValue('adhaarFirst')) {
+      adhaarFilledCount++;
+      if (this.context.getValue('adhaarFirst').length < 4) {
+        incompleteAdhaarField = true;
+      }
+    }
+    if (this.context.getValue('adhaarSecond')) {
+      adhaarFilledCount++;
+      if (this.context.getValue('adhaarSecond').length < 4) {
+        incompleteAdhaarField = true;
+      }
+    }
+    if (this.context.getValue('adhaarThird')) {
+      adhaarFilledCount++;
+      if (this.context.getValue('adhaarThird').length < 4) {
+        incompleteAdhaarField = true;
+      }
+    }
+    if (
+      (adhaarFilledCount !== 0 && adhaarFilledCount !== 3) ||
+      incompleteAdhaarField
+    ) {
+      Alert.alert(
+        'Incomplete adhaar',
+        'Either clear all adhaar fields or fill all of them completely',
+      );
+      return;
+    }
+    if (!this.context.getValue('mandal')) {
+      Alert.alert('Missing value', 'Please Select Mandal');
+      return;
+    }
+    if (!this.context.getValue('phc')) {
+      Alert.alert('Missing value', 'Please Select PHC');
+      return;
+    }
+    if (!this.context.getValue('village_sec')) {
+      Alert.alert('Missing value', 'Please Select Sub center');
+      return;
+    }
+    if (!this.context.getValue('village')) {
+      Alert.alert('Missing value', 'Please Select Village');
+      return;
+    }
+    if (!this.context.getValue('name')) {
+      Alert.alert('Missing value', 'Please Enter First name');
+      return;
+    }
+    if (!this.context.getValue('surname')) {
+      Alert.alert('Missing value', 'Please Enter surname');
+      return;
+    }
+    if (!this.context.getValue('relation')) {
+      Alert.alert('Missing value', 'Please Select relation');
+      return;
+    }
+    if (!this.context.getValue('gaurdian_name')) {
+      Alert.alert('Missing value', 'Please Enter guardian name');
+      return;
+    }
+    if (!this.context.getValue('age')) {
+      Alert.alert('Missing value', 'Please Enter age');
+      return;
+    }
+    if (!this.context.getValue('gender')) {
+      Alert.alert('Missing value', 'Please Select gender');
+      return;
+    }
+    if (!this.context.getValue('maritalstatus')) {
+      Alert.alert('Missing value', 'Please Select marital status');
+      return;
+    }
+    if (!this.context.getValue('phone')) {
+      Alert.alert('Missing value', 'Please Enter phone number');
+      return;
+    }
+    if (!this.context.getValue('address')) {
+      Alert.alert('Missing value', 'Please Enter address');
+      return;
+    }
+    if (!this.context.getValue('bloodgroup')) {
+      Alert.alert('Missing value', 'Please Select Bloodgroup');
+      return;
+    }
+    this.context.saveDataToParent({formName: 'ObservationsForm'});
+  };
+
   render() {
     // console.log(this.context);
     console.log('Rendering BasicDetails');
@@ -108,6 +198,11 @@ class BasicDetails extends React.Component {
               }}
             />
           </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Mandal <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
+          </View>
           <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('mandal')}
@@ -123,6 +218,11 @@ class BasicDetails extends React.Component {
               })}
             </Picker>
           </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              PHC <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
+          </View>
           <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('phc')}
@@ -137,6 +237,11 @@ class BasicDetails extends React.Component {
                 );
               })}
             </Picker>
+          </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Sub Center <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
           </View>
           <View style={styles.pickerView}>
             <Picker
@@ -157,6 +262,11 @@ class BasicDetails extends React.Component {
               })}
             </Picker>
           </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Village <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
+          </View>
           <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('village')}
@@ -169,11 +279,16 @@ class BasicDetails extends React.Component {
                   <Picker.Item
                     label={village.name}
                     value={village.village_id}
-                    id={i}
+                    key={i}
                   />
                 );
               })}
             </Picker>
+          </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Name <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
           </View>
           <View>
             <TextInput
@@ -186,6 +301,11 @@ class BasicDetails extends React.Component {
               style={styles.textinput}
             />
           </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Surname <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
+          </View>
           <View>
             <TextInput
               mode="outlined"
@@ -196,6 +316,11 @@ class BasicDetails extends React.Component {
               }}
               style={styles.textinput}
             />
+          </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Relation <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
           </View>
           <View style={styles.pickerView}>
             <Picker
@@ -212,20 +337,33 @@ class BasicDetails extends React.Component {
           {(() => {
             if (this.context.getValue('relation')) {
               return (
-                <View>
-                  <TextInput
-                    mode="outlined"
-                    value={this.context.getValue('gaurdian_name')}
-                    label="Guardian Name"
-                    onChangeText={(value) => {
-                      this.context.saveDataToParent({gaurdian_name: value});
-                    }}
-                    style={styles.textinput}
-                  />
-                </View>
+                <React.Fragment>
+                  <View style={styles.inputLabelView}>
+                    <Text style={styles.inputLabel}>
+                      Guardian Name{' '}
+                      <Text style={styles.mandatoryAsterisk}>*</Text>
+                    </Text>
+                  </View>
+                  <View>
+                    <TextInput
+                      mode="outlined"
+                      value={this.context.getValue('gaurdian_name')}
+                      label="Guardian Name"
+                      onChangeText={(value) => {
+                        this.context.saveDataToParent({gaurdian_name: value});
+                      }}
+                      style={styles.textinput}
+                    />
+                  </View>
+                </React.Fragment>
               );
             }
           })()}
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Age <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
+          </View>
           <View>
             <TextInput
               mode="outlined"
@@ -241,7 +379,9 @@ class BasicDetails extends React.Component {
           </View>
           <View style={styles.rowFlex}>
             <View style={styles.contentScreen}>
-              <Text style={styles.inputLabel}>Sex :</Text>
+              <Text style={styles.inputLabel}>
+                Gender <Text style={styles.mandatoryAsterisk}>*</Text>
+              </Text>
             </View>
             <View style={[styles.rowFlex, {flex: 4}]}>
               <RadioButton.Group
@@ -264,6 +404,11 @@ class BasicDetails extends React.Component {
               </RadioButton.Group>
             </View>
           </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Marital Status <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
+          </View>
           <View style={styles.pickerView}>
             <Picker
               selectedValue={this.context.getValue('maritalstatus')}
@@ -278,6 +423,11 @@ class BasicDetails extends React.Component {
               <Picker.Item label="Widowed" value="widowed" />
             </Picker>
           </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Phone Number <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
+          </View>
           <View>
             <TextInput
               mode="outlined"
@@ -291,6 +441,11 @@ class BasicDetails extends React.Component {
               style={styles.textinput}
             />
           </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Address <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
+          </View>
           <View>
             <TextInput
               mode="outlined"
@@ -303,6 +458,11 @@ class BasicDetails extends React.Component {
               }}
               style={styles.textinput}
             />
+          </View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>
+              Blood group <Text style={styles.mandatoryAsterisk}>*</Text>
+            </Text>
           </View>
           <View style={styles.pickerView}>
             <Picker
@@ -324,30 +484,11 @@ class BasicDetails extends React.Component {
           </View>
           <View style={styles.rowFlex}>
             <View style={styles.contentScreen}>
-              <Text style={styles.inputLabel}>Deworming :</Text>
+              <Text style={styles.inputLabel}>
+                Caste <Text style={styles.mandatoryAsterisk}>*</Text>:
+              </Text>
             </View>
-            <View style={[styles.rowFlex, {flex: 2}]}>
-              <RadioButton.Group
-                onValueChange={(value) =>
-                  this.context.saveDataToParent({deworming: value})
-                }
-                value={this.context.getValue('deworming')}>
-                <View style={styles.contentScreen}>
-                  <Text>Yes</Text>
-                  <RadioButton color="#14213D" value="true" />
-                </View>
-                <View style={styles.contentScreen}>
-                  <Text>No</Text>
-                  <RadioButton color="#14213D" value="false" />
-                </View>
-              </RadioButton.Group>
-            </View>
-          </View>
-          <View style={styles.rowFlex}>
-            <View style={styles.contentScreen}>
-              <Text style={styles.inputLabel}>Caste :</Text>
-            </View>
-            <View style={[styles.rowFlex, {flex: 3}]}>
+            <View style={[styles.rowFlex, {flex: 3}, {marginTop: 10}]}>
               <RadioButton.Group
                 onValueChange={(value) =>
                   this.context.saveDataToParent({PVTG: value})
@@ -364,6 +505,27 @@ class BasicDetails extends React.Component {
                 <View style={styles.contentScreen}>
                   <Text>PVTG</Text>
                   <RadioButton color="#14213D" value="PVTG" />
+                </View>
+              </RadioButton.Group>
+            </View>
+          </View>
+          <View style={styles.rowFlex}>
+            <View style={styles.contentScreen}>
+              <Text style={styles.inputLabel}>Deworming :</Text>
+            </View>
+            <View style={[styles.rowFlex, {flex: 2}]}>
+              <RadioButton.Group
+                onValueChange={(value) =>
+                  this.context.saveDataToParent({deworming: value})
+                }
+                value={this.context.getValue('deworming')}>
+                <View style={styles.contentScreen}>
+                  <Text>Yes</Text>
+                  <RadioButton color="#14213D" value="true" />
+                </View>
+                <View style={styles.contentScreen}>
+                  <Text>No</Text>
+                  <RadioButton color="#14213D" value="false" />
                 </View>
               </RadioButton.Group>
             </View>
@@ -403,9 +565,7 @@ class BasicDetails extends React.Component {
             <Button
               style={styles.button}
               mode="contained"
-              onPress={() =>
-                this.context.saveDataToParent({formName: 'ObservationsForm'})
-              }>
+              onPress={() => this.validateAndNext()}>
               Next
             </Button>
           </View>
@@ -445,6 +605,7 @@ const styles = StyleSheet.create({
   },
   inputLabelView: {
     marginLeft: 5,
+    marginTop: 10,
   },
   inputLabel: {
     fontSize: 15,
@@ -461,6 +622,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 4,
     marginTop: 5,
+  },
+  mandatoryAsterisk: {
+    fontWeight: 'bold',
+    color: '#FF0000',
   },
 });
 

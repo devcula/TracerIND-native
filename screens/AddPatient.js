@@ -170,7 +170,7 @@ class AddPatientStackScreen extends React.Component {
       PVTG: this.state.PVTG,
       pedalEdema: this.state.pedalEdema ? this.state.pedalEdema : '',
       pedal_profile:
-        this.state.pedalEdema == 'false'
+        this.state.pedalEdema === 'N'
           ? {}
           : {
               pedaltype: this.state.pedaltype,
