@@ -165,9 +165,9 @@ class HospitalDetails extends React.Component {
               <View>
                 <View style={styles.pickerView}>
                   <Picker
-                    selectedValue={this.context.getValue('hospitalAdmit')}
+                    selectedValue={this.context.getValue('referredto')}
                     onValueChange={(itemValue, itemIndex) => {
-                      this.context.saveDataToParent({hospitalAdmit: itemValue});
+                      this.context.saveDataToParent({referredto: itemValue});
                     }}>
                     <Picker.Item label="Hospital Refered to" value="" />
                     <Picker.Item label="AH/Chintoor" value="AH/Chintoor" />
