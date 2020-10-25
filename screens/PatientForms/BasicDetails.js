@@ -176,9 +176,13 @@ class BasicDetails extends React.Component {
               value={this.context.getValue('adhaarFirst')}
               style={styles.adhaarInput}
               maxLength={4}
+              blurOnSubmit={false}
               keyboardType="numeric"
               onChangeText={(value) => {
                 this.context.saveDataToParent({adhaarFirst: value});
+                if (value.length === 4) {
+                  this.adhaarSecondInput.focus();
+                }
               }}
             />
             <TextInput
@@ -186,9 +190,16 @@ class BasicDetails extends React.Component {
               value={this.context.getValue('adhaarSecond')}
               style={styles.adhaarInput}
               maxLength={4}
+              ref={(input) => {
+                this.adhaarSecondInput = input;
+              }}
+              blurOnSubmit={false}
               keyboardType="numeric"
               onChangeText={(value) => {
                 this.context.saveDataToParent({adhaarSecond: value});
+                if (value.length === 4) {
+                  this.adhaarThirdInput.focus();
+                }
               }}
             />
             <TextInput
@@ -196,6 +207,9 @@ class BasicDetails extends React.Component {
               value={this.context.getValue('adhaarThird')}
               style={styles.adhaarInput}
               maxLength={4}
+              ref={(input) => {
+                this.adhaarThirdInput = input;
+              }}
               keyboardType="numeric"
               onChangeText={(value) => {
                 this.context.saveDataToParent({adhaarThird: value});
