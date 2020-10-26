@@ -301,7 +301,7 @@ class HospitalDetails extends React.Component {
                     value={this.context.getValue('treatmentDone')}
                     label="Treatment Provided"
                     onChangeText={(value) => {
-                      this.context.saveDataToParent({status: value});
+                      this.context.saveDataToParent({treatmentDone: value});
                     }}
                   />
                 </View>

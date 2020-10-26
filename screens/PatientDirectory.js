@@ -84,7 +84,7 @@ class PatientDirectory extends Component {
               </Text>
             </View>
             <View style={[styles.rowFlex, styles.cardBodyView]}>
-              <View style={[styles.flexCenter, {flex: 3}]}>
+              <View style={[styles.flexCenter, {flex: 5}]}>
                 <Text style={styles.cardBodyText}>
                   {this.getVillageNameFromId(patient.village)}
                 </Text>

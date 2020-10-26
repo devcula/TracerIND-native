@@ -168,6 +168,7 @@ class AddPatientStackScreen extends React.Component {
       maritalstatus: this.state.maritalstatus,
       phone: this.state.phone,
       bloodgroup: this.state.bloodgroup,
+      address: this.state.address,
       PVTG: this.state.PVTG,
       pedalEdema: this.state.pedalEdema ? this.state.pedalEdema : '',
       pedal_profile:
@@ -189,10 +190,12 @@ class AddPatientStackScreen extends React.Component {
                 : 0,
               bun: this.state.bun ? this.state.bun : 0,
             },
-      kidneystatus:
-        this.state.kidneystatus !== undefined ? this.state.kidneystatus : '',
-      ailments: this.state.kidneystatus === 'good' ? '' : this.state.ailments,
-      dialysis: dialysisCheck,
+      KidneyProfile: {
+        kidneystatus:
+          this.state.kidneystatus !== undefined ? this.state.kidneystatus : '',
+        ailments: this.state.kidneystatus === 'good' ? '' : this.state.ailments,
+        dialysis: dialysisCheck,
+      },
       doctorreq: doctorreqCheck,
       hospitalAdmit:
         this.state.hospitalAdmit !== undefined ? this.state.hospitalAdmit : '',
@@ -248,6 +251,7 @@ class AddPatientStackScreen extends React.Component {
         drinking: this.state.drinking,
       },
       AnemiaProfile: {
+        dateOfBloodTest: this.state.dateOfBloodTest,
         wbc_count: this.state.wbc ? this.state.wbc : 0.0,
         hb: this.state.haemoglobin ? this.state.haemoglobin : 0.0,
         diffrential_count: {
