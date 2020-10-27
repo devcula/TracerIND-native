@@ -349,12 +349,20 @@ class TestDetails extends React.Component {
                 <Button
                   mode="contained"
                   style={styles.buttons}
-                  onPress={() =>
-                    this.context.submitForm(
-                      () => alert('Saved'),
-                      () => alert('Failed'),
-                    )
-                  }>
+                  onPress={() => {
+                    if (
+                      this.context.getValue('doctorreq') === 'true' &&
+                      this.context.getValue('kidneystatus') === 'abnormal' &&
+                      this.context.getValue('opd') === ''
+                    ) {
+                      alert('Please select patient type');
+                    } else {
+                      this.context.submitForm(
+                        () => alert('Saved'),
+                        () => alert('Failed'),
+                      );
+                    }
+                  }}>
                   Submit Form
                 </Button>
               </View>

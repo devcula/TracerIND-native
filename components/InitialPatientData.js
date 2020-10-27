@@ -1,5 +1,5 @@
 const initialState = {
-  formName: 'BasicDetailsForm',
+  formName: 'TestDetailsForm',
   //Basic Details: Start
   adhaarFirst: '',
   adhaarSecond: '',
