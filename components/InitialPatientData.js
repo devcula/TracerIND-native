@@ -101,6 +101,12 @@ const initialState = {
   opd: '',
   // btn: 'Submit',
   // loading: false,
+  serumCreatinineRange: 'noRange',
+  bloodUreaRange: 'noRange',
+  uricAcidRange: 'noRange',
+  sodiumRange: 'noRange',
+  potassiumRange: 'noRange',
+  bunRange: 'noRange',
   //Test Details: End
 };
 

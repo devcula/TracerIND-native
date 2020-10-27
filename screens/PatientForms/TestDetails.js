@@ -140,6 +140,104 @@ class TestDetails extends React.Component {
     }
   };
 
+  updateSerumCreatinine = (value) => {
+    let newRange = 'noRange';
+    if (value !== '') {
+      let numValue = Number(value);
+      if (numValue <= 2) {
+        newRange = 'normalRange';
+      } else if (numValue >= 2.1 && numValue <= 5.9) {
+        newRange = 'moderateRange';
+      } else {
+        newRange = 'severeRange';
+      }
+    }
+    this.context.saveDataToParent({
+      serumCreatinine: value,
+      serumCreatinineRange: newRange,
+    });
+  };
+
+  updateBloodUrea = (value) => {
+    let newRange = 'noRange';
+    if (value !== '') {
+      let numValue = Number(value);
+      if (numValue >= 15 && numValue <= 40) {
+        newRange = 'normalRange';
+      } else if (numValue > 40) {
+        newRange = 'severeRange';
+      }
+    }
+    this.context.saveDataToParent({
+      bloodUrea: value,
+      bloodUreaRange: newRange,
+    });
+  };
+
+  updateUricAcid = (value) => {
+    let newRange = 'noRange';
+    if (value !== '') {
+      let numValue = Number(value);
+      if (numValue >= 2.6 && numValue <= 6) {
+        newRange = 'normalRange';
+      } else if (numValue > 6) {
+        newRange = 'severeRange';
+      }
+    }
+    this.context.saveDataToParent({
+      uricAcid: value,
+      uricAcidRange: newRange,
+    });
+  };
+
+  updateSodium = (value) => {
+    let newRange = 'noRange';
+    if (value !== '') {
+      let numValue = Number(value);
+      if (numValue >= 135 && numValue <= 155) {
+        newRange = 'normalRange';
+      } else if (numValue > 155) {
+        newRange = 'severeRange';
+      }
+    }
+    this.context.saveDataToParent({
+      electrolytes_sodium: value,
+      sodiumRange: newRange,
+    });
+  };
+
+  updatePotassium = (value) => {
+    let newRange = 'noRange';
+    if (value !== '') {
+      let numValue = Number(value);
+      if (numValue >= 3.5 && numValue <= 5.5) {
+        newRange = 'normalRange';
+      } else if (numValue > 5.5) {
+        newRange = 'severeRange';
+      }
+    }
+    this.context.saveDataToParent({
+      electrolytes_potassium: value,
+      potassiumRange: newRange,
+    });
+  };
+
+  updateBun = (value) => {
+    let newRange = 'noRange';
+    if (value !== '') {
+      let numValue = Number(value);
+      if (numValue >= 8 && numValue <= 23) {
+        newRange = 'normalRange';
+      } else if (numValue > 23) {
+        newRange = 'severeRange';
+      }
+    }
+    this.context.saveDataToParent({
+      bun: value,
+      bunRange: newRange,
+    });
+  };
+
   render() {
     console.log('Rendering TestDetails');
     const {data} = this.state;
@@ -192,9 +290,13 @@ class TestDetails extends React.Component {
           label="Serum Creatinine (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({serumCreatinine: value});
+            this.updateSerumCreatinine(value);
           }}
-          style={styles.textinput}
+          style={[
+            styles.textinput,
+            styles.borderValidation,
+            styles[this.context.getValue('serumCreatinineRange')],
+          ]}
         />
         <TextInput
           mode="outlined"
@@ -202,19 +304,41 @@ class TestDetails extends React.Component {
           label="Blood Urea (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({bloodUrea: value});
+            this.updateBloodUrea(value);
           }}
-          style={styles.textinput}
+          style={[
+            styles.textinput,
+            styles.borderValidation,
+            styles[this.context.getValue('bloodUreaRange')],
+          ]}
         />
         <TextInput
           mode="outlined"
           value={this.context.getValue('uricAcid')}
-          label="Sodium (mg/dl)"
+          label="Uric Acid (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({uricAcid: value});
+            this.updateUricAcid(value);
           }}
-          style={styles.textinput}
+          style={[
+            styles.textinput,
+            styles.borderValidation,
+            styles[this.context.getValue('uricAcidRange')],
+          ]}
+        />
+        <TextInput
+          mode="outlined"
+          value={this.context.getValue('bun')}
+          label="BUN (mg/dl)"
+          keyboardType="numeric"
+          onChangeText={(value) => {
+            this.updateBun(value);
+          }}
+          style={[
+            styles.textinput,
+            styles.borderValidation,
+            styles[this.context.getValue('bunRange')],
+          ]}
         />
         <View>
           <Text style={styles.text}>Electrolytes</Text>
@@ -222,32 +346,30 @@ class TestDetails extends React.Component {
         <TextInput
           mode="outlined"
           value={this.context.getValue('electrolytes_sodium')}
-          label="Potassium (mg/dl)"
+          label="Sodium (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({electrolytes_sodium: value});
+            this.updateSodium(value);
           }}
-          style={styles.textinput}
+          style={[
+            styles.textinput,
+            styles.borderValidation,
+            styles[this.context.getValue('sodiumRange')],
+          ]}
         />
         <TextInput
           mode="outlined"
           value={this.context.getValue('electrolytes_potassium')}
-          label="BUN (mg/dl)"
+          label="Potassium (mg/dl)"
           keyboardType="numeric"
           onChangeText={(value) => {
-            this.context.saveDataToParent({electrolytes_potassium: value});
+            this.updatePotassium(value);
           }}
-          style={styles.textinput}
-        />
-        <TextInput
-          mode="outlined"
-          value={this.context.getValue('bun')}
-          label="Uric Acid (mg/dl)"
-          keyboardType="numeric"
-          onChangeText={(value) => {
-            this.context.saveDataToParent({bun: value});
-          }}
-          style={styles.textinput}
+          style={[
+            styles.textinput,
+            styles.borderValidation,
+            styles[this.context.getValue('potassiumRange')],
+          ]}
         />
 
         <View style={styles.rowFlex}>
@@ -349,12 +471,20 @@ class TestDetails extends React.Component {
                 <Button
                   mode="contained"
                   style={styles.buttons}
-                  onPress={() =>
-                    this.context.submitForm(
-                      () => alert('Saved'),
-                      () => alert('Failed'),
-                    )
-                  }>
+                  onPress={() => {
+                    if (
+                      this.context.getValue('doctorreq') === 'true' &&
+                      this.context.getValue('kidneystatus') === 'abnormal' &&
+                      this.context.getValue('opd') === ''
+                    ) {
+                      alert('Please select patient type');
+                    } else {
+                      this.context.submitForm(
+                        () => alert('Saved'),
+                        () => alert('Failed'),
+                      );
+                    }
+                  }}>
                   Submit Form
                 </Button>
               </View>
@@ -419,6 +549,23 @@ const styles = StyleSheet.create({
   headingText: {
     fontWeight: 'bold',
     fontSize: 30,
+  },
+  borderValidation: {
+    borderBottomWidth: 5,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+  },
+  normalRange: {
+    borderBottomColor: '#00FF00',
+  },
+  moderateRange: {
+    borderBottomColor: '#FFFF00',
+  },
+  severeRange: {
+    borderBottomColor: '#FF0000',
+  },
+  noRange: {
+    borderBottomColor: '#FFFFFF',
   },
 });
 
