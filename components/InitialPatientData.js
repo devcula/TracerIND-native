@@ -1,5 +1,5 @@
 const initialState = {
-  formName: 'BasicDetailsForm',
+  formName: 'BloodProfileForm',
   //Basic Details: Start
   adhaarFirst: '',
   adhaarSecond: '',
@@ -41,8 +41,9 @@ const initialState = {
   monocytes: '',
   lymphocytes: '',
   eosinophils: '',
-  neutroophils: '',
+  neutrophils: '',
   haemoglobin: '',
+  hbClassification: '',
   platelet: '',
   //Blood profile: End
   //Hospital Details: Start
