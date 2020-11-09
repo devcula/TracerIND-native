@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet, Platform} from 'react-native';
+import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import PatientContext from '../../components/PatientContext';
 import DateTimePicker from '@react-native-community/datetimepicker';
