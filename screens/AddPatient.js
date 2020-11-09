@@ -253,11 +253,13 @@ class AddPatientStackScreen extends React.Component {
       AnemiaProfile: {
         dateOfBloodTest: this.state.dateOfBloodTest,
         wbc_count: this.state.wbc ? this.state.wbc : 0.0,
+        hbClassification: this.state.hbClassification,
         hb: this.state.haemoglobin ? this.state.haemoglobin : 0.0,
         diffrential_count: {
           monocytes: this.state.monocytes ? this.state.monocytes : null,
           lymphocytes: this.state.lymphocytes ? this.state.lymphocytes : null,
           eosinophils: this.state.eosinophils ? this.state.eosinophils : null,
+          neutrophils: this.state.neutrophils ? this.state.neutrophils : null,
         },
         plat_count: this.state.platelet ? this.state.platelet : 0.0,
         pcv: this.state.pcv,
