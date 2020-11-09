@@ -139,10 +139,10 @@ class BasicDetails extends React.Component {
       Alert.alert('Missing value', 'Please Select marital status');
       return;
     }
-    if (!this.context.getValue('phone')) {
-      Alert.alert('Missing value', 'Please Enter phone number');
-      return;
-    }
+    // if (!this.context.getValue('phone')) {
+    //   Alert.alert('Missing value', 'Please Enter phone number');
+    //   return;
+    // }
     if (!this.context.getValue('address')) {
       Alert.alert('Missing value', 'Please Enter address');
       return;

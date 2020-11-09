@@ -4,6 +4,7 @@ import {Button, TextInput} from 'react-native-paper';
 import PatientContext from '../../components/PatientContext';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {Picker} from '@react-native-community/picker';
 
 class BloodProfile extends React.Component {
   constructor() {
@@ -22,6 +23,32 @@ class BloodProfile extends React.Component {
   };
 
   render() {
+    const hbClassifications = [
+      {
+        label: 'Children: 6-59 months of age',
+        value: 'CHILD_6_TO_59_MONTHS',
+      },
+      {
+        label: 'Children: 5-11 years of age',
+        value: 'CHILD_5_TO_11_YEARS',
+      },
+      {
+        label: 'Children: 12-14 years of age',
+        value: 'CHILD_12_TO_14_YEARS',
+      },
+      {
+        label: 'Non-Pregnant Women: 15 years or above',
+        value: 'NP_WOMEN_15_PLUS_YEARS',
+      },
+      {
+        label: 'Pregnant Women',
+        value: 'P_WOMEN',
+      },
+      {
+        label: 'Men: 15 years of age or above',
+        value: 'MEN_15_PLUS_YEARS',
+      },
+    ];
     return (
       <ScrollView>
         <View style={styles.headingView}>
@@ -76,6 +103,24 @@ class BloodProfile extends React.Component {
           }}
           style={styles.textinput}
         />
+        <View style={styles.pickerView}>
+          <Picker
+            selectedValue={this.context.getValue('hbClassification')}
+            onValueChange={(itemValue, itemIndex) => {
+              this.context.saveDataToParent({hbClassification: itemValue});
+            }}>
+            <Picker.Item label="Select Age Classification" value="" />
+            {hbClassifications.map((hbClassification, i) => {
+              return (
+                <Picker.Item
+                  label={hbClassification.label}
+                  value={hbClassification.value}
+                  key={i}
+                />
+              );
+            })}
+          </Picker>
+        </View>
         <TextInput
           mode="outlined"
           value={this.context.getValue('haemoglobin')}
@@ -163,7 +208,7 @@ class BloodProfile extends React.Component {
         <TextInput
           mode="outlined"
           value={this.context.getValue('monocytes')}
-          label="Monocytes"
+          label="Monocytes (%)"
           keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({monocytes: value});
@@ -173,7 +218,7 @@ class BloodProfile extends React.Component {
         <TextInput
           mode="outlined"
           value={this.context.getValue('lymphocytes')}
-          label="lymphocytes"
+          label="Lymphocytes (%)"
           keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({lymphocytes: value});
@@ -183,10 +228,20 @@ class BloodProfile extends React.Component {
         <TextInput
           mode="outlined"
           value={this.context.getValue('eosinophils')}
-          label="Eosinophils:"
+          label="Eosinophils (%)"
           keyboardType="numeric"
           onChangeText={(value) => {
             this.context.saveDataToParent({eosinophils: value});
+          }}
+          style={styles.textinput}
+        />
+        <TextInput
+          mode="outlined"
+          value={this.context.getValue('neutrophils')}
+          label="Neutrophils (%)"
+          keyboardType="numeric"
+          onChangeText={(value) => {
+            this.context.saveDataToParent({neutrophils: value});
           }}
           style={styles.textinput}
         />
@@ -268,6 +323,13 @@ const styles = StyleSheet.create({
   headingText: {
     fontWeight: 'bold',
     fontSize: 30,
+  },
+  pickerView: {
+    borderColor: '#888888',
+    borderWidth: 1,
+    borderRadius: 4,
+    marginTop: 5,
+    marginHorizontal: 10,
   },
 });
 
