@@ -208,10 +208,12 @@ class AddPatientStackScreen extends React.Component {
         this.state.referred === 'yes' || opdCheck === false
           ? this.state.treatmentDone
           : '',
-      discharged: this.state.discharged,
-      discharge: this.state.discharged === 'true' ? this.state.discharge : '',
-      dischargeStatus:
-        this.state.discharged === 'true' ? this.state.dischargeStatus : '',
+      DischargeDetails: {
+        discharged: this.state.discharged,
+        discharge: this.state.discharged === 'true' ? this.state.discharge : '',
+        dischargeStatus:
+          this.state.discharged === 'true' ? this.state.dischargeStatus : '',
+      },
       deceased: this.state.deceased,
       DetailsDeath:
         this.state.deceased === 'no'
