@@ -65,6 +65,22 @@ class HospitalDetails extends React.Component {
     }
   };
 
+  handleReferredTo = (value) => {
+    if (value === '') {
+      this.context.saveDataToParent({referredToSelected: 'NO', referredto: ''});
+    } else if (value === 'other') {
+      this.context.saveDataToParent({
+        referredToSelected: 'OTHER',
+        referredto: '',
+      });
+    } else {
+      this.context.saveDataToParent({
+        referredto: value,
+        referredToSelected: 'YES',
+      });
+    }
+  };
+
   render() {
     console.log('Rendering HospitalDetails');
 
@@ -134,6 +150,7 @@ class HospitalDetails extends React.Component {
             <Picker.Item label="AH/Bhadrachalam" value="AH/Bhadrachalam" />
             <Picker.Item label="DH/Rajamundry" value="DH/Rajamundry" />
             <Picker.Item label="GGH/Kakinada" value="GGH/Kakinada" />
+            <Picker.Item label="Other" value="other" />
           </Picker>
         </View>
 
@@ -165,9 +182,14 @@ class HospitalDetails extends React.Component {
               <View>
                 <View style={styles.pickerView}>
                   <Picker
-                    selectedValue={this.context.getValue('referredto')}
+                    selectedValue={
+                      this.context.getValue('referredToSelected') === 'OTHER'
+                        ? 'other'
+                        : this.context.getValue('referredto')
+                    }
                     onValueChange={(itemValue, itemIndex) => {
-                      this.context.saveDataToParent({referredto: itemValue});
+                      // this.context.saveDataToParent({referredto: itemValue});
+                      this.handleReferredTo(itemValue);
                     }}>
                     <Picker.Item label="Hospital Refered to" value="" />
                     <Picker.Item label="AH/Chintoor" value="AH/Chintoor" />
@@ -181,8 +203,24 @@ class HospitalDetails extends React.Component {
                     />
                     <Picker.Item label="DH/Rajamundry" value="DH/Rajamundry" />
                     <Picker.Item label="GGH/Kakinada" value="GGH/Kakinada" />
+                    <Picker.Item label="Other" value="other" />
                   </Picker>
                 </View>
+                {(() => {
+                  if (this.context.getValue('referredToSelected') === 'OTHER') {
+                    return (
+                      <TextInput
+                        mode="outlined"
+                        style={styles.textinput}
+                        value={this.context.getValue('referredto')}
+                        label="Enter Hospital Name"
+                        onChangeText={(value) => {
+                          this.context.saveDataToParent({referredto: value});
+                        }}
+                      />
+                    );
+                  }
+                })()}
                 <View>
                   <Text style={styles.inputLabel}>
                     Health Status at the time of referring{' '}

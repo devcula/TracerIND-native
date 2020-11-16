@@ -58,3 +58,6 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 .env
+
+package-lock.json
+yarn.lock
