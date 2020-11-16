@@ -55,6 +55,7 @@ const initialState = {
   treatmentDone: '',
   dialysis: '',
   discharge: '',
+  discharged: '',
   dischargeStatus: '',
   deceased: '',
   deathDate: '',

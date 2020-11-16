@@ -274,48 +274,6 @@ class HospitalDetails extends React.Component {
                   />
                 </View>
                 <View>
-                  <View>
-                    <Text style={styles.inputLabel}>Date of Discharge</Text>
-                  </View>
-                  <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{flex: 3}}>
-                      <TextInput
-                        mode="flat"
-                        value={this.context.getValue('discharge')}
-                        disabled
-                        style={styles.textinput}
-                      />
-                    </View>
-                    <View
-                      style={{
-                        flex: 1,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}>
-                      <Button
-                        onPress={() => {
-                          this.setState({showDischargeDatePicker: true});
-                        }}>
-                        <Icon name="calendar" color={'#000000'} size={30} />
-                      </Button>
-                    </View>
-                  </View>
-                </View>
-                {this.state.showDischargeDatePicker && (
-                  <DateTimePicker
-                    testID="dateTimePicker"
-                    value={
-                      this.context.getValue('discharge')
-                        ? new Date(this.context.getValue('discharge'))
-                        : new Date()
-                    }
-                    mode={'date'}
-                    is24Hour={true}
-                    display="default"
-                    onChange={this.onDischargeDateChange}
-                  />
-                )}
-                <View>
                   <Text style={styles.inputLabel}>Recovery Status </Text>
                 </View>
                 <View>
@@ -343,31 +301,116 @@ class HospitalDetails extends React.Component {
                     }}
                   />
                 </View>
-                <View style={styles.rowFlex}>
-                  <View style={styles.contentScreen}>
-                    <Text style={styles.inputLabel}>Deceased:</Text>
-                  </View>
-                  <View style={[styles.rowFlex, {flex: 2}]}>
-                    <RadioButton.Group
-                      onValueChange={(value) =>
-                        this.context.saveDataToParent({deceased: value})
-                      }
-                      value={this.context.getValue('deceased')}>
-                      <View style={styles.contentScreen}>
-                        <Text>Yes</Text>
-                        <RadioButton color="#14213D" value="yes" />
-                      </View>
-                      <View style={styles.contentScreen}>
-                        <Text>No</Text>
-                        <RadioButton color="#14213D" value="no" />
-                      </View>
-                    </RadioButton.Group>
-                  </View>
-                </View>
               </View>
             );
           }
         })()}
+
+        <View style={styles.rowFlex}>
+          <View style={styles.contentScreen}>
+            <Text style={styles.inputLabel}>Discharged :</Text>
+          </View>
+          <View style={[styles.rowFlex, {flex: 2}]}>
+            <RadioButton.Group
+              onValueChange={(value) =>
+                this.context.saveDataToParent({discharged: value})
+              }
+              value={this.context.getValue('discharged')}>
+              <View style={styles.contentScreen}>
+                <Text>Yes</Text>
+                <RadioButton color="#14213D" value="true" />
+              </View>
+              <View style={styles.contentScreen}>
+                <Text>No</Text>
+                <RadioButton color="#14213D" value="false" />
+              </View>
+            </RadioButton.Group>
+          </View>
+        </View>
+        {(() => {
+          if (this.context.getValue('discharged') === 'true') {
+            return (
+              <React.Fragment>
+                <View>
+                  <View>
+                    <Text style={styles.inputLabel}>Date of Discharge</Text>
+                  </View>
+                  <View style={{flex: 1, flexDirection: 'row'}}>
+                    <View style={{flex: 3}}>
+                      <TextInput
+                        mode="flat"
+                        value={this.context.getValue('discharge')}
+                        disabled
+                        style={styles.textinput}
+                      />
+                    </View>
+                    <View style={styles.contentScreen}>
+                      <Button
+                        onPress={() => {
+                          this.setState({showDischargeDatePicker: true});
+                        }}>
+                        <Icon name="calendar" color={'#000000'} size={30} />
+                      </Button>
+                    </View>
+                  </View>
+                </View>
+                {this.state.showDischargeDatePicker && (
+                  <DateTimePicker
+                    testID="dateTimePicker"
+                    value={
+                      this.context.getValue('discharge')
+                        ? new Date(this.context.getValue('discharge'))
+                        : new Date()
+                    }
+                    mode={'date'}
+                    is24Hour={true}
+                    display="default"
+                    onChange={this.onDischargeDateChange}
+                  />
+                )}
+                <View>
+                  <Text style={styles.inputLabel}>
+                    Patient status at the time of discharge :{' '}
+                  </Text>
+                </View>
+                <View>
+                  <TextInput
+                    mode="outlined"
+                    style={styles.textinput}
+                    value={this.context.getValue('dischargeStatus')}
+                    onChangeText={(value) => {
+                      this.context.saveDataToParent({
+                        dischargeStatus: value,
+                      });
+                    }}
+                  />
+                </View>
+              </React.Fragment>
+            );
+          }
+        })()}
+
+        <View style={styles.rowFlex}>
+          <View style={styles.contentScreen}>
+            <Text style={styles.inputLabel}>Deceased:</Text>
+          </View>
+          <View style={[styles.rowFlex, {flex: 2}]}>
+            <RadioButton.Group
+              onValueChange={(value) =>
+                this.context.saveDataToParent({deceased: value})
+              }
+              value={this.context.getValue('deceased')}>
+              <View style={styles.contentScreen}>
+                <Text>Yes</Text>
+                <RadioButton color="#14213D" value="yes" />
+              </View>
+              <View style={styles.contentScreen}>
+                <Text>No</Text>
+                <RadioButton color="#14213D" value="no" />
+              </View>
+            </RadioButton.Group>
+          </View>
+        </View>
 
         {(() => {
           if (this.context.getValue('deceased') === 'yes') {
@@ -444,7 +487,7 @@ class HospitalDetails extends React.Component {
         })()}
 
         <View style={styles.buttonView}>
-          <View style={styles.contentScreen}>
+          <View style={{flex: 1}}>
             <Button
               mode="contained"
               style={styles.buttons}
@@ -455,7 +498,7 @@ class HospitalDetails extends React.Component {
             </Button>
           </View>
 
-          <View style={styles.contentScreen}>
+          <View style={{flex: 1}}>
             <Button
               mode="contained"
               style={styles.buttons}
@@ -479,8 +522,8 @@ HospitalDetails.contextType = PatientContext;
 const styles = StyleSheet.create({
   contentScreen: {
     flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   heading: {
     fontWeight: 'bold',
