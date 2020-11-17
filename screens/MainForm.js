@@ -5,6 +5,7 @@ import BloodProfile from './PatientForms/BloodProfile';
 import TestDetails from './PatientForms/TestDetails';
 import Observations from './PatientForms/Observations';
 import HospitalDetails from './PatientForms/HospitalDetails';
+import PatientHealthStatus from './PatientForms/PatientHealthStatus';
 
 export default function MainForm(props) {
   switch (props.formName) {
@@ -18,5 +19,7 @@ export default function MainForm(props) {
       return <TestDetails />;
     case 'HospitalDetailsForm':
       return <HospitalDetails />;
+    case 'PatientHealthStatusForm':
+      return <PatientHealthStatus />;
   }
 }

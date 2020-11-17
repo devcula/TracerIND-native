@@ -81,6 +81,25 @@ class HospitalDetails extends React.Component {
     }
   };
 
+  handleHospitalAdmittedTo = (value) => {
+    if (value === '') {
+      this.context.saveDataToParent({
+        admittedToSelected: 'NO',
+        hospitalAdmit: '',
+      });
+    } else if (value === 'other') {
+      this.context.saveDataToParent({
+        admittedToSelected: 'OTHER',
+        hospitalAdmit: '',
+      });
+    } else {
+      this.context.saveDataToParent({
+        hospitalAdmit: value,
+        admittedToSelected: 'YES',
+      });
+    }
+  };
+
   render() {
     console.log('Rendering HospitalDetails');
 
@@ -130,9 +149,14 @@ class HospitalDetails extends React.Component {
 
         <View style={styles.pickerView}>
           <Picker
-            selectedValue={this.context.getValue('hospitalAdmit')}
+            selectedValue={
+              this.context.getValue('admittedToSelected') === 'OTHER'
+                ? 'other'
+                : this.context.getValue('hospitalAdmit')
+            }
             onValueChange={(itemValue, itemIndex) => {
-              this.context.saveDataToParent({hospitalAdmit: itemValue});
+              // this.context.saveDataToParent({hospitalAdmit: itemValue});
+              this.handleHospitalAdmittedTo(itemValue);
             }}>
             <Picker.Item label="Hospital Admitted in" value="" />
             <Picker.Item label="PHC/Tulasipaka" value="PHC/Tulasipaka" />
@@ -153,6 +177,22 @@ class HospitalDetails extends React.Component {
             <Picker.Item label="Other" value="other" />
           </Picker>
         </View>
+
+        {(() => {
+          if (this.context.getValue('admittedToSelected') === 'OTHER') {
+            return (
+              <TextInput
+                mode="outlined"
+                style={styles.textinput}
+                value={this.context.getValue('hospitalAdmit')}
+                label="Hospital Admitted in"
+                onChangeText={(value) => {
+                  this.context.saveDataToParent({hospitalAdmit: value});
+                }}
+              />
+            );
+          }
+        })()}
 
         <View style={styles.rowFlex}>
           <View style={styles.contentScreen}>
@@ -213,7 +253,7 @@ class HospitalDetails extends React.Component {
                         mode="outlined"
                         style={styles.textinput}
                         value={this.context.getValue('referredto')}
-                        label="Enter Hospital Name"
+                        label="Hospital Referred to"
                         onChangeText={(value) => {
                           this.context.saveDataToParent({referredto: value});
                         }}
