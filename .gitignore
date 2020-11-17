@@ -62,3 +62,5 @@ buck-out/
 package-lock.json
 yarn.lock
 .directory
+perf.data
+perf.data.old
