@@ -9,6 +9,7 @@ import AuthContext from '../components/AuthContext';
 
 import axios from 'axios';
 import URI from '../components/URI';
+import {MontserratFont} from '../components/Constants';
 
 const LoginStack = createStackNavigator();
 
@@ -88,22 +89,32 @@ function LoginScreen(props) {
           />
           <Text style={styles.heading}>Enter login details</Text>
         </View>
-        <View style={styles.usernameView}>
-          <TextInput
-            mode="outlined"
-            label="Username"
-            value={username}
-            onChangeText={(user) => setUsername(user)}
-          />
+        <View style={[{flex: 1, flexDirection: 'row'}]}>
+          <View style={[styles.inputLabelView, styles.flexOneCenter]}>
+            <Text style={styles.inputLabel}>Username</Text>
+          </View>
+          <View style={{flex: 2}}>
+            <TextInput
+              mode="outlined"
+              label="Username"
+              value={username}
+              onChangeText={(user) => setUsername(user)}
+            />
+          </View>
         </View>
-        <View style={styles.passView}>
-          <TextInput
-            mode="outlined"
-            label="Password"
-            value={password}
-            onChangeText={(pass) => setPassword(pass)}
-            secureTextEntry
-          />
+        <View style={[{flex: 1, flexDirection: 'row'}]}>
+          <View style={[styles.inputLabelView, styles.flexOneCenter]}>
+            <Text style={styles.inputLabel}>Password</Text>
+          </View>
+          <View style={{flex: 2}}>
+            <TextInput
+              mode="outlined"
+              label="Password"
+              value={password}
+              onChangeText={(pass) => setPassword(pass)}
+              secureTextEntry
+            />
+          </View>
         </View>
         <View style={styles.buttonView}>
           <Button
@@ -126,12 +137,30 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
   },
-  usernameView: {},
+  flexOneCenter: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   passView: {
     marginTop: 10,
   },
   buttonView: {
-    marginTop: 10,
+    marginTop: 20,
+  },
+  inputLabelView: {
+    marginTop: 5,
+    backgroundColor: '#E5E5E5',
+    marginHorizontal: 10,
+    borderRadius: 5,
+  },
+  inputLabel: {
+    ...MontserratFont.bold,
+    fontSize: 16,
+    marginBottom: 5,
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
   },
   logoView: {
     flex: 1,
@@ -144,10 +173,10 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginTop: 15,
     marginBottom: 15,
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
   },
   buttonText: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 15,
   },
 });

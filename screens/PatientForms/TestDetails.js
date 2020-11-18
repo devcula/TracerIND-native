@@ -5,6 +5,7 @@ import PatientContext from '../../components/PatientContext';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {MontserratFont} from '../../components/Constants';
 
 class TestDetails extends React.Component {
   constructor() {
@@ -28,8 +29,9 @@ class TestDetails extends React.Component {
             }}
           />
           <View style={styles.rowFlex}>
-            <View style={styles.contentScreen}>
-              <Text style={styles.inputLabel}>Need for Dialysis :</Text>
+            <View
+              style={[styles.contentScreen, styles.inputLabelView, {flex: 2}]}>
+              <Text style={styles.inputLabel}>Need for Dialysis ?</Text>
             </View>
             <View style={[styles.rowFlex, {flex: 2}]}>
               <RadioButton.Group
@@ -38,19 +40,20 @@ class TestDetails extends React.Component {
                 }
                 value={this.context.getValue('dialysis')}>
                 <View style={styles.contentScreen}>
-                  <Text>Yes</Text>
+                  <Text style={MontserratFont.semiBold}>Yes</Text>
                   <RadioButton color="#14213D" value="true" />
                 </View>
                 <View style={styles.contentScreen}>
-                  <Text>No</Text>
+                  <Text style={MontserratFont.semiBold}>No</Text>
                   <RadioButton color="#14213D" value="false" />
                 </View>
               </RadioButton.Group>
             </View>
           </View>
           <View style={styles.rowFlex}>
-            <View style={styles.contentScreen}>
-              <Text style={styles.inputLabel}>Need for doctor :</Text>
+            <View
+              style={[styles.contentScreen, styles.inputLabelView, {flex: 2}]}>
+              <Text style={styles.inputLabel}>Need for doctor ?</Text>
             </View>
             <View style={[styles.rowFlex, {flex: 2}]}>
               <RadioButton.Group
@@ -59,11 +62,11 @@ class TestDetails extends React.Component {
                 }
                 value={this.context.getValue('doctorreq')}>
                 <View style={styles.contentScreen}>
-                  <Text>Yes</Text>
+                  <Text style={MontserratFont.semiBold}>Yes</Text>
                   <RadioButton color="#14213D" value="true" />
                 </View>
                 <View style={styles.contentScreen}>
-                  <Text>No</Text>
+                  <Text style={MontserratFont.semiBold}>No</Text>
                   <RadioButton color="#14213D" value="false" />
                 </View>
               </RadioButton.Group>
@@ -88,11 +91,11 @@ class TestDetails extends React.Component {
               }
               value={this.context.getValue('opd')}>
               <View style={styles.contentScreen}>
-                <Text>IP</Text>
+                <Text style={MontserratFont.semiBold}>IP</Text>
                 <RadioButton color="#14213D" value="true" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>OP</Text>
+                <Text style={MontserratFont.semiBold}>OP</Text>
                 <RadioButton color="#14213D" value="false" />
               </View>
             </RadioButton.Group>
@@ -106,8 +109,9 @@ class TestDetails extends React.Component {
     if (this.context.getValue('pedalEdema') === 'Y') {
       return (
         <View style={styles.rowFlex}>
-          <View style={styles.contentScreen}>
-            <Text style={styles.inputLabel}>Pedal Type :</Text>
+          <View
+            style={[styles.contentScreen, styles.inputLabelView, {flex: 2}]}>
+            <Text style={styles.inputLabel}>Pedal Type</Text>
           </View>
           <View style={[styles.rowFlex, {flex: 2}]}>
             <RadioButton.Group
@@ -116,11 +120,11 @@ class TestDetails extends React.Component {
               }
               value={this.context.getValue('pedaltype')}>
               <View style={styles.contentScreen}>
-                <Text>Single Leg</Text>
+                <Text style={MontserratFont.semiBold}>Single Leg</Text>
                 <RadioButton color="#14213D" value="single leg" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>Bilateral</Text>
+                <Text style={MontserratFont.semiBold}>Bilateral</Text>
                 <RadioButton color="#14213D" value="bilateral" />
               </View>
             </RadioButton.Group>
@@ -385,11 +389,11 @@ class TestDetails extends React.Component {
               }
               value={this.context.getValue('pedalEdema')}>
               <View style={styles.contentScreen}>
-                <Text>Yes</Text>
+                <Text style={MontserratFont.semiBold}>Yes</Text>
                 <RadioButton color="#14213D" value="Y" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>No</Text>
+                <Text style={MontserratFont.semiBold}>No</Text>
                 <RadioButton color="#14213D" value="N" />
               </View>
             </RadioButton.Group>
@@ -408,11 +412,11 @@ class TestDetails extends React.Component {
               }
               value={this.context.getValue('kidneystatus')}>
               <View style={styles.contentScreen}>
-                <Text>Good</Text>
+                <Text style={MontserratFont.semiBold}>Good</Text>
                 <RadioButton color="#14213D" value="good" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>Abnormal</Text>
+                <Text style={MontserratFont.semiBold}>Abnormal</Text>
                 <RadioButton color="#14213D" value="abnormal" />
               </View>
             </RadioButton.Group>
@@ -543,8 +547,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   subtext: {
-    fontWeight: 'bold',
-    fontSize: 25,
+    ...MontserratFont.bold,
+    fontSize: 20,
     paddingVertical: 10,
     color: '#FCA311',
   },
@@ -577,8 +581,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   inputLabel: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
+    ...MontserratFont.bold,
     marginBottom: 5,
     marginTop: 5,
     marginLeft: 10,
@@ -594,7 +598,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headingText: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 30,
   },
   borderValidation: {

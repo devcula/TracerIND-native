@@ -3,6 +3,7 @@ import {ScrollView, View, Text, StyleSheet, Alert} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import {Picker} from '@react-native-community/picker';
 import PatientContext from '../../components/PatientContext';
+import {MontserratFont} from '../../components/Constants';
 
 class PatientHealthStatus extends React.Component {
   constructor() {
@@ -443,8 +444,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   inputLabel: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
+    ...MontserratFont.bold,
     marginBottom: 5,
     marginTop: 5,
     marginLeft: 10,
@@ -471,7 +472,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headingText: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 30,
   },
   mandatoryAsterisk: {

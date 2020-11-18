@@ -5,6 +5,7 @@ import PatientContext from '../../components/PatientContext';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Picker} from '@react-native-community/picker';
+import {MontserratFont} from '../../components/Constants';
 
 class BloodProfile extends React.Component {
   constructor() {
@@ -289,15 +290,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-    fontWeight: 'bold',
-    fontSize: 30,
-    marginTop: 20,
-    marginLeft: 10,
-  },
   subtext: {
-    fontWeight: 'bold',
-    fontSize: 25,
+    ...MontserratFont.bold,
+    fontSize: 20,
     paddingVertical: 10,
     color: '#FCA311',
   },
@@ -327,8 +322,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   inputLabel: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
+    ...MontserratFont.bold,
     marginBottom: 5,
     marginTop: 5,
     marginLeft: 10,
@@ -344,7 +339,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headingText: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 30,
   },
   pickerView: {

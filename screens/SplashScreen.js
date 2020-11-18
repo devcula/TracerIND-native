@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
+import {MontserratFont} from '../components/Constants';
 
 export default function SplashScreen() {
   return (
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 30,
   },
 });

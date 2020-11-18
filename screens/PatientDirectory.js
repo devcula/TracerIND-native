@@ -15,6 +15,7 @@ import axios from 'axios';
 import URI from '../components/URI';
 import SplashScreen from './SplashScreen';
 import Modal from 'react-native-modal';
+import {MontserratFont} from '../components/Constants';
 const areaData = require('../assets/data/areaData.json');
 
 const DirectoryStack = createStackNavigator();
@@ -149,13 +150,15 @@ class PatientDirectory extends Component {
             </View>
             <View style={styles.modalValueView}>
               <Text style={[styles.flexOne, styles.modalValueLabel]}>Name</Text>
-              <Text style={styles.flexOne}>
+              <Text style={styles.modalValueText}>
                 {this.state.modalData.name} {this.state.modalData.surname}
               </Text>
             </View>
             <View style={styles.modalValueView}>
               <Text style={[styles.flexOne, styles.modalValueLabel]}>Age</Text>
-              <Text style={styles.flexOne}>{this.state.modalData.age}</Text>
+              <Text style={styles.modalValueText}>
+                {this.state.modalData.age}
+              </Text>
             </View>
             {/* <View style={styles.modalValueView}>
               <Text style={[styles.flexOne, styles.modalValueLabel]}>
@@ -167,7 +170,7 @@ class PatientDirectory extends Component {
               <Text style={[styles.flexOne, styles.modalValueLabel]}>
                 Gender
               </Text>
-              <Text style={styles.flexOne}>
+              <Text style={styles.modalValueText}>
                 {(() => {
                   switch (this.state.modalData.gender) {
                     case 'M':
@@ -184,13 +187,15 @@ class PatientDirectory extends Component {
               <Text style={[styles.flexOne, styles.modalValueLabel]}>
                 Contact No.
               </Text>
-              <Text style={styles.flexOne}>{this.state.modalData.phone}</Text>
+              <Text style={styles.modalValueText}>
+                {this.state.modalData.phone}
+              </Text>
             </View>
             <View style={styles.modalValueView}>
               <Text style={[styles.flexOne, styles.modalValueLabel]}>
                 Blood Group
               </Text>
-              <Text style={styles.flexOne}>
+              <Text style={styles.modalValueText}>
                 {this.state.modalData.bloodgroup.toUpperCase()}
               </Text>
             </View>
@@ -204,25 +209,25 @@ class PatientDirectory extends Component {
                     <Text style={[styles.flexOne, styles.modalValueLabel]}>
                       Mandal
                     </Text>
-                    <Text style={styles.flexOne}>{villageData[0]}</Text>
+                    <Text style={styles.modalValueText}>{villageData[0]}</Text>
                   </View>
                   <View style={styles.modalValueView}>
                     <Text style={[styles.flexOne, styles.modalValueLabel]}>
                       PHC
                     </Text>
-                    <Text style={styles.flexOne}>{villageData[1]}</Text>
+                    <Text style={styles.modalValueText}>{villageData[1]}</Text>
                   </View>
                   <View style={styles.modalValueView}>
                     <Text style={[styles.flexOne, styles.modalValueLabel]}>
                       Sub Center
                     </Text>
-                    <Text style={styles.flexOne}>{villageData[2]}</Text>
+                    <Text style={styles.modalValueText}>{villageData[2]}</Text>
                   </View>
                   <View style={styles.modalValueView}>
                     <Text style={[styles.flexOne, styles.modalValueLabel]}>
                       Village
                     </Text>
-                    <Text style={styles.flexOne}>{villageData[3]}</Text>
+                    <Text style={styles.modalValueText}>{villageData[3]}</Text>
                   </View>
                 </React.Fragment>
               );
@@ -231,7 +236,7 @@ class PatientDirectory extends Component {
               <Text style={[styles.flexOne, styles.modalValueLabel]}>
                 Marital Status
               </Text>
-              <Text style={styles.flexOne}>
+              <Text style={styles.modalValueText}>
                 {this.state.modalData.maritalstatus.toUpperCase()}
               </Text>
             </View>
@@ -239,7 +244,7 @@ class PatientDirectory extends Component {
               <Text style={[styles.flexOne, styles.modalValueLabel]}>
                 Guardian Name
               </Text>
-              <Text style={styles.flexOne}>
+              <Text style={styles.modalValueText}>
                 {this.state.modalData.gaurdian_name}
               </Text>
             </View>
@@ -401,13 +406,13 @@ const styles = StyleSheet.create({
   },
   cardBodyText: {
     color: '#FFFFFF',
-    fontWeight: 'bold',
+    ...MontserratFont.semiBold,
     paddingVertical: 10,
   },
   cardTitleText: {
     color: '#FCA311',
-    fontWeight: 'bold',
-    fontSize: 30,
+    ...MontserratFont.bold,
+    fontSize: 25,
   },
   cardTitleView: {
     marginVertical: 10,
@@ -434,15 +439,18 @@ const styles = StyleSheet.create({
     width: '60%',
   },
   modalHeadingText: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 25,
     color: '#14213D',
-    fontStyle: 'italic',
   },
   modalValueLabel: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 15,
     color: '#14213D',
+  },
+  modalValueText: {
+    flex: 1,
+    ...MontserratFont.semiBold,
   },
   modalValueView: {
     marginVertical: 5,
