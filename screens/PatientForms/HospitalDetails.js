@@ -207,7 +207,7 @@ class HospitalDetails extends React.Component {
           <View style={[styles.contentScreen, styles.inputLabelView]}>
             <Text style={styles.inputLabel}>Refered to Any Hospital ?</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 2}]}>
+          <View style={[styles.rowFlex, {flex: 1}]}>
             <RadioButton.Group
               onValueChange={(value) =>
                 this.context.saveDataToParent({refered: value})
@@ -294,7 +294,7 @@ class HospitalDetails extends React.Component {
                   <View style={[styles.contentScreen, styles.inputLabelView]}>
                     <Text style={styles.inputLabel}>Need for Dialysis ?</Text>
                   </View>
-                  <View style={[styles.rowFlex, {flex: 2}]}>
+                  <View style={[styles.rowFlex, {flex: 1}]}>
                     <RadioButton.Group
                       onValueChange={(value) =>
                         this.context.saveDataToParent({dialysis: value})
@@ -359,7 +359,7 @@ class HospitalDetails extends React.Component {
           <View style={[styles.contentScreen, styles.inputLabelView]}>
             <Text style={styles.inputLabel}>Discharged?</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 2}]}>
+          <View style={[styles.rowFlex, {flex: 1}]}>
             <RadioButton.Group
               onValueChange={(value) =>
                 this.context.saveDataToParent({discharged: value})
@@ -439,7 +439,7 @@ class HospitalDetails extends React.Component {
           <View style={[styles.contentScreen, styles.inputLabelView]}>
             <Text style={styles.inputLabel}>Deceased ?</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 2}]}>
+          <View style={[styles.rowFlex, {flex: 1}]}>
             <RadioButton.Group
               onValueChange={(value) =>
                 this.context.saveDataToParent({deceased: value})

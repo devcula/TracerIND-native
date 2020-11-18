@@ -81,7 +81,8 @@ class TestDetails extends React.Component {
     if (this.context.getValue('doctorreq') === 'true') {
       return (
         <View style={styles.rowFlex}>
-          <View style={styles.contentScreen}>
+          <View
+            style={[styles.contentScreen, styles.inputLabelView, {flex: 2}]}>
             <Text style={styles.inputLabel}>Patient Type :</Text>
           </View>
           <View style={[styles.rowFlex, {flex: 2}]}>
