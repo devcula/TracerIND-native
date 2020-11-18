@@ -420,6 +420,31 @@ class TestDetails extends React.Component {
         {this.patientTypeCheck()}
 
         {(() => {
+          if (this.context.getValue('opd') === 'false') {
+            return (
+              <React.Fragment>
+                <View>
+                  <Text style={styles.inputLabel}>Treatment Provided </Text>
+                </View>
+                <View>
+                  <TextInput
+                    mode="outlined"
+                    style={styles.textinput}
+                    value={this.context.getValue('treatmentDone')}
+                    onChangeText={(value) => {
+                      this.context.saveDataToParent({treatmentDone: value});
+                    }}
+                  />
+                </View>
+              </React.Fragment>
+            );
+          }
+          // else {
+          //   this.context.saveDataToParent({treatmentDone: ''});
+          // }
+        })()}
+
+        {(() => {
           if (
             this.context.getValue('opd') === 'true' &&
             this.context.getValue('doctorreq') === 'true' &&
@@ -499,8 +524,8 @@ class TestDetails extends React.Component {
 const styles = StyleSheet.create({
   contentScreen: {
     flex: 1,
-    //  alignItems: 'center',
-    //  justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontWeight: 'bold',

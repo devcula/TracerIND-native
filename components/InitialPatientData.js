@@ -1,5 +1,5 @@
 const initialState = {
-  formName: 'BasicDetailsForm',
+  formName: 'PatientHealthStatusForm',
   //Basic Details: Start
   adhaarFirst: '',
   adhaarSecond: '',
@@ -55,6 +55,7 @@ const initialState = {
   treatmentDone: '',
   dialysis: '',
   discharge: '',
+  discharged: '',
   dischargeStatus: '',
   deceased: '',
   deathDate: '',
@@ -63,6 +64,7 @@ const initialState = {
   recovery: '',
   otherReferedHospitalName: '',
   referredToSelected: 'NO',
+  admittedToSelected: 'NO',
   btn: 'Submit',
   loading: false,
   //Hospital Details: End
@@ -109,6 +111,18 @@ const initialState = {
   potassiumRange: 'noRange',
   bunRange: 'noRange',
   //Test Details: End
+  //Patient Health Status: Start
+  diseaseType: '',
+  diseaseTypeSelected: 'NO',
+  diseaseCondition: '',
+  onsetYears: '',
+  onsetMonths: '',
+  treatmentProvided: '',
+  treatmentProvidedSelected: 'NO',
+  currentLocation: '',
+  presentPatientStatus: '',
+  patientCategorizedAs: '',
+  //Patient Health Status: End
 };
 
 export default initialState;

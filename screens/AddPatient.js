@@ -205,11 +205,16 @@ class AddPatientStackScreen extends React.Component {
       referredto: this.state.referred === 'yes' ? this.state.referredto : '',
       ref_status: this.state.referred === 'yes' ? this.state.status : '',
       treatmentDone:
-        this.state.referred === 'yes' ? this.state.treatmentDone : '',
-      discharge: this.state.referred === 'no' ? this.state.discharge : '',
-      dischargeStatus:
-        this.state.referred === 'no' ? this.state.dischargeStatus : '',
-      deceased: this.state.referred === 'no' ? this.state.deceased : false,
+        this.state.referred === 'yes' || opdCheck === false
+          ? this.state.treatmentDone
+          : '',
+      DischargeDetails: {
+        discharged: this.state.discharged,
+        discharge: this.state.discharged === 'true' ? this.state.discharge : '',
+        dischargeStatus:
+          this.state.discharged === 'true' ? this.state.dischargeStatus : '',
+      },
+      deceased: this.state.deceased,
       DetailsDeath:
         this.state.deceased === 'no'
           ? {}
@@ -268,6 +273,16 @@ class AddPatientStackScreen extends React.Component {
         mch: this.state.mch,
         mchc: this.state.mchc,
         rdw: this.state.rdw,
+      },
+      PatientHealthStatus: {
+        diseaseType: this.state.diseaseType,
+        diseaseCondition: this.state.diseaseCondition,
+        onsetYears: this.state.onsetYears,
+        onsetMonths: this.state.onsetMonths,
+        treatmentProvided: this.state.treatmentProvided,
+        currentLocation: this.state.currentLocation,
+        presentPatientStatus: this.state.presentPatientStatus,
+        patientCategorizedAs: this.state.patientCategorizedAs,
       },
     };
     try {

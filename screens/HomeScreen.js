@@ -17,7 +17,7 @@ function HomeStackScreen({navigation, navHeaderStyles}) {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Welcome to TracerIND',
+          title: 'Girijana Arogaya Pragathi',
           headerLeft: () => (
             <Icon.Button
               name="ios-menu"
