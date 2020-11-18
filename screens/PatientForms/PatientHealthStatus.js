@@ -428,12 +428,19 @@ const styles = StyleSheet.create({
   buttonView: {
     flex: 1,
     flexDirection: 'row',
+    marginHorizontal: 10,
   },
   buttons: {
     margin: 5,
   },
   rowFlex: {
     flexDirection: 'row',
+  },
+  inputLabelView: {
+    marginTop: 10,
+    backgroundColor: '#E5E5E5',
+    marginHorizontal: 10,
+    borderRadius: 5,
   },
   inputLabel: {
     fontSize: 18,
@@ -445,14 +452,14 @@ const styles = StyleSheet.create({
   },
   textinput: {
     marginBottom: 5,
-    marginLeft: 10,
-    marginRight: 10,
+    marginHorizontal: 10,
   },
   pickerView: {
     borderColor: '#888888',
     borderWidth: 1,
     borderRadius: 4,
-    margin: 5,
+    marginVertical: 5,
+    marginHorizontal: 10,
   },
   headingView: {
     flex: 1,
@@ -466,10 +473,6 @@ const styles = StyleSheet.create({
   headingText: {
     fontWeight: 'bold',
     fontSize: 30,
-  },
-  inputLabelView: {
-    marginLeft: 5,
-    marginTop: 10,
   },
   mandatoryAsterisk: {
     fontWeight: 'bold',

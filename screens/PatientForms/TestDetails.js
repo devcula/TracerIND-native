@@ -18,6 +18,7 @@ class TestDetails extends React.Component {
         <ScrollView>
           <TextInput
             multiline
+            mode="outlined"
             numberOfLines={3}
             style={styles.textinput}
             value={this.context.getValue('ailments')}
@@ -247,7 +248,7 @@ class TestDetails extends React.Component {
           <Text style={styles.headingText}>Test Details</Text>
         </View>
         <View>
-          <View>
+          <View style={styles.inputLabelView}>
             <Text style={styles.inputLabel}>Date of Testing</Text>
           </View>
           <View style={{flex: 1, flexDirection: 'row'}}>
@@ -340,8 +341,8 @@ class TestDetails extends React.Component {
             styles[this.context.getValue('bunRange')],
           ]}
         />
-        <View>
-          <Text style={styles.text}>Electrolytes</Text>
+        <View style={[styles.contentScreen, styles.subtextView]}>
+          <Text style={styles.subtext}>Electrolytes</Text>
         </View>
         <TextInput
           mode="outlined"
@@ -373,8 +374,9 @@ class TestDetails extends React.Component {
         />
 
         <View style={styles.rowFlex}>
-          <View style={styles.contentScreen}>
-            <Text style={styles.inputLabel}>Pedal Edema :</Text>
+          <View
+            style={[styles.contentScreen, styles.inputLabelView, {flex: 2}]}>
+            <Text style={styles.inputLabel}>Pedal Edema</Text>
           </View>
           <View style={[styles.rowFlex, {flex: 2}]}>
             <RadioButton.Group
@@ -395,8 +397,9 @@ class TestDetails extends React.Component {
         </View>
         {this.pedalEdemaType()}
         <View style={styles.rowFlex}>
-          <View style={styles.contentScreen}>
-            <Text style={styles.inputLabel}>Kidney Status :</Text>
+          <View
+            style={[styles.contentScreen, styles.inputLabelView, {flex: 2}]}>
+            <Text style={styles.inputLabel}>Kidney Status</Text>
           </View>
           <View style={[styles.rowFlex, {flex: 2}]}>
             <RadioButton.Group
@@ -542,9 +545,14 @@ const styles = StyleSheet.create({
   subtext: {
     fontWeight: 'bold',
     fontSize: 25,
-    marginBottom: 10,
-    marginTop: 20,
-    marginLeft: 10,
+    paddingVertical: 10,
+    color: '#FCA311',
+  },
+  subtextView: {
+    backgroundColor: '#14213D',
+    marginHorizontal: '20%',
+    borderRadius: 10,
+    marginVertical: 10,
   },
   textinput: {
     marginBottom: 5,
@@ -562,11 +570,19 @@ const styles = StyleSheet.create({
   rowFlex: {
     flexDirection: 'row',
   },
-  inputLabel: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    marginHorizontal: 10,
+  inputLabelView: {
     marginTop: 10,
+    backgroundColor: '#E5E5E5',
+    marginHorizontal: 10,
+    borderRadius: 5,
+  },
+  inputLabel: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
   },
   headingView: {
     flex: 1,

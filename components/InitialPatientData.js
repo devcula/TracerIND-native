@@ -1,5 +1,5 @@
 const initialState = {
-  formName: 'BasicDetailsForm',
+  formName: 'BloodProfileForm',
   //Basic Details: Start
   adhaarFirst: '',
   adhaarSecond: '',

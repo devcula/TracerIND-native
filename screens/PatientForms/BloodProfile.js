@@ -54,7 +54,9 @@ class BloodProfile extends React.Component {
         <View style={styles.headingView}>
           <Text style={styles.headingText}>Blood Profile</Text>
         </View>
-        <Text style={styles.subtext}>Basic Blood Profile</Text>
+        <View style={[styles.contentScreen, styles.subtextView]}>
+          <Text style={styles.subtext}>Basic Blood Profile</Text>
+        </View>
         <View>
           <View>
             <Text style={styles.inputLabel}>Date of Testing</Text>
@@ -103,23 +105,28 @@ class BloodProfile extends React.Component {
           }}
           style={styles.textinput}
         />
-        <View style={styles.pickerView}>
-          <Picker
-            selectedValue={this.context.getValue('hbClassification')}
-            onValueChange={(itemValue, itemIndex) => {
-              this.context.saveDataToParent({hbClassification: itemValue});
-            }}>
-            <Picker.Item label="Select Age Classification" value="" />
-            {hbClassifications.map((hbClassification, i) => {
-              return (
-                <Picker.Item
-                  label={hbClassification.label}
-                  value={hbClassification.value}
-                  key={i}
-                />
-              );
-            })}
-          </Picker>
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={[styles.inputLabelView, styles.contentScreen]}>
+            <Text style={styles.inputLabel}>Age Classification</Text>
+          </View>
+          <View style={[styles.pickerView, {flex: 1}]}>
+            <Picker
+              selectedValue={this.context.getValue('hbClassification')}
+              onValueChange={(itemValue, itemIndex) => {
+                this.context.saveDataToParent({hbClassification: itemValue});
+              }}>
+              <Picker.Item label="Select" value="" />
+              {hbClassifications.map((hbClassification, i) => {
+                return (
+                  <Picker.Item
+                    label={hbClassification.label}
+                    value={hbClassification.value}
+                    key={i}
+                  />
+                );
+              })}
+            </Picker>
+          </View>
         </View>
         <TextInput
           mode="outlined"
@@ -204,7 +211,9 @@ class BloodProfile extends React.Component {
           style={styles.textinput}
         />
 
-        <Text style={styles.subtext}>Differential Count</Text>
+        <View style={[styles.contentScreen, styles.subtextView]}>
+          <Text style={styles.subtext}>Differential Count</Text>
+        </View>
         <TextInput
           mode="outlined"
           value={this.context.getValue('monocytes')}
@@ -277,8 +286,8 @@ BloodProfile.contextType = PatientContext;
 const styles = StyleSheet.create({
   contentScreen: {
     flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontWeight: 'bold',
@@ -289,9 +298,14 @@ const styles = StyleSheet.create({
   subtext: {
     fontWeight: 'bold',
     fontSize: 25,
-    marginBottom: 10,
-    marginTop: 20,
-    marginLeft: 10,
+    paddingVertical: 10,
+    color: '#FCA311',
+  },
+  subtextView: {
+    backgroundColor: '#14213D',
+    marginHorizontal: '20%',
+    borderRadius: 10,
+    marginVertical: 10,
   },
   textinput: {
     marginBottom: 5,
@@ -306,10 +320,19 @@ const styles = StyleSheet.create({
   buttons: {
     margin: 5,
   },
-  inputLabel: {
-    fontSize: 15,
-    fontWeight: 'bold',
+  inputLabelView: {
+    marginTop: 10,
+    backgroundColor: '#E5E5E5',
     marginHorizontal: 10,
+    borderRadius: 5,
+  },
+  inputLabel: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
   },
   headingView: {
     flex: 1,
@@ -328,7 +351,7 @@ const styles = StyleSheet.create({
     borderColor: '#888888',
     borderWidth: 1,
     borderRadius: 4,
-    marginTop: 5,
+    marginTop: 10,
     marginHorizontal: 10,
   },
 });
