@@ -31,18 +31,18 @@ class PatientHealthStatus extends React.Component {
   handleTreatmentProvided = (value) => {
     if (value === '') {
       this.context.saveDataToParent({
-        treatmentProvidedSelected: 'NO',
-        treatmentProvided: '',
+        treatmentProvidedAtSelected: 'NO',
+        treatmentProvidedAt: '',
       });
     } else if (value === 'other') {
       this.context.saveDataToParent({
-        treatmentProvidedSelected: 'OTHER',
-        treatmentProvided: '',
+        treatmentProvidedAtSelected: 'OTHER',
+        treatmentProvidedAt: '',
       });
     } else {
       this.context.saveDataToParent({
-        treatmentProvided: value,
-        treatmentProvidedSelected: 'YES',
+        treatmentProvidedAt: value,
+        treatmentProvidedAtSelected: 'YES',
       });
     }
   };
@@ -294,9 +294,9 @@ class PatientHealthStatus extends React.Component {
           <View style={styles.pickerView}>
             <Picker
               selectedValue={
-                this.context.getValue('treatmentProvidedSelected') === 'OTHER'
+                this.context.getValue('treatmentProvidedAtSelected') === 'OTHER'
                   ? 'other'
-                  : this.context.getValue('treatmentProvided')
+                  : this.context.getValue('treatmentProvidedAt')
               }
               onValueChange={(itemValue, itemIndex) => {
                 this.handleTreatmentProvided(itemValue);
@@ -315,15 +315,15 @@ class PatientHealthStatus extends React.Component {
           </View>
           {(() => {
             if (
-              this.context.getValue('treatmentProvidedSelected') === 'OTHER'
+              this.context.getValue('treatmentProvidedAtSelected') === 'OTHER'
             ) {
               return (
                 <TextInput
                   mode="outlined"
-                  value={this.context.getValue('treatmentProvided')}
+                  value={this.context.getValue('treatmentProvidedAt')}
                   label="Enter treatment provided at"
                   onChangeText={(value) => {
-                    this.context.saveDataToParent({treatmentProvided: value});
+                    this.context.saveDataToParent({treatmentProvidedAt: value});
                   }}
                   style={styles.textinput}
                 />

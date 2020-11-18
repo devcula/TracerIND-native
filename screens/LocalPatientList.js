@@ -146,6 +146,7 @@ function LocalPatientList(props) {
         dispatch({type: 'START_SYNC'});
         let dataToSync = state.patientsData;
         for (let i = dataToSync.length - 1; i >= 0; i--) {
+          console.log(dataToSync[i]);
           await new Promise((resolve) => {
             axios
               .post(URI + 'AddPatient/', dataToSync[i], {
