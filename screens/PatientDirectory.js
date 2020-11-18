@@ -157,12 +157,12 @@ class PatientDirectory extends Component {
               <Text style={[styles.flexOne, styles.modalValueLabel]}>Age</Text>
               <Text style={styles.flexOne}>{this.state.modalData.age}</Text>
             </View>
-            <View style={styles.modalValueView}>
+            {/* <View style={styles.modalValueView}>
               <Text style={[styles.flexOne, styles.modalValueLabel]}>
                 Caste
               </Text>
               <Text style={styles.flexOne}>{this.state.modalData.PVTG}</Text>
-            </View>
+            </View> */}
             <View style={styles.modalValueView}>
               <Text style={[styles.flexOne, styles.modalValueLabel]}>
                 Gender

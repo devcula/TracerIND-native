@@ -109,7 +109,7 @@ class HospitalDetails extends React.Component {
           <Text style={styles.headingText}>Hospital Details</Text>
         </View>
         <View>
-          <View>
+          <View style={styles.inputLabelView}>
             <Text style={styles.inputLabel}>Date of Admit</Text>
           </View>
           <View style={{flex: 1, flexDirection: 'row'}}>
@@ -147,35 +147,43 @@ class HospitalDetails extends React.Component {
           />
         )}
 
-        <View style={styles.pickerView}>
-          <Picker
-            selectedValue={
-              this.context.getValue('admittedToSelected') === 'OTHER'
-                ? 'other'
-                : this.context.getValue('hospitalAdmit')
-            }
-            onValueChange={(itemValue, itemIndex) => {
-              // this.context.saveDataToParent({hospitalAdmit: itemValue});
-              this.handleHospitalAdmittedTo(itemValue);
-            }}>
-            <Picker.Item label="Hospital Admitted in" value="" />
-            <Picker.Item label="PHC/Tulasipaka" value="PHC/Tulasipaka" />
-            <Picker.Item label="PHC/E.D Pally" value="PHC/E.D Pally" />
-            <Picker.Item label="PHC/Laxmipuram" value="PHC/Laxmipuram" />
-            <Picker.Item label="PHC/Gowridevipeta" value="PHC/Gowridevipeta" />
-            <Picker.Item label="PHC/Kuturu" value="PHC/Kuturu" />
-            <Picker.Item label="PHC/Rekhapally" value="PHC/Rekhapally" />
-            <Picker.Item label="PHC/Jeediguppa" value="PHC/Jeediguppa" />
-            <Picker.Item label="AH/Chintoor" value="AH/Chintoor" />
-            <Picker.Item
-              label="AH/Rampachodavaram"
-              value="AH/Rampachodavaram"
-            />
-            <Picker.Item label="AH/Bhadrachalam" value="AH/Bhadrachalam" />
-            <Picker.Item label="DH/Rajamundry" value="DH/Rajamundry" />
-            <Picker.Item label="GGH/Kakinada" value="GGH/Kakinada" />
-            <Picker.Item label="Other" value="other" />
-          </Picker>
+        <View style={[styles.rowFlex, {flex: 1}]}>
+          <View style={[styles.inputLabelView, styles.contentScreen]}>
+            <Text style={styles.inputLabel}>Hospital Admitted</Text>
+          </View>
+          <View style={[styles.pickerView, {flex: 1}]}>
+            <Picker
+              selectedValue={
+                this.context.getValue('admittedToSelected') === 'OTHER'
+                  ? 'other'
+                  : this.context.getValue('hospitalAdmit')
+              }
+              onValueChange={(itemValue, itemIndex) => {
+                // this.context.saveDataToParent({hospitalAdmit: itemValue});
+                this.handleHospitalAdmittedTo(itemValue);
+              }}>
+              <Picker.Item label="Select" value="" />
+              <Picker.Item label="PHC/Tulasipaka" value="PHC/Tulasipaka" />
+              <Picker.Item label="PHC/E.D Pally" value="PHC/E.D Pally" />
+              <Picker.Item label="PHC/Laxmipuram" value="PHC/Laxmipuram" />
+              <Picker.Item
+                label="PHC/Gowridevipeta"
+                value="PHC/Gowridevipeta"
+              />
+              <Picker.Item label="PHC/Kuturu" value="PHC/Kuturu" />
+              <Picker.Item label="PHC/Rekhapally" value="PHC/Rekhapally" />
+              <Picker.Item label="PHC/Jeediguppa" value="PHC/Jeediguppa" />
+              <Picker.Item label="AH/Chintoor" value="AH/Chintoor" />
+              <Picker.Item
+                label="AH/Rampachodavaram"
+                value="AH/Rampachodavaram"
+              />
+              <Picker.Item label="AH/Bhadrachalam" value="AH/Bhadrachalam" />
+              <Picker.Item label="DH/Rajamundry" value="DH/Rajamundry" />
+              <Picker.Item label="GGH/Kakinada" value="GGH/Kakinada" />
+              <Picker.Item label="Other" value="other" />
+            </Picker>
+          </View>
         </View>
 
         {(() => {
@@ -195,8 +203,8 @@ class HospitalDetails extends React.Component {
         })()}
 
         <View style={styles.rowFlex}>
-          <View style={styles.contentScreen}>
-            <Text style={styles.inputLabel}>Refered to Any Hospital :</Text>
+          <View style={[styles.contentScreen, styles.inputLabelView]}>
+            <Text style={styles.inputLabel}>Refered to Any Hospital ?</Text>
           </View>
           <View style={[styles.rowFlex, {flex: 2}]}>
             <RadioButton.Group
@@ -220,31 +228,39 @@ class HospitalDetails extends React.Component {
           if (this.context.getValue('refered') === 'yes') {
             return (
               <View>
-                <View style={styles.pickerView}>
-                  <Picker
-                    selectedValue={
-                      this.context.getValue('referredToSelected') === 'OTHER'
-                        ? 'other'
-                        : this.context.getValue('referredto')
-                    }
-                    onValueChange={(itemValue, itemIndex) => {
-                      // this.context.saveDataToParent({referredto: itemValue});
-                      this.handleReferredTo(itemValue);
-                    }}>
-                    <Picker.Item label="Hospital Refered to" value="" />
-                    <Picker.Item label="AH/Chintoor" value="AH/Chintoor" />
-                    <Picker.Item
-                      label="AH/Rampachodavaram"
-                      value="AH/Rampachodavaram"
-                    />
-                    <Picker.Item
-                      label="AH/Bhadrachalam"
-                      value="AH/Bhadrachalam"
-                    />
-                    <Picker.Item label="DH/Rajamundry" value="DH/Rajamundry" />
-                    <Picker.Item label="GGH/Kakinada" value="GGH/Kakinada" />
-                    <Picker.Item label="Other" value="other" />
-                  </Picker>
+                <View style={[styles.rowFlex, {flex: 1}]}>
+                  <View style={[styles.inputLabelView, styles.contentScreen]}>
+                    <Text style={styles.inputLabel}>Hospital Referred</Text>
+                  </View>
+                  <View style={[styles.pickerView, {flex: 1}]}>
+                    <Picker
+                      selectedValue={
+                        this.context.getValue('referredToSelected') === 'OTHER'
+                          ? 'other'
+                          : this.context.getValue('referredto')
+                      }
+                      onValueChange={(itemValue, itemIndex) => {
+                        // this.context.saveDataToParent({referredto: itemValue});
+                        this.handleReferredTo(itemValue);
+                      }}>
+                      <Picker.Item label="Select" value="" />
+                      <Picker.Item label="AH/Chintoor" value="AH/Chintoor" />
+                      <Picker.Item
+                        label="AH/Rampachodavaram"
+                        value="AH/Rampachodavaram"
+                      />
+                      <Picker.Item
+                        label="AH/Bhadrachalam"
+                        value="AH/Bhadrachalam"
+                      />
+                      <Picker.Item
+                        label="DH/Rajamundry"
+                        value="DH/Rajamundry"
+                      />
+                      <Picker.Item label="GGH/Kakinada" value="GGH/Kakinada" />
+                      <Picker.Item label="Other" value="other" />
+                    </Picker>
+                  </View>
                 </View>
                 {(() => {
                   if (this.context.getValue('referredToSelected') === 'OTHER') {
@@ -262,11 +278,6 @@ class HospitalDetails extends React.Component {
                   }
                 })()}
                 <View>
-                  <Text style={styles.inputLabel}>
-                    Health Status at the time of referring{' '}
-                  </Text>
-                </View>
-                <View>
                   <TextInput
                     mode="outlined"
                     style={styles.textinput}
@@ -279,8 +290,8 @@ class HospitalDetails extends React.Component {
                 </View>
 
                 <View style={styles.rowFlex}>
-                  <View style={styles.contentScreen}>
-                    <Text style={styles.inputLabel}>Need for Dialysis:</Text>
+                  <View style={[styles.contentScreen, styles.inputLabelView]}>
+                    <Text style={styles.inputLabel}>Need for Dialysis ?</Text>
                   </View>
                   <View style={[styles.rowFlex, {flex: 2}]}>
                     <RadioButton.Group
@@ -290,22 +301,20 @@ class HospitalDetails extends React.Component {
                       value={this.context.getValue('dialysis')}>
                       <View style={styles.contentScreen}>
                         <Text>Yes</Text>
-                        <RadioButton color="#14213D" value="yes" />
+                        <RadioButton color="#14213D" value="true" />
                       </View>
                       <View style={styles.contentScreen}>
                         <Text>No</Text>
-                        <RadioButton color="#14213D" value="no" />
+                        <RadioButton color="#14213D" value="false" />
                       </View>
                     </RadioButton.Group>
                   </View>
                 </View>
 
                 <View>
-                  <Text style={styles.inputLabel}>Treatment Provided </Text>
-                </View>
-                <View>
                   <TextInput
                     mode="outlined"
+                    label="Treatment Provided"
                     style={styles.textinput}
                     value={this.context.getValue('treatmentDone')}
                     onChangeText={(value) => {
@@ -314,11 +323,9 @@ class HospitalDetails extends React.Component {
                   />
                 </View>
                 <View>
-                  <Text style={styles.inputLabel}>Recovery Status </Text>
-                </View>
-                <View>
                   <TextInput
                     mode="outlined"
+                    label="Recovery Status"
                     style={styles.textinput}
                     value={this.context.getValue('recovery')}
                     onChangeText={(value) => {
@@ -334,6 +341,7 @@ class HospitalDetails extends React.Component {
                 <View>
                   <TextInput
                     style={styles.textinput}
+                    mode="outlined"
                     value={this.context.getValue('treatmentDone')}
                     label="Treatment Provided"
                     onChangeText={(value) => {
@@ -347,8 +355,8 @@ class HospitalDetails extends React.Component {
         })()}
 
         <View style={styles.rowFlex}>
-          <View style={styles.contentScreen}>
-            <Text style={styles.inputLabel}>Discharged :</Text>
+          <View style={[styles.contentScreen, styles.inputLabelView]}>
+            <Text style={styles.inputLabel}>Discharged?</Text>
           </View>
           <View style={[styles.rowFlex, {flex: 2}]}>
             <RadioButton.Group
@@ -372,7 +380,7 @@ class HospitalDetails extends React.Component {
             return (
               <React.Fragment>
                 <View>
-                  <View>
+                  <View style={styles.inputLabelView}>
                     <Text style={styles.inputLabel}>Date of Discharge</Text>
                   </View>
                   <View style={{flex: 1, flexDirection: 'row'}}>
@@ -409,13 +417,9 @@ class HospitalDetails extends React.Component {
                   />
                 )}
                 <View>
-                  <Text style={styles.inputLabel}>
-                    Patient status at the time of discharge :{' '}
-                  </Text>
-                </View>
-                <View>
                   <TextInput
                     mode="outlined"
+                    label="Patient status at the time of discharge"
                     style={styles.textinput}
                     value={this.context.getValue('dischargeStatus')}
                     onChangeText={(value) => {
@@ -431,8 +435,8 @@ class HospitalDetails extends React.Component {
         })()}
 
         <View style={styles.rowFlex}>
-          <View style={styles.contentScreen}>
-            <Text style={styles.inputLabel}>Deceased:</Text>
+          <View style={[styles.contentScreen, styles.inputLabelView]}>
+            <Text style={styles.inputLabel}>Deceased ?</Text>
           </View>
           <View style={[styles.rowFlex, {flex: 2}]}>
             <RadioButton.Group
@@ -578,6 +582,12 @@ const styles = StyleSheet.create({
   rowFlex: {
     flexDirection: 'row',
   },
+  inputLabelView: {
+    marginTop: 10,
+    backgroundColor: '#E5E5E5',
+    marginHorizontal: 10,
+    borderRadius: 5,
+  },
   inputLabel: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -596,7 +606,8 @@ const styles = StyleSheet.create({
     borderColor: '#888888',
     borderWidth: 1,
     borderRadius: 4,
-    margin: 5,
+    marginTop: 10,
+    marginHorizontal: 10,
   },
   headingView: {
     flex: 1,

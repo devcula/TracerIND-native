@@ -16,10 +16,13 @@ class Observations extends React.Component {
         <View style={styles.headingView}>
           <Text style={styles.headingText}>Observations</Text>
         </View>
-        <View>
+        <View style={[styles.contentScreen, styles.subtextView]}>
           <Text style={styles.subtext}>Basic Vitals</Text>
         </View>
         <View>
+          {/* <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>Weight (Kg)</Text>
+          </View> */}
           <TextInput
             mode="outlined"
             value={this.context.getValue('weight')}
@@ -103,7 +106,7 @@ class Observations extends React.Component {
           />
         </View>
 
-        <View style={styles.contentScreen}>
+        <View style={[styles.contentScreen, styles.subtextView]}>
           <Text style={styles.subtext}>Basic Symptoms</Text>
         </View>
         <View style={styles.checkboxContainer}>
@@ -240,19 +243,23 @@ const styles = StyleSheet.create({
   subtext: {
     fontWeight: 'bold',
     fontSize: 25,
-    marginBottom: 10,
-    marginTop: 20,
-    marginLeft: 10,
+    paddingVertical: 10,
+    color: '#FCA311',
+  },
+  subtextView: {
+    backgroundColor: '#14213D',
+    marginHorizontal: '20%',
+    borderRadius: 10,
+    marginVertical: 10,
   },
   textinput: {
     marginBottom: 5,
-    marginTop: 5,
-    marginLeft: 10,
-    marginRight: 10,
+    marginHorizontal: 10,
   },
   checkboxContainer: {
     flexDirection: 'row',
     marginBottom: 10,
+    marginHorizontal: 10,
   },
   checkboxText: {
     fontSize: 20,
