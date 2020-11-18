@@ -543,12 +543,11 @@ class HospitalDetails extends React.Component {
               mode="contained"
               style={styles.buttons}
               onPress={() =>
-                this.context.submitForm(
-                  () => alert('Saved'),
-                  () => alert('Failed'),
-                )
+                this.context.saveDataToParent({
+                  formName: 'PatientHealthStatusForm',
+                })
               }>
-              Submit Form
+              Next
             </Button>
           </View>
         </View>

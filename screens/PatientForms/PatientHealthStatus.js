@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet} from 'react-native';
+import {ScrollView, View, Text, StyleSheet, Alert} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import {Picker} from '@react-native-community/picker';
 import PatientContext from '../../components/PatientContext';
@@ -26,6 +26,44 @@ class PatientHealthStatus extends React.Component {
         diseaseTypeSelected: 'YES',
       });
     }
+  };
+
+  handleTreatmentProvided = (value) => {
+    if (value === '') {
+      this.context.saveDataToParent({
+        treatmentProvidedSelected: 'NO',
+        treatmentProvided: '',
+      });
+    } else if (value === 'other') {
+      this.context.saveDataToParent({
+        treatmentProvidedSelected: 'OTHER',
+        treatmentProvided: '',
+      });
+    } else {
+      this.context.saveDataToParent({
+        treatmentProvided: value,
+        treatmentProvidedSelected: 'YES',
+      });
+    }
+  };
+
+  validateAndSubmit = () => {
+    if (!this.context.getValue('diseaseType')) {
+      Alert.alert('Missing value', 'Please Select Disease/Disorder type');
+      return;
+    }
+    if (!this.context.getValue('diseaseCondition')) {
+      Alert.alert('Missing value', 'Please Enter disease condition');
+      return;
+    }
+    this.context.submitForm(
+      () =>
+        Alert.alert(
+          'SUCCESS!',
+          'Patient saved locally. Use Patient sync tab to upload.',
+        ),
+      () => Alert.alert('FAILED!', 'Please try again'),
+    );
   };
 
   render() {
@@ -74,6 +112,78 @@ class PatientHealthStatus extends React.Component {
       {
         label: 'Other',
         value: 'other',
+      },
+    ];
+    const hospitalList = [
+      {
+        label: 'PHC/Tulasipaka',
+        value: 'PHC/Tulasipaka',
+      },
+      {
+        label: 'PHC/E.D Pally',
+        value: 'PHC/E.D Pally',
+      },
+      {
+        label: 'PHC/Laxmipuram',
+        value: 'PHC/Laxmipuram',
+      },
+      {
+        label: 'PHC/Gowridevipeta',
+        value: 'PHC/Gowridevipeta',
+      },
+      {
+        label: 'PHC/Kuturu',
+        value: 'PHC/Kuturu',
+      },
+      {
+        label: 'PHC/Rekhapally',
+        value: 'PHC/Rekhapally',
+      },
+      {
+        label: 'PHC/Jeediguppa',
+        value: 'PHC/Jeediguppa',
+      },
+      {
+        label: 'AH/Chintoor',
+        value: 'AH/Chintoor',
+      },
+      {
+        label: 'AH/Rampachodavaram',
+        value: 'AH/Rampachodavaram',
+      },
+      {
+        label: 'AH/Bhadrachalam',
+        value: 'AH/Bhadrachalam',
+      },
+      {
+        label: 'DH/Rajamundry',
+        value: 'DH/Rajamundry',
+      },
+      {
+        label: 'GGH/Kakinada',
+        value: 'GGH/Kakinada',
+      },
+      {
+        label: 'Other',
+        value: 'other',
+      },
+    ];
+    const patientCategorizedAsList = [
+      {
+        label: 'Healthy',
+        value: 'healthy',
+      },
+      {
+        label: 'With Mild Illness',
+        value: 'mild_illness',
+      },
+      {
+        label: 'Moderately ill',
+        value: 'moderately_ill',
+      },
+      {
+        label: 'Severely ill',
+        value: 'severely_ill',
       },
     ];
     return (
@@ -175,6 +285,127 @@ class PatientHealthStatus extends React.Component {
                 style={styles.textinput}
               />
             </View>
+          </View>
+        </View>
+        <View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>Treatment Provided at :</Text>
+          </View>
+          <View style={styles.pickerView}>
+            <Picker
+              selectedValue={
+                this.context.getValue('treatmentProvidedSelected') === 'OTHER'
+                  ? 'other'
+                  : this.context.getValue('treatmentProvided')
+              }
+              onValueChange={(itemValue, itemIndex) => {
+                this.handleTreatmentProvided(itemValue);
+              }}>
+              <Picker.Item label="Select" value="" />
+              {hospitalList.map((hospital, i) => {
+                return (
+                  <Picker.Item
+                    label={hospital.label}
+                    value={hospital.value}
+                    key={i}
+                  />
+                );
+              })}
+            </Picker>
+          </View>
+          {(() => {
+            if (
+              this.context.getValue('treatmentProvidedSelected') === 'OTHER'
+            ) {
+              return (
+                <TextInput
+                  mode="outlined"
+                  value={this.context.getValue('treatmentProvided')}
+                  label="Enter treatment provided at"
+                  onChangeText={(value) => {
+                    this.context.saveDataToParent({treatmentProvided: value});
+                  }}
+                  style={styles.textinput}
+                />
+              );
+            }
+          })()}
+        </View>
+        <View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>Current Location :</Text>
+          </View>
+          <View>
+            <TextInput
+              mode="outlined"
+              value={this.context.getValue('currentLocation')}
+              label="Enter current location"
+              onChangeText={(value) => {
+                this.context.saveDataToParent({currentLocation: value});
+              }}
+              style={styles.textinput}
+            />
+          </View>
+        </View>
+        <View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>Present Patient Status :</Text>
+          </View>
+          <View>
+            <TextInput
+              mode="outlined"
+              value={this.context.getValue('presentPatientStatus')}
+              label="Enter status"
+              onChangeText={(value) => {
+                this.context.saveDataToParent({presentPatientStatus: value});
+              }}
+              style={styles.textinput}
+            />
+          </View>
+        </View>
+        <View>
+          <View style={styles.inputLabelView}>
+            <Text style={styles.inputLabel}>Present Categorized as :</Text>
+          </View>
+          <View style={styles.pickerView}>
+            <Picker
+              selectedValue={this.context.getValue('patientCategorizedAs')}
+              onValueChange={(itemValue, itemIndex) => {
+                this.context.saveDataToParent({
+                  patientCategorizedAs: itemValue,
+                });
+              }}>
+              <Picker.Item label="Select" value="" />
+              {patientCategorizedAsList.map((patientCategory, i) => {
+                return (
+                  <Picker.Item
+                    label={patientCategory.label}
+                    value={patientCategory.value}
+                    key={i}
+                  />
+                );
+              })}
+            </Picker>
+          </View>
+        </View>
+        <View style={styles.buttonView}>
+          <View style={{flex: 1}}>
+            <Button
+              mode="contained"
+              style={styles.buttons}
+              onPress={() =>
+                this.context.saveDataToParent({formName: 'HospitalDetailsForm'})
+              }>
+              Previous
+            </Button>
+          </View>
+          <View style={{flex: 1}}>
+            <Button
+              mode="contained"
+              style={styles.buttons}
+              onPress={this.validateAndSubmit}>
+              Submit Form
+            </Button>
           </View>
         </View>
       </ScrollView>

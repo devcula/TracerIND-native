@@ -274,6 +274,16 @@ class AddPatientStackScreen extends React.Component {
         mchc: this.state.mchc,
         rdw: this.state.rdw,
       },
+      PatientHealthStatus: {
+        diseaseType: this.state.diseaseType,
+        diseaseCondition: this.state.diseaseCondition,
+        onsetYears: this.state.onsetYears,
+        onsetMonths: this.state.onsetMonths,
+        treatmentProvided: this.state.treatmentProvided,
+        currentLocation: this.state.currentLocation,
+        presentPatientStatus: this.state.presentPatientStatus,
+        patientCategorizedAs: this.state.patientCategorizedAs,
+      },
     };
     try {
       let patientsData = await AsyncStorage.getItem('savedPatientsData');

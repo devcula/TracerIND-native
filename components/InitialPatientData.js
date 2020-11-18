@@ -115,6 +115,13 @@ const initialState = {
   diseaseType: '',
   diseaseTypeSelected: 'NO',
   diseaseCondition: '',
+  onsetYears: '',
+  onsetMonths: '',
+  treatmentProvided: '',
+  treatmentProvidedSelected: 'NO',
+  currentLocation: '',
+  presentPatientStatus: '',
+  patientCategorizedAs: '',
   //Patient Health Status: End
 };
 
