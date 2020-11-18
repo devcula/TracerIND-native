@@ -1,5 +1,5 @@
 const initialState = {
-  formName: 'PatientHealthStatusForm',
+  formName: 'BasicDetailsForm',
   //Basic Details: Start
   adhaarFirst: '',
   adhaarSecond: '',
@@ -117,8 +117,8 @@ const initialState = {
   diseaseCondition: '',
   onsetYears: '',
   onsetMonths: '',
-  treatmentProvided: '',
-  treatmentProvidedSelected: 'NO',
+  treatmentProvidedAt: '',
+  treatmentProvidedAtSelected: 'NO',
   currentLocation: '',
   presentPatientStatus: '',
   patientCategorizedAs: '',

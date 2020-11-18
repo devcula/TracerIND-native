@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet} from 'react-native';
+import {ScrollView, View, Text, StyleSheet, Alert} from 'react-native';
 import {Button, TextInput, RadioButton} from 'react-native-paper';
 import PatientContext from '../../components/PatientContext';
 
@@ -493,25 +493,31 @@ class TestDetails extends React.Component {
                     Previous
                   </Button>
                 </View>
-                <Button
-                  mode="contained"
-                  style={styles.buttons}
-                  onPress={() => {
-                    if (
-                      this.context.getValue('doctorreq') === 'true' &&
-                      this.context.getValue('kidneystatus') === 'abnormal' &&
-                      this.context.getValue('opd') === ''
-                    ) {
-                      alert('Please select patient type');
-                    } else {
-                      this.context.submitForm(
-                        () => alert('Saved'),
-                        () => alert('Failed'),
-                      );
-                    }
-                  }}>
-                  Submit Form
-                </Button>
+                <View style={{flex: 1}}>
+                  <Button
+                    mode="contained"
+                    style={styles.buttons}
+                    onPress={() => {
+                      if (
+                        this.context.getValue('doctorreq') === 'true' &&
+                        this.context.getValue('kidneystatus') === 'abnormal' &&
+                        this.context.getValue('opd') === ''
+                      ) {
+                        alert('Please select patient type');
+                      } else {
+                        this.context.submitForm(
+                          () =>
+                            Alert.alert(
+                              'SUCCESS!',
+                              'Patient saved locally. Use Patient sync tab to upload.',
+                            ),
+                          () => Alert.alert('FAILED!', 'Please try again'),
+                        );
+                      }
+                    }}>
+                    Submit Form
+                  </Button>
+                </View>
               </View>
             );
           }

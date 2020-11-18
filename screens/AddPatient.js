@@ -279,7 +279,7 @@ class AddPatientStackScreen extends React.Component {
         diseaseCondition: this.state.diseaseCondition,
         onsetYears: this.state.onsetYears,
         onsetMonths: this.state.onsetMonths,
-        treatmentProvided: this.state.treatmentProvided,
+        treatmentProvidedAt: this.state.treatmentProvidedAt,
         currentLocation: this.state.currentLocation,
         presentPatientStatus: this.state.presentPatientStatus,
         patientCategorizedAs: this.state.patientCategorizedAs,

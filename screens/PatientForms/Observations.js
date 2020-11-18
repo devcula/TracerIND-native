@@ -185,6 +185,7 @@ class Observations extends React.Component {
         <View>
           <TextInput
             multiline
+            mode="outlined"
             numberOfLines={4}
             style={styles.textinput}
             value={this.context.getValue('otherSymptoms')}
