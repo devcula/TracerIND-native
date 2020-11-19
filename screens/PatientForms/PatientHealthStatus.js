@@ -395,7 +395,11 @@ class PatientHealthStatus extends React.Component {
               mode="contained"
               style={styles.buttons}
               onPress={() =>
-                this.context.saveDataToParent({formName: 'HospitalDetailsForm'})
+                this.context.saveDataToParent({
+                  formName: this.context.getValue(
+                    'PatientHealthStatusPreviousForm',
+                  ),
+                })
               }>
               Previous
             </Button>

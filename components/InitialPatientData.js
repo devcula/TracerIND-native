@@ -1,5 +1,5 @@
 const initialState = {
-  formName: 'BasicDetailsForm',
+  formName: 'TestDetailsForm',
   //Basic Details: Start
   adhaarFirst: '',
   adhaarSecond: '',
@@ -110,6 +110,7 @@ const initialState = {
   sodiumRange: 'noRange',
   potassiumRange: 'noRange',
   bunRange: 'noRange',
+  PatientHealthStatusPreviousForm: 'HospitalDetailsForm',
   //Test Details: End
   //Patient Health Status: Start
   diseaseType: '',

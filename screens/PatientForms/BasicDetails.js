@@ -457,9 +457,7 @@ class BasicDetails extends React.Component {
           </View>
         </View>
         <View style={styles.inputLabelView}>
-          <Text style={styles.inputLabel}>
-            Phone Number <Text style={styles.mandatoryAsterisk}>*</Text>
-          </Text>
+          <Text style={styles.inputLabel}>Phone Number</Text>
         </View>
         <View>
           <TextInput

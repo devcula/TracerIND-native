@@ -479,6 +479,7 @@ class TestDetails extends React.Component {
                     onPress={() =>
                       this.context.saveDataToParent({
                         formName: 'HospitalDetailsForm',
+                        PatientHealthStatusPreviousForm: 'HospitalDetailsForm',
                       })
                     }>
                     Next
@@ -513,17 +514,22 @@ class TestDetails extends React.Component {
                       ) {
                         alert('Please select patient type');
                       } else {
-                        this.context.submitForm(
-                          () =>
-                            Alert.alert(
-                              'SUCCESS!',
-                              'Patient saved locally. Use Patient sync tab to upload.',
-                            ),
-                          () => Alert.alert('FAILED!', 'Please try again'),
-                        );
+                        // this.context.submitForm(
+                        //   () =>
+                        //     Alert.alert(
+                        //       'SUCCESS!',
+                        //       'Patient saved locally. Use Patient sync tab to upload.',
+                        //     ),
+                        //   () => Alert.alert('FAILED!', 'Please try again'),
+                        // );
+                        this.context.saveDataToParent({
+                          formName: 'PatientHealthStatusForm',
+                          PatientHealthStatusPreviousForm: 'TestDetailsForm',
+                        });
                       }
                     }}>
-                    Submit Form
+                    {/* Submit Form */}
+                    NEXT
                   </Button>
                 </View>
               </View>
