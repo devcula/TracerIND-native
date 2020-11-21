@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Text, ScrollView, StyleSheet} from 'react-native';
+import {Text, ScrollView, StyleSheet, View} from 'react-native';
 import {Card} from 'react-native-elements';
 import {CountUp} from 'use-count-up';
-import {Image} from 'react-native';
+// import {Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createStackNavigator} from '@react-navigation/stack';
@@ -69,7 +69,10 @@ class HomeScreen extends Component {
     console.log('Rendering HomeScreen');
     return (
       <ScrollView>
-        <Image source={require('../assets/images/5.png')} style={styles.logo} />
+        {/* <Image source={require('../assets/images/5.png')} style={styles.logo} /> */}
+        <View style={styles.welcomeView}>
+          <Text style={styles.welcomeText}>Welcome!</Text>
+        </View>
         <Text style={styles.heading}>Covid stats of Andhra Pradesh</Text>
         <Card>
           <Text style={styles.titleActive}>Active</Text>
@@ -123,6 +126,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 40,
     borderRadius: 20,
+  },
+  welcomeView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 20,
+    backgroundColor: '#E5E5E5',
+  },
+  welcomeText: {
+    ...MontserratFont.bold,
+    fontSize: 40,
+    letterSpacing: 2,
   },
   logo: {
     width: '100%',
