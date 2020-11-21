@@ -18,6 +18,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import axios from 'axios';
 import URI from '../components/URI';
+import {MontserratFont} from '../components/Constants';
 const areaData = require('../assets/data/areaData.json');
 
 const LocalListStack = createStackNavigator();
@@ -213,7 +214,7 @@ function LocalPatientList(props) {
                       style={{
                         flex: 3,
                         textAlign: 'center',
-                        fontWeight: 'bold',
+                        ...MontserratFont.bold,
                       }}>
                       Village
                     </Text>
@@ -221,7 +222,7 @@ function LocalPatientList(props) {
                       style={{
                         flex: 3,
                         textAlign: 'center',
-                        fontWeight: 'bold',
+                        ...MontserratFont.bold,
                       }}>
                       Phone
                     </Text>
@@ -229,7 +230,7 @@ function LocalPatientList(props) {
                       style={{
                         flex: 2,
                         textAlign: 'center',
-                        fontWeight: 'bold',
+                        ...MontserratFont.bold,
                       }}>
                       Caste
                     </Text>
@@ -237,22 +238,46 @@ function LocalPatientList(props) {
                       style={{
                         flex: 1,
                         textAlign: 'center',
-                        fontWeight: 'bold',
+                        ...MontserratFont.bold,
                       }}>
                       BG
                     </Text>
                   </View>
-                  <View style={{flex: 1, flexDirection: 'row'}}>
-                    <Text style={{flex: 3, textAlign: 'center'}}>
+                  <View
+                    style={{
+                      flex: 1,
+                      flexDirection: 'row',
+                    }}>
+                    <Text
+                      style={{
+                        flex: 3,
+                        textAlign: 'center',
+                        ...MontserratFont.semiBold,
+                      }}>
                       {getVillageNameForPatient(patient)}
                     </Text>
-                    <Text style={{flex: 3, textAlign: 'center'}}>
+                    <Text
+                      style={{
+                        flex: 3,
+                        textAlign: 'center',
+                        ...MontserratFont.semiBold,
+                      }}>
                       {patient.phone}
                     </Text>
-                    <Text style={{flex: 2, textAlign: 'center'}}>
+                    <Text
+                      style={{
+                        flex: 2,
+                        textAlign: 'center',
+                        ...MontserratFont.semiBold,
+                      }}>
                       {patient.PVTG}
                     </Text>
-                    <Text style={{flex: 1, textAlign: 'center'}}>
+                    <Text
+                      style={{
+                        flex: 1,
+                        textAlign: 'center',
+                        ...MontserratFont.semiBold,
+                      }}>
                       {patient.bloodgroup.toUpperCase()}
                     </Text>
                   </View>
@@ -285,7 +310,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 30,
   },
   cardTitle: {
@@ -304,7 +329,7 @@ const styles = StyleSheet.create({
     color: '#14213D',
   },
   syncButtonText: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 15,
   },
   TouchableOpacityStyle: {

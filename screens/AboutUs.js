@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {Card} from 'react-native-elements';
 
 import {createStackNavigator} from '@react-navigation/stack';
+import {MontserratFont} from '../components/Constants';
 
 const AboutUsStack = createStackNavigator();
 
@@ -113,11 +114,10 @@ const styles = StyleSheet.create({
     paddingTop: 40,
   },
   title: {
-    fontWeight: 'bold',
-    fontSize: 42,
+    ...MontserratFont.bold,
+    fontSize: 35,
     marginTop: 20,
     textAlign: 'center',
-    fontStyle: 'italic',
   },
   img: {
     borderTopLeftRadius: 10,
@@ -127,16 +127,16 @@ const styles = StyleSheet.create({
     height: 320,
   },
   team: {
-    fontSize: 30,
+    fontSize: 25,
     textAlign: 'center',
     color: '#FCA311',
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
   },
   profile: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'center',
     color: '#E5E5E5',
-    fontStyle: 'italic',
+    ...MontserratFont.semiBold,
   },
 });
 

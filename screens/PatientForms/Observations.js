@@ -3,6 +3,7 @@ import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import PatientContext from '../../components/PatientContext';
 import CheckBox from '@react-native-community/checkbox';
+import {MontserratFont} from '../../components/Constants';
 
 class Observations extends React.Component {
   constructor() {
@@ -241,8 +242,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   subtext: {
-    fontWeight: 'bold',
-    fontSize: 25,
+    ...MontserratFont.bold,
+    fontSize: 20,
     paddingVertical: 10,
     color: '#FCA311',
   },
@@ -257,12 +258,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   checkboxContainer: {
+    flex: 1,
     flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 10,
     marginHorizontal: 10,
   },
   checkboxText: {
-    fontSize: 20,
+    fontSize: 16,
+    ...MontserratFont.semiBold,
   },
   buttonView: {
     flex: 1,
@@ -281,7 +285,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headingText: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 30,
   },
 });

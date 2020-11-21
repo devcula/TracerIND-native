@@ -33,6 +33,7 @@ import axios from 'axios';
 import AuthContext from './components/AuthContext';
 
 import URI from './components/URI';
+import {MontserratFont} from './components/Constants';
 
 const Drawer = createDrawerNavigator();
 
@@ -40,19 +41,19 @@ const fontConfig = {
   default: {
     regular: {
       fontFamily: 'Montserrat-Regular',
-      fontWeight: 'normal',
+      fontWeight: '200',
     },
     medium: {
       fontFamily: 'Montserrat-Medium',
-      fontWeight: 'normal',
+      fontWeight: '200',
     },
     light: {
       fontFamily: 'Montserrat-Light',
-      fontWeight: 'normal',
+      fontWeight: '200',
     },
     thin: {
       fontFamily: 'Montserrat-Thin',
-      fontWeight: 'normal',
+      fontWeight: '200',
     },
   },
 };
@@ -63,8 +64,7 @@ const navHeaderStyles = {
   },
   headerTintColor: '#FFFFFF',
   headerTitleStyle: {
-    fontWeight: 'bold',
-    letterSpacing: 1,
+    ...MontserratFont.bold,
   },
 };
 

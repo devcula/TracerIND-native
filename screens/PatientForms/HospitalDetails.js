@@ -5,6 +5,7 @@ import {Picker} from '@react-native-community/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PatientContext from '../../components/PatientContext';
+import {MontserratFont} from '../../components/Constants';
 
 class HospitalDetails extends React.Component {
   constructor() {
@@ -206,18 +207,18 @@ class HospitalDetails extends React.Component {
           <View style={[styles.contentScreen, styles.inputLabelView]}>
             <Text style={styles.inputLabel}>Refered to Any Hospital ?</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 2}]}>
+          <View style={[styles.rowFlex, {flex: 1}]}>
             <RadioButton.Group
               onValueChange={(value) =>
                 this.context.saveDataToParent({refered: value})
               }
               value={this.context.getValue('refered')}>
               <View style={styles.contentScreen}>
-                <Text>Yes</Text>
+                <Text style={MontserratFont.semiBold}>Yes</Text>
                 <RadioButton color="#14213D" value="yes" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>No</Text>
+                <Text style={MontserratFont.semiBold}>No</Text>
                 <RadioButton color="#14213D" value="no" />
               </View>
             </RadioButton.Group>
@@ -293,18 +294,18 @@ class HospitalDetails extends React.Component {
                   <View style={[styles.contentScreen, styles.inputLabelView]}>
                     <Text style={styles.inputLabel}>Need for Dialysis ?</Text>
                   </View>
-                  <View style={[styles.rowFlex, {flex: 2}]}>
+                  <View style={[styles.rowFlex, {flex: 1}]}>
                     <RadioButton.Group
                       onValueChange={(value) =>
                         this.context.saveDataToParent({dialysis: value})
                       }
                       value={this.context.getValue('dialysis')}>
                       <View style={styles.contentScreen}>
-                        <Text>Yes</Text>
+                        <Text style={MontserratFont.semiBold}>Yes</Text>
                         <RadioButton color="#14213D" value="true" />
                       </View>
                       <View style={styles.contentScreen}>
-                        <Text>No</Text>
+                        <Text style={MontserratFont.semiBold}>No</Text>
                         <RadioButton color="#14213D" value="false" />
                       </View>
                     </RadioButton.Group>
@@ -358,18 +359,18 @@ class HospitalDetails extends React.Component {
           <View style={[styles.contentScreen, styles.inputLabelView]}>
             <Text style={styles.inputLabel}>Discharged?</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 2}]}>
+          <View style={[styles.rowFlex, {flex: 1}]}>
             <RadioButton.Group
               onValueChange={(value) =>
                 this.context.saveDataToParent({discharged: value})
               }
               value={this.context.getValue('discharged')}>
               <View style={styles.contentScreen}>
-                <Text>Yes</Text>
+                <Text style={MontserratFont.semiBold}>Yes</Text>
                 <RadioButton color="#14213D" value="true" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>No</Text>
+                <Text style={MontserratFont.semiBold}>No</Text>
                 <RadioButton color="#14213D" value="false" />
               </View>
             </RadioButton.Group>
@@ -438,18 +439,18 @@ class HospitalDetails extends React.Component {
           <View style={[styles.contentScreen, styles.inputLabelView]}>
             <Text style={styles.inputLabel}>Deceased ?</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 2}]}>
+          <View style={[styles.rowFlex, {flex: 1}]}>
             <RadioButton.Group
               onValueChange={(value) =>
                 this.context.saveDataToParent({deceased: value})
               }
               value={this.context.getValue('deceased')}>
               <View style={styles.contentScreen}>
-                <Text>Yes</Text>
+                <Text style={MontserratFont.semiBold}>Yes</Text>
                 <RadioButton color="#14213D" value="yes" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>No</Text>
+                <Text style={MontserratFont.semiBold}>No</Text>
                 <RadioButton color="#14213D" value="no" />
               </View>
             </RadioButton.Group>
@@ -461,7 +462,7 @@ class HospitalDetails extends React.Component {
             return (
               <View>
                 <View>
-                  <View>
+                  <View style={styles.inputLabelView}>
                     <Text style={styles.inputLabel}>Date of Death</Text>
                   </View>
                   <View style={{flex: 1, flexDirection: 'row'}}>
@@ -568,10 +569,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  heading: {
-    fontWeight: 'bold',
-    fontSize: 30,
-  },
   buttonView: {
     flex: 1,
     flexDirection: 'row',
@@ -589,8 +586,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   inputLabel: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
+    ...MontserratFont.bold,
     marginBottom: 5,
     marginTop: 5,
     marginLeft: 10,
@@ -619,7 +616,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headingText: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 30,
   },
 });

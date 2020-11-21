@@ -2,6 +2,7 @@ import React from 'react';
 import {ScrollView, View, Text, StyleSheet, Alert} from 'react-native';
 import {Button, TextInput, RadioButton, Checkbox} from 'react-native-paper';
 import {Picker} from '@react-native-community/picker';
+import {MontserratFont} from '../../components/Constants';
 
 const areaData = require('../../assets/data/areaData.json');
 
@@ -159,6 +160,7 @@ class BasicDetails extends React.Component {
   };
 
   render() {
+    // console.log(MontserratFont.bold);
     // console.log(this.context);
     console.log('Rendering BasicDetails');
     return (
@@ -412,22 +414,22 @@ class BasicDetails extends React.Component {
               Gender <Text style={styles.mandatoryAsterisk}>*</Text>
             </Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 4}]}>
+          <View style={[styles.rowFlex, {flex: 6}]}>
             <RadioButton.Group
               onValueChange={(value) =>
                 this.context.saveDataToParent({gender: value})
               }
               value={this.context.getValue('gender')}>
               <View style={styles.contentScreen}>
-                <Text>Male</Text>
+                <Text style={MontserratFont.semiBold}>Male</Text>
                 <RadioButton color="#14213D" value="M" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>Female</Text>
+                <Text style={MontserratFont.semiBold}>Female</Text>
                 <RadioButton color="#14213D" value="F" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>Transgender</Text>
+                <Text style={MontserratFont.semiBold}>Transgender</Text>
                 <RadioButton color="#14213D" value="NB" />
               </View>
             </RadioButton.Group>
@@ -455,9 +457,7 @@ class BasicDetails extends React.Component {
           </View>
         </View>
         <View style={styles.inputLabelView}>
-          <Text style={styles.inputLabel}>
-            Phone Number <Text style={styles.mandatoryAsterisk}>*</Text>
-          </Text>
+          <Text style={styles.inputLabel}>Phone Number</Text>
         </View>
         <View>
           <TextInput
@@ -521,22 +521,22 @@ class BasicDetails extends React.Component {
               Caste <Text style={styles.mandatoryAsterisk}>*</Text>
             </Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 3}, {marginTop: 10}]}>
+          <View style={[styles.rowFlex, {flex: 2}, {marginTop: 10}]}>
             <RadioButton.Group
               onValueChange={(value) =>
                 this.context.saveDataToParent({PVTG: value})
               }
               value={this.context.getValue('PVTG')}>
               <View style={styles.contentScreen}>
-                <Text>ST</Text>
+                <Text style={MontserratFont.semiBold}>ST</Text>
                 <RadioButton color="#14213D" value="ST" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>Non ST</Text>
+                <Text style={MontserratFont.semiBold}>Non ST</Text>
                 <RadioButton color="#14213D" value="NST" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>PVTG</Text>
+                <Text style={MontserratFont.semiBold}>PVTG</Text>
                 <RadioButton color="#14213D" value="PVTG" />
               </View>
             </RadioButton.Group>
@@ -553,11 +553,11 @@ class BasicDetails extends React.Component {
               }
               value={this.context.getValue('deworming')}>
               <View style={styles.contentScreen}>
-                <Text>Yes</Text>
+                <Text style={MontserratFont.semiBold}>Yes</Text>
                 <RadioButton color="#14213D" value="true" />
               </View>
               <View style={styles.contentScreen}>
-                <Text>No</Text>
+                <Text style={MontserratFont.semiBold}>No</Text>
                 <RadioButton color="#14213D" value="false" />
               </View>
             </RadioButton.Group>
@@ -567,9 +567,9 @@ class BasicDetails extends React.Component {
           <View style={[styles.inputLabelView, styles.contentScreen]}>
             <Text style={styles.inputLabel}>Habits</Text>
           </View>
-          <View style={[styles.rowFlex, {flex: 3}]}>
+          <View style={[styles.rowFlex, {flex: 2}]}>
             <View style={styles.contentScreen}>
-              <Text>Smoking</Text>
+              <Text style={MontserratFont.semiBold}>Smoking</Text>
               <Checkbox
                 color="#14213D"
                 status={
@@ -581,7 +581,7 @@ class BasicDetails extends React.Component {
               />
             </View>
             <View style={styles.contentScreen}>
-              <Text>Drinking</Text>
+              <Text style={MontserratFont.semiBold}>Drinking</Text>
               <Checkbox
                 color="#14213D"
                 status={
@@ -644,8 +644,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   inputLabel: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
+    fontSize: 16,
     marginBottom: 5,
     marginTop: 5,
     marginLeft: 10,
@@ -681,7 +681,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headingText: {
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    ...MontserratFont.bold,
     fontSize: 30,
   },
 });

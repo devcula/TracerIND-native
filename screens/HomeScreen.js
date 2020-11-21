@@ -6,6 +6,7 @@ import {Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createStackNavigator} from '@react-navigation/stack';
+import {MontserratFont} from '../components/Constants';
 
 const HomeStack = createStackNavigator();
 
@@ -128,66 +129,66 @@ const styles = StyleSheet.create({
     height: 200,
   },
   heading: {
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     textAlign: 'center',
-    fontSize: 23,
+    fontSize: 22,
     marginTop: 20,
   },
   activeCardBody: {
     margin: 15,
     fontSize: 20,
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     textAlign: 'center',
     color: '#176CF8',
   },
   confirmedCardBody: {
     margin: 15,
     fontSize: 20,
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     textAlign: 'center',
     color: '#D13C2B',
   },
   recoveredCardBody: {
     margin: 15,
     fontSize: 20,
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     textAlign: 'center',
     color: '#4DC939',
   },
   deathCardBody: {
     margin: 15,
     fontSize: 20,
-    fontWeight: 'bold',
+    ...MontserratFont.bold,
     textAlign: 'center',
     color: '#F57E1C',
   },
   titleActive: {
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontSize: 25,
+    ...MontserratFont.bold,
     textAlign: 'center',
     color: '#176CF8',
     borderBottomColor: '#E5E5E5',
     borderBottomWidth: 1,
   },
   titleConfirmed: {
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontSize: 25,
+    ...MontserratFont.bold,
     textAlign: 'center',
     color: '#D13C2B',
     borderBottomColor: '#E5E5E5',
     borderBottomWidth: 1,
   },
   titleRecovered: {
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontSize: 25,
+    ...MontserratFont.bold,
     textAlign: 'center',
     color: '#4DC939',
     borderBottomColor: '#E5E5E5',
     borderBottomWidth: 1,
   },
   titleDeath: {
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontSize: 25,
+    ...MontserratFont.bold,
     textAlign: 'center',
     color: '#F57E1C',
     borderBottomColor: '#E5E5E5',
