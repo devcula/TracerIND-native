@@ -85,7 +85,7 @@ function LoginScreen(props) {
         <View style={styles.logoView}>
           <Avatar.Image
             size={200}
-            source={require('../assets/images/logo.jpg')}
+            source={require('../assets/images/logo.jpeg')}
           />
           <Text style={styles.heading}>Enter login details</Text>
         </View>
