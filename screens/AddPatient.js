@@ -87,10 +87,7 @@ class AddPatientStackScreen extends React.Component {
         this.state.adhaarFirst +
         this.state.adhaarSecond +
         this.state.adhaarThird;
-      let encryptedText = CryptoJS.AES.encrypt(
-        decrypted,
-        I + J + K,
-      ).toString();
+      let encryptedText = CryptoJS.AES.encrypt(decrypted, I + J + K).toString();
       // console.log(decrypted);
       // console.log(encryptedText);
       return encryptedText;
