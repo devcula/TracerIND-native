@@ -9,12 +9,13 @@ import SplashScreen from './SplashScreen';
 
 import axios from 'axios';
 import URI from '../components/URI';
-import {diseaseList, patientCategories} from '../components/Constants';
+import {diseaseList, defaultHomeState} from '../components/Constants';
 
 const HomeStack = createStackNavigator();
 
 function HomeStackScreen({navigation, navHeaderStyles, isSignedIn, userToken}) {
   console.log('Rendering HomeStackScreen');
+  // console.log(navigation);
   return (
     <HomeStack.Navigator screenOptions={navHeaderStyles}>
       <HomeStack.Screen
@@ -45,35 +46,7 @@ function HomeStackScreen({navigation, navHeaderStyles, isSignedIn, userToken}) {
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isLoading: false,
-      areaName: 'NA',
-      areaType: 'NA',
-      severeCount: 'XXX',
-      moderateCount: 'XXX',
-      mildCount: 'XXX',
-      totalCount: 'XXX',
-      disease1: {
-        name: 'Disease 1',
-        count: 'XXX',
-      },
-      disease2: {
-        name: 'Disease 2',
-        count: 'XXX',
-      },
-      disease3: {
-        name: 'Disease 3',
-        count: 'XXX',
-      },
-      disease4: {
-        name: 'Disease 4',
-        count: 'XXX',
-      },
-      disease5: {
-        name: 'Disease 5',
-        count: 'XXX',
-      },
-    };
+    this.state = defaultHomeState;
   }
 
   getDiseaseName = (diseaseValue) => {
@@ -84,7 +57,7 @@ class HomeScreen extends Component {
     }
   };
 
-  componentDidMount() {
+  updateData = () => {
     if (this.props.isSignedIn) {
       this.setState({isLoading: true});
       axios
@@ -181,6 +154,26 @@ class HomeScreen extends Component {
           console.log(err);
         });
     }
+  };
+
+  componentDidMount() {
+    this._unsubscribeBlur = this.props.navigation.addListener('blur', () => {
+      this.reset();
+    });
+
+    this._unsubscribeFocus = this.props.navigation.addListener('focus', () => {
+      this.updateData();
+    });
+    // this.updateData();
+  }
+
+  reset = () => {
+    this.setState(defaultHomeState);
+  };
+
+  componentWillUnmount() {
+    this._unsubscribeBlur();
+    this._unsubscribeFocus();
   }
 
   render() {

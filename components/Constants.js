@@ -79,8 +79,36 @@ const diseaseList = [
   },
 ];
 
+const defaultHomeState = {
+  severeCount: 'XXX',
+  moderateCount: 'XXX',
+  mildCount: 'XXX',
+  totalCount: 'XXX',
+  disease1: {
+    name: 'Disease 1',
+    count: 'XXX',
+  },
+  disease2: {
+    name: 'Disease 2',
+    count: 'XXX',
+  },
+  disease3: {
+    name: 'Disease 3',
+    count: 'XXX',
+  },
+  disease4: {
+    name: 'Disease 4',
+    count: 'XXX',
+  },
+  disease5: {
+    name: 'Disease 5',
+    count: 'XXX',
+  },
+};
+
 module.exports = {
   MontserratFont,
   patientCategories,
   diseaseList,
+  defaultHomeState,
 };
