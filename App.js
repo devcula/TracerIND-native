@@ -224,6 +224,8 @@ export default function App() {
                   <HomeStackScreen
                     {...props}
                     navHeaderStyles={navHeaderStyles}
+                    isSignedIn={state.userToken ? true : false}
+                    userToken={state.userToken}
                   />
                 )}
               </Drawer.Screen>

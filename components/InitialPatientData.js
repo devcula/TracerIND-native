@@ -1,5 +1,5 @@
 const initialState = {
-  formName: 'BasicDetailsForm',
+  formName: 'PatientHealthStatusForm',
   //Basic Details: Start
   adhaarFirst: '',
   adhaarSecond: '',

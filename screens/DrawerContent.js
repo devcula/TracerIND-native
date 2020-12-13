@@ -29,7 +29,7 @@ export default function DrawerContent(props) {
               icon={({color, size}) => (
                 <Icon name="home-outline" color={color} size={size} />
               )}
-              label="Home"
+              label="Dashboard"
               onPress={() => {
                 props.navigation.navigate('Home');
               }}

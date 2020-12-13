@@ -5,6 +5,10 @@ import {Picker} from '@react-native-community/picker';
 import PatientContext from '../../components/PatientContext';
 import {MontserratFont} from '../../components/Constants';
 
+import {isNotNullAndBlank} from '../../components/Utils';
+import {diseaseList} from '../../components/Constants';
+import {patientCategories as patientCategorizedAsList} from '../../components/Constants';
+
 class PatientHealthStatus extends React.Component {
   constructor() {
     super();
@@ -49,12 +53,36 @@ class PatientHealthStatus extends React.Component {
   };
 
   validateAndSubmit = () => {
-    if (!this.context.getValue('diseaseType')) {
+    if (!isNotNullAndBlank(this.context.getValue('diseaseType'))) {
       Alert.alert('Missing value', 'Please Select Disease/Disorder type');
       return;
     }
-    if (!this.context.getValue('diseaseCondition')) {
+    if (!isNotNullAndBlank(this.context.getValue('diseaseCondition'))) {
       Alert.alert('Missing value', 'Please Enter disease condition');
+      return;
+    }
+    if (!isNotNullAndBlank(this.context.getValue('onsetYears'))) {
+      Alert.alert('Missing value', 'Please Enter onset years');
+      return;
+    }
+    if (!isNotNullAndBlank(this.context.getValue('onsetMonths'))) {
+      Alert.alert('Missing value', 'Please Enter onset months');
+      return;
+    }
+    if (!isNotNullAndBlank(this.context.getValue('treatmentProvidedAt'))) {
+      Alert.alert('Missing value', 'Please Enter Treatment provided location');
+      return;
+    }
+    if (!isNotNullAndBlank(this.context.getValue('currentLocation'))) {
+      Alert.alert('Missing value', 'Enter Current Location');
+      return;
+    }
+    if (!isNotNullAndBlank(this.context.getValue('presentPatientStatus'))) {
+      Alert.alert('Missing value', 'Please enter Present patient status');
+      return;
+    }
+    if (!isNotNullAndBlank(this.context.getValue('patientCategorizedAs'))) {
+      Alert.alert('Missing value', 'Please enter patient category');
       return;
     }
     this.context.submitForm(
@@ -69,52 +97,52 @@ class PatientHealthStatus extends React.Component {
 
   render() {
     console.log('Rendering PatientHealthStatusForm');
-    const diseaseList = [
-      {
-        label: 'Anaemia',
-        value: 'anaemia',
-      },
-      {
-        label: 'Cancer',
-        value: 'cancer',
-      },
-      {
-        label: 'Diabetes',
-        value: 'diabetes',
-      },
-      {
-        label: 'Heart Related',
-        value: 'heart_related',
-      },
-      {
-        label: 'Kidney Related',
-        value: 'kidney_related',
-      },
-      {
-        label: 'Lung Related',
-        value: 'lung_related',
-      },
-      {
-        label: 'Liver Related',
-        value: 'liver_related',
-      },
-      {
-        label: 'Pedal Edema',
-        value: 'pedal_enema',
-      },
-      {
-        label: 'Paralysis',
-        value: 'paralysis',
-      },
-      {
-        label: 'Thalessemia',
-        value: 'thalessemia',
-      },
-      {
-        label: 'Other',
-        value: 'other',
-      },
-    ];
+    // const diseaseList = [
+    //   {
+    //     label: 'Anaemia',
+    //     value: 'anaemia',
+    //   },
+    //   {
+    //     label: 'Cancer',
+    //     value: 'cancer',
+    //   },
+    //   {
+    //     label: 'Diabetes',
+    //     value: 'diabetes',
+    //   },
+    //   {
+    //     label: 'Heart Related',
+    //     value: 'heart_related',
+    //   },
+    //   {
+    //     label: 'Kidney Related',
+    //     value: 'kidney_related',
+    //   },
+    //   {
+    //     label: 'Lung Related',
+    //     value: 'lung_related',
+    //   },
+    //   {
+    //     label: 'Liver Related',
+    //     value: 'liver_related',
+    //   },
+    //   {
+    //     label: 'Pedal Edema',
+    //     value: 'pedal_enema',
+    //   },
+    //   {
+    //     label: 'Paralysis',
+    //     value: 'paralysis',
+    //   },
+    //   {
+    //     label: 'Thalessemia',
+    //     value: 'thalessemia',
+    //   },
+    //   {
+    //     label: 'Other',
+    //     value: 'other',
+    //   },
+    // ];
     const hospitalList = [
       {
         label: 'PHC/Tulasipaka',
@@ -169,24 +197,24 @@ class PatientHealthStatus extends React.Component {
         value: 'other',
       },
     ];
-    const patientCategorizedAsList = [
-      {
-        label: 'Healthy',
-        value: 'healthy',
-      },
-      {
-        label: 'With Mild Illness',
-        value: 'mild_illness',
-      },
-      {
-        label: 'Moderately ill',
-        value: 'moderately_ill',
-      },
-      {
-        label: 'Severely ill',
-        value: 'severely_ill',
-      },
-    ];
+    // const patientCategorizedAsList = [
+    //   {
+    //     label: 'Healthy',
+    //     value: 'healthy',
+    //   },
+    //   {
+    //     label: 'With Mild Illness',
+    //     value: 'mild_illness',
+    //   },
+    //   {
+    //     label: 'Moderately ill',
+    //     value: 'moderately_ill',
+    //   },
+    //   {
+    //     label: 'Severely ill',
+    //     value: 'severely_ill',
+    //   },
+    // ];
     return (
       <ScrollView>
         <View style={styles.headingView}>

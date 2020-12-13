@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Searchbar, Button, TextInput} from 'react-native-paper';
+import {Searchbar, Button} from 'react-native-paper';
 import {createStackNavigator} from '@react-navigation/stack';
 import AuthContext from '../components/AuthContext';
 import axios from 'axios';
