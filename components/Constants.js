@@ -80,6 +80,9 @@ const diseaseList = [
 ];
 
 const defaultHomeState = {
+  isLoading: false,
+  areaName: 'NA',
+  areaType: 'NA',
   severeCount: 'XXX',
   moderateCount: 'XXX',
   mildCount: 'XXX',
